@@ -128,7 +128,6 @@ const PackagePrice = ({ title, packageList }) => {
                     <hr className={packageStyles.hrClass} />
                     {packageItem?.data?.length &&
                       packageItem.data.map((detailItem, indexDetail) => {
-                        console.log(detailItem);
                         return detailItem?.isCheck || detailItem?.content ? (
                           <div
                             key={`detail_${indexDetail}`}
