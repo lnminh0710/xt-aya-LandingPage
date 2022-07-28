@@ -1,0 +1,61 @@
+@import 'styles/mixins';
+.root {
+  max-width: min(1296px, 100vw);
+  margin: 90px auto 122px;
+  display: grid;
+  padding: 0 16px;
+  grid-template-columns: 1fr min(50vw, 526px);
+  @include responsive-size(screen-m) {
+    grid-template-columns: 1fr;
+    align-items: center;
+    grid-gap: 40px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include responsive-size(screen-m) {
+      align-items: center;
+    }
+  }
+
+  .banner {
+    @include setting-font(Inter, normal, 600, 128px, 100%);
+    text-transform: uppercase;
+
+    color: #9454fc;
+    @include responsive-size(screen-m) {
+      @include setting-font(Inter, normal, 700, 64px, 72px);
+      align-items: center;
+    }
+  }
+
+  .title {
+    @include setting-font(Inter, normal, 700, 48px, 56px);
+    color: #2c2b34;
+    margin-bottom: 36px;
+    display: flex;
+    @include responsive-size(screen-m) {
+      @include setting-font(Inter, normal, 700, 32px, 40px);
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 40px;
+    }
+  }
+
+  .sub-title {
+    @include setting-font(Inter, normal, 600, 16px, 26px);
+    color: #2c2b34;
+  }
+
+  .button {
+    margin-top: 40px;
+    @include border-button(#674f82, 164px, 48px, 45px);
+    @include setting-font(Inter, normal, 600, 16px, 26px);
+    color: #ffffff;
+    @include responsive-size(screen-m) {
+      margin: auto;
+    }
+  }
+}

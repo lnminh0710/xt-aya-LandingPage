@@ -1,0 +1,134 @@
+@import 'styles/mixins';
+.root {
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 19px;
+  @include responsive-size(screen-m) {
+    margin-bottom: 0;
+  }
+  video {
+    width: var(--maxWidth);
+    height: min(calc(100vw * 700 / 1720), 700px);
+    object-fit: cover;
+    @include responsive-size(screen-m) {
+      width: 100%;
+      height: calc(100vw * 300 / 390);
+      object-fit: none;
+    }
+  }
+}
+
+.gradient1 {
+  height: 700px;
+  position: absolute;
+  z-index: 2;
+  width: 50px;
+  left: calc(50vw - 893px);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    #000 40.18%,
+    #000 54.51%,
+    rgba(0, 0, 0, 0) 98%
+  );
+  @media only screen and (max-width: 1760px) {
+    display: none;
+  }
+}
+
+.gradient2 {
+  height: 700px;
+  position: absolute;
+  z-index: 2;
+  width: 50px;
+  right: calc(50vw - 878px);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(0 0 0 / 38%) 34%,
+    rgb(0 0 0 / 93%) 61%,
+    rgb(0, 0, 0) 100%
+  );
+  @media only screen and (max-width: 1760px) {
+    display: none;
+  }
+}
+.search-box {
+  width: 660px;
+  height: 72px;
+
+  background: rgba(0, 0, 0, 0.66);
+  border-radius: 36px;
+  position: absolute;
+  top: calc(50% - 36px);
+  left: calc(50% - 330px);
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 27px 1fr max-content;
+  grid-gap: 19px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px 0 26px;
+  @include responsive-size(screen-m) {
+    @include setting-font(Inter, normal, 400, 14px, 24px);
+    width: 352px;
+    height: 48px;
+    top: calc(50% - 24px);
+    left: calc(50% - 176px);
+    grid-template-columns: 20px 1fr max-content;
+    grid-gap: 14px;
+    padding: 0;
+    padding-left: 19px;
+    padding-right: 10px;
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  input {
+    @include setting-font(Inter, normal, 300, 24px, 32px);
+    background-color: transparent;
+    border: unset;
+    color: #ffffff;
+    &:focus-visible {
+      outline: unset !important;
+      border: unset !important;
+    }
+    @include responsive-size(screen-m) {
+      @include setting-font(Inter, normal, 400, 14px, 24px);
+    }
+  }
+
+  .search-button {
+    @include setting-font(Inter, normal, 600, 16px, 26px);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 103px;
+    height: 48px;
+
+    /* Primary/02 */
+
+    background: #674f82;
+    border-radius: 45px;
+
+    color: #fff;
+
+    @include responsive-size(screen-m) {
+      @include setting-font(Inter, normal, 400, 14px, 24px);
+      width: 78px;
+      height: 32px;
+
+      /* Primary/02 */
+
+      background: #674f82;
+      border-radius: 45px;
+    }
+  }
+}

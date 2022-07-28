@@ -1,0 +1,97 @@
+@import 'styles/mixins';
+.root {
+  max-width: min(1296px, 100vw);
+  display: grid;
+  grid-template-columns: repeat(4, 306px);
+  grid-gap: 24px;
+  margin: auto;
+  height: 100%;
+  margin-bottom: 56px;
+  @include responsive-size(screen-xl) {
+    grid-template-columns: repeat(3, 306px);
+    padding: 0;
+    justify-content: center;
+  }
+  @include responsive-size(screen-l) {
+    grid-template-columns: repeat(2, 306px);
+  }
+  @include responsive-size(screen-m) {
+    grid-template-columns: repeat(2, min(calc(50vw - 20px), 306px));
+  }
+  @include responsive-size(screen-xs) {
+    grid-template-columns: repeat(1, 306px);
+  }
+  .user {
+    height: 360px;
+    width: 306px;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 39.58%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    cursor: pointer;
+    border-radius: 8px;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    color: #ffffff;
+    @include responsive-size(screen-m) {
+      height: min(360px, calc((50vw - 20px) * 360 / 306));
+      width: min(calc(50vw - 20px), 306px);
+    }
+    @include responsive-size(screen-xs) {
+      height: 360px;
+      width: 306px;
+    }
+    &:hover {
+      .user__name {
+        span {
+          background-size: 100% 2px;
+        }
+      }
+    }
+    &__avatar {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    &__name {
+      @include setting-font(Inter, normal, 700, 24px, 30px);
+      padding-left: 24px;
+      span {
+        transition: background-size 0.5s;
+        background: linear-gradient(0, #fff, #fff) 0 100% no-repeat;
+        background-size: 0 2px;
+      }
+    }
+    &__gender {
+      padding-left: 24px;
+      @include setting-font(Inter, normal, 400, 14px, 24px);
+      color: #e8e8e8;
+    }
+    &__star {
+      padding-left: 24px;
+      @include setting-font(Inter, normal, 400, 14px, 24px);
+      color: #e8e8e8;
+      margin: 12px 0 16px;
+      display: flex;
+      align-items: center;
+      &-contained {
+        display: grid;
+        grid-template-columns: repeat(5, 15px);
+        grid-gap: 4px;
+        margin-right: 8px;
+      }
+    }
+    &__follower {
+      padding-left: 24px;
+      @include setting-font(Inter, normal, 400, 14px, 24px);
+      color: #e8e8e8;
+      margin-bottom: 16px;
+    }
+  }
+}

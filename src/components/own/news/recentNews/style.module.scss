@@ -1,0 +1,33 @@
+.recentItem {
+  padding: 12px;
+  .recentImg {
+    height: 70px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 50%;
+    cursor: pointer;
+  }
+  .recentBody {
+    position: relative;
+    h4 {
+      position: absolute;
+      left: 15px;
+      top: 0;
+      font-weight: 600;
+      font-size: 16px;
+      color: #2c2b34;
+      a:hover {
+        color: #9b5efc;
+      }
+    }
+    p {
+      position: absolute;
+      left: 15px;
+      bottom: 0;
+      font-weight: 500;
+      font-size: 12px;
+      color: #858585;
+      margin-bottom: 0;
+    }
+  }
+}

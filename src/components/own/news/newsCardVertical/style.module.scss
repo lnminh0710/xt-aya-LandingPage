@@ -1,0 +1,38 @@
+.newsCardVerticalWrapper {
+  .otherImg {
+    height: 214px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 8px;
+
+    .otherTitle {
+      padding: 16px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      font-size: 18px;
+      color: #ffffff;
+      margin: 0;
+      width: 100%;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.8) 100%
+      );
+
+      a:hover {
+        color: #9b5efc;
+      }
+    }
+  }
+  p {
+    font-weight: 400;
+    font-size: 16px;
+    text-align: justify;
+    color: #858585;
+    padding: 0 16px;
+  }
+}

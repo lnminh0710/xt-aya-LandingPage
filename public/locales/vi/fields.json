@@ -1,0 +1,18 @@
+{
+  "display_Name_Firstname": "Tên",
+  "display_Name_Lastname": "Họ",
+  "display_Name_Company": "Công ty",
+  "display_Name_Email": "Email",
+  "display_Name_Pass": "Mật khẩu",
+  "display_Name_Website": "Website",
+  "display_Name_Phone": "Số điện thoại",
+  "display_Name_Paragraph": "Nội dung",
+  "err_Required_Firstname": "Trường Tên bắt buộc.",
+  "err_Required_Lastname": "Trường Họ bắt buộc.",
+  "err_Required_Email": "Trường Email bắt buộc.",
+  "err_Minimum_Email": "Tối thiểu phải có 6 ký tự.",
+  "err_Maximum_Email": "Tối đa không vượt quá 100 ký tự.",
+  "err_Format_Email": "Định dạng Email chưa đúng.",
+  "err_Required_Pass": "Trường Mật khẩu bắt buộc.",
+  "err_Required_Terms": "Phải đồng ý các điều khoản thỏa thuận."
+}

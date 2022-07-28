@@ -1,0 +1,48 @@
+@import 'styles/mixins';
+
+.root {
+  margin-bottom: 130px;
+}
+
+.title {
+  @include setting-font(Inter, normal, 700, 48px, 56px);
+  text-align: center;
+  color: #2c2b34;
+  margin-bottom: 80px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  grid-gap: 24px;
+
+  .item {
+    width: 306px;
+    height: 380px;
+    background: #fbf7ff;
+    border-radius: 20px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 30px 24px;
+    grid-gap: 14px;
+    justify-content: space-between;
+    color: #2c2b34;
+
+    &:hover {
+      background-color: #713bad;
+      color: #fff;
+    }
+
+    &__title {
+      @include setting-font(Inter, normal, 700, 24px, 30px);
+      margin-bottom: 18px;
+    }
+    &__description {
+      @include setting-font(Inter, normal, 400, 16px, 26px);
+    }
+  }
+}

@@ -1,0 +1,125 @@
+@import 'styles/mixins';
+.root {
+  margin-bottom: 78px;
+  @include responsive-size(screen-m) {
+    margin-bottom: 65px;
+  }
+}
+
+.title {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+  /* identical to box height, or 117% */
+
+  text-align: center;
+
+  /* Grey/01 */
+
+  color: #2c2b34;
+  margin-bottom: 13px;
+}
+
+.content {
+  position: relative;
+  max-width: 1728px;
+  height: min(953px, calc(100vw * 953 / 1108));
+  margin: auto;
+  display: flex;
+  .backdrop {
+    position: absolute;
+    z-index: 0;
+    margin: auto;
+    width: min(1108px, 100%);
+    height: min(953px, calc(100vw * 953 / 1108));
+    left: calc(50% - (min(1108px, 100vw) / 2));
+  }
+
+  .link-break {
+    height: min(175px, calc(100vw * 175 / 1725));
+    width: 100%;
+    position: absolute;
+    top: calc(50% - (min(175px, calc(100vw * 175 / 1725)) / 2));
+  }
+
+  .video-container {
+    width: 100%;
+    height: 100%;
+    max-width: 988px;
+    max-height: 550px;
+    border-radius: 8px;
+    position: relative;
+    margin: auto;
+
+    &__backdrop {
+      width: 80%;
+      height: 100%;
+      position: absolute;
+      top: 50px;
+
+      background: #000000;
+      opacity: 0.2;
+      filter: blur(48px);
+      left: 10%;
+    }
+
+    @include responsive-size(screen-l) {
+      max-width: calc(100vw - 82px);
+      max-height: calc((100vw - 82px) * 500 / 988);
+    }
+    .play-button {
+      cursor: pointer;
+      svg {
+        width: 92px;
+        height: 92px;
+        margin: auto;
+        position: absolute;
+        top: calc(50% - 50px);
+        left: calc(50% - 46px);
+        @include responsive-size(screen-l) {
+          width: 80px;
+          height: 80px;
+          top: calc(50% - 30px);
+          left: calc(50% - 40px);
+        }
+        @include responsive-size(screen-xxs) {
+          width: 44px;
+          height: 44px;
+          top: calc(50% - 18px);
+          left: calc(50% - 22px);
+        }
+      }
+    }
+    video {
+      width: 988px;
+      height: 550px;
+      position: absolute;
+      object-fit: cover;
+      top: 0;
+      border-radius: 8px;
+      z-index: 2;
+      background-color: #fff;
+      @include responsive-size(screen-l) {
+        width: calc(100vw - 82px);
+        height: calc((100vw - 82px) * 500 / 988);
+      }
+    }
+  }
+}
+
+.sub-title {
+  max-width: min(636px, calc(100vw - 32px));
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  /* or 162% */
+
+  text-align: center;
+
+  /* Grey/02 */
+
+  color: #454545;
+
+  mix-blend-mode: normal;
+  margin: auto;
+}

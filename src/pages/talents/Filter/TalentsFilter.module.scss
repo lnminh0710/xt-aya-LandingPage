@@ -1,0 +1,23 @@
+@import 'styles/mixins';
+.root {
+  max-width: min(1296px, 100vw);
+  display: grid;
+  grid-template-columns: repeat(4, 306px);
+  grid-gap: 24px;
+  margin: auto;
+  margin-bottom: 53px;
+  @include responsive-size(screen-xl) {
+    grid-template-columns: repeat(3, 306px);
+    padding: 0;
+    justify-content: center;
+  }
+  @include responsive-size(screen-l) {
+    grid-template-columns: repeat(3, 220px);
+  }
+  @include responsive-size(screen-m) {
+    grid-template-columns: repeat(2, 220px);
+  }
+  @include responsive-size(screen-xs) {
+    grid-template-columns: repeat(2, calc(50vw - 20px));
+  }
+}

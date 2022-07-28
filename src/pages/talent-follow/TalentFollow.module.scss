@@ -1,0 +1,71 @@
+@import 'styles/mixins';
+.root {
+  width: min(100vw, 1296px);
+  margin: auto;
+  margin-top: 56px;
+
+  .breadcrumb {
+    display: grid;
+    grid-template-columns: 32px 32px 1fr;
+    grid-gap: 12px;
+    align-items: center;
+    margin-bottom: 48px;
+    cursor: pointer;
+  }
+  .name {
+    @include setting-font(Inter, normal, 600, 18px, 24px);
+    color: #000000;
+  }
+
+  .tab {
+    display: flex;
+
+    &__item {
+      @include setting-font(Inter, normal, 600, 14px, 24px);
+
+      padding: 7px 14px 3px;
+
+      height: 64px;
+
+      /* White / 01 */
+      color: #858585;
+      background: #ffffff;
+      &.active {
+        box-shadow: inset 0px -3px 0px #9454fc;
+        color: #9454fc;
+      }
+    }
+
+    &__content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+
+      height: 54px;
+      cursor: pointer;
+      &:hover {
+        background: #efeef0;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  .tab-content {
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+    @include responsive-size(screen-m) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .more {
+    @include setting-font(Inter, normal, 600, 14px, 24px);
+    color: #9454fc;
+    margin: 32px auto;
+    text-align: center;
+    cursor: pointer;
+  }
+}

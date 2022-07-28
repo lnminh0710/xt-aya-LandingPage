@@ -1,0 +1,32 @@
+.title {
+  margin-bottom: 72px;
+  @media only screen and (max-width: 554px) {
+    margin-bottom: 24px;
+  }
+}
+.hotnewsWrapper {
+  margin-bottom: 114px;
+  @media only screen and (max-width: 554px) {
+    margin-bottom: 32px;
+  }
+
+  .hotnewsItem {
+    margin-top: 40px;
+
+    p {
+      color: #2c2b34 !important;
+
+      a {
+        font-weight: 700;
+        font-size: 24px;
+        color: #2c2b34;
+      }
+    }
+
+    div {
+      font-weight: 400;
+      font-size: 16px;
+      color: #2c2b34;
+    }
+  }
+}

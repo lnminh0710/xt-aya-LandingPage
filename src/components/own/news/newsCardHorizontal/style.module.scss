@@ -1,0 +1,44 @@
+.newsItem {
+  .newsImg {
+    .bgImg {
+      height: 214px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+      cursor: pointer;
+    }
+  }
+  .newsTitle {
+    font-weight: 700;
+    font-size: 24px;
+    color: #ffffff;
+    text-align: left;
+    position: relative;
+    a:hover,
+    a:active,
+    a:focus {
+      color: #9b5efc;
+    }
+    @media only screen and (max-width: 554px) {
+      margin-bottom: 20px;
+    }
+
+    .postedDateText {
+      font-weight: 400;
+      font-size: 14px;
+      color: #ffffff;
+      position: absolute;
+      bottom: 0;
+      margin: 0;
+      @media only screen and (max-width: 554px) {
+        bottom: -5px;
+      }
+    }
+  }
+  .newsDes {
+    font-weight: 400;
+    font-size: 16px;
+    color: #efeef0;
+    text-align: left;
+  }
+}

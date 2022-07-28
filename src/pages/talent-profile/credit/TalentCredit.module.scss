@@ -1,0 +1,62 @@
+@import 'styles/mixins';
+.root {
+  background: #ffffff;
+  /* Grey/04 */
+
+  border: 2px solid #e8e8e8;
+  border-radius: 8px;
+  margin-bottom: 32px;
+  padding: 24px;
+  .title {
+    @include setting-font(Inter, normal, 600, 18px, 24px);
+    color: #000000;
+    margin-bottom: 24px;
+  }
+
+  .metadata {
+    height: 270px;
+    width: min(calc(100vw - 362px), 966px);
+    overflow-x: auto;
+    touch-action: auto;
+    &__wrapper {
+      display: inline-flex;
+    }
+    .item {
+      width: 173px !important;
+      height: 259px;
+      margin-right: 13px;
+      position: relative;
+      cursor: pointer;
+      .play-button {
+        position: absolute;
+        left: calc(50% - 25px);
+        top: calc(50% - 25px);
+        z-index: 3;
+        svg {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }
+
+  .action-title {
+    @include setting-font(Inter, normal, 600, 18px, 24px);
+    color: #000000;
+    margin-bottom: 8px;
+    margin-top: 40px;
+  }
+  .action {
+    @include setting-font(Inter, normal, 400, 16px, 26px);
+    display: grid;
+    grid-template-columns: 10px 1fr;
+    grid-gap: 8px;
+    align-items: center;
+    color: #000000;
+    padding-left: 6px;
+    svg {
+      width: 6px;
+      height: 6px;
+    }
+  }
+}

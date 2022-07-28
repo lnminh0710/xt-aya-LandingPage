@@ -1,0 +1,99 @@
+@import 'styles/mixins';
+.root {
+  background: #ffffff;
+  /* Grey/04 */
+
+  border: 2px solid #e8e8e8;
+  border-radius: 8px;
+  position: sticky;
+  top: 105px;
+}
+
+.avatar {
+  border-radius: 8px 8px 0px 0px;
+  img {
+    border-radius: 8px 8px 0px 0px;
+  }
+}
+
+.info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .name {
+    @include setting-font(Inter, normal, 700, 24px, 30px);
+    color: #2c2b34;
+    margin-bottom: 4px;
+    text-align: center;
+  }
+  .job {
+    @include setting-font(Inter, normal, 400, 14px, 24px);
+    color: #484747;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .gender {
+    @include setting-font(Inter, normal, 600, 16px, 26px);
+    color: #2c2b34;
+    margin-bottom: 16px;
+  }
+
+  .social {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 24px;
+    &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &-value {
+        @include setting-font(Inter, normal, 600, 18px, 24px);
+        color: #2c2b34;
+        text-align: center;
+      }
+      &-label {
+        @include setting-font(Inter, normal, 400, 14px, 24px);
+        color: #484747;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        svg {
+          margin-left: 4px;
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+  }
+
+  .following-button {
+    @include setting-font(Inter, normal, 600, 16px, 26px);
+    @include border-button(#713bad, 100%, 40px);
+    cursor: pointer;
+    /* Primary/06 */
+
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+
+  .action {
+    display: grid;
+    grid-template-columns: 1fr 40px;
+    grid-gap: 16px;
+    width: 100%;
+    .inquiry-button {
+      @include setting-font(Inter, normal, 600, 16px, 26px);
+      @include border-button(#674f82, 100%, 40px);
+
+      color: #ffffff;
+      svg {
+        margin-right: 10px;
+      }
+    }
+  }
+}

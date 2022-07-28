@@ -1,0 +1,27 @@
+.dialog {
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000047;
+  position: absolute;
+  z-index: 10001;
+}
+
+.content {
+  margin: auto;
+}
+
+.item {
+  margin: auto;
+}
+
+.image__wrapper {
+  line-height: 0;
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.image__tag {
+  max-height: 100vh;
+  max-width: 100%;
+}

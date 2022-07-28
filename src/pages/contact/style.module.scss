@@ -1,0 +1,72 @@
+.subTitle {
+  text-align: center;
+  color: #454545;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 0 210px;
+  margin-bottom: 59px;
+  @media only screen and (max-width: 554px) {
+    margin: 0 auto;
+    margin-bottom: 43px;
+  }
+}
+
+.btnFaqWrapper {
+  text-align: center;
+}
+.hrStytle {
+  background-color: #e1d6ec;
+  height: 2px !important;
+  margin: 64px 0;
+  @media only screen and (max-width: 554px) {
+    margin: 32px 0;
+  }
+}
+.bodyWrapper {
+  margin: 0 350px 115px 350px;
+  @media only screen and (max-width: 1200px) {
+    margin: 0 200px 115px 200px;
+  }
+  @media only screen and (max-width: 992px) {
+    margin: 0 150px 115px 150px;
+  }
+  @media only screen and (max-width: 768px) {
+    margin: 0 50px 115px 50px;
+  }
+  @media only screen and (max-width: 554px) {
+    margin: 0 auto;
+    margin-bottom: 32px;
+  }
+}
+
+.contactForm {
+  background-color: #f3f2f5;
+  border-radius: 16px;
+  padding: 40px 42px;
+  margin-bottom: 45px;
+}
+
+.note {
+  color: #454545;
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.autographs {
+  background: #e1d6ec;
+  border-radius: 16px;
+  padding: 24px;
+  .autoTitle {
+    font-weight: 600;
+    font-size: 24px;
+    color: #000000;
+  }
+  .autoDes {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #2c2b34;
+  }
+}

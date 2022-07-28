@@ -1,0 +1,101 @@
+.selectRoleText {
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  color: #484747;
+  margin-bottom: 56px;
+}
+.roleWrapper {
+  padding: 45px 40px;
+  background: #f3f2f5;
+  border-radius: 16px;
+  margin-bottom: 148px;
+
+  .roleList {
+    margin-bottom: 45px;
+
+    .roleItem {
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 16px;
+      margin-bottom: 15px;
+      width: 100%;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+
+      input {
+        cursor: pointer;
+        position: relative;
+        left: 20px;
+      }
+      .roleName {
+        margin-top: 39px;
+        font-weight: 600;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+        min-height: 81px;
+        cursor: pointer;
+        @media only screen and (max-width: 1200px) {
+          min-height: 108px;
+        }
+        @media only screen and (max-width: 992px) {
+          min-height: 81px;
+        }
+        @media only screen and (max-width: 768px) {
+          min-height: 162px;
+        }
+      }
+      svg {
+        min-height: 63px;
+        cursor: pointer;
+      }
+
+      &.itemSelected,
+      &:hover,
+      &:focus {
+        background: #9454fc;
+        border: 1px solid #9454fc;
+
+        .roleName {
+          color: #ffffff;
+        }
+
+        svg {
+          path {
+            stroke: #ffffff;
+          }
+        }
+      }
+    }
+  }
+
+  .btnWrapper {
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    align-items: center;
+    color: #484747;
+    button {
+      width: 100%;
+      margin-bottom: 40px;
+
+      &.btnLight {
+        color: #a9b5bc;
+        font-weight: 600;
+        font-size: 16px;
+      }
+    }
+    a {
+      color: #674f82;
+      &:hover,
+      &:active,
+      &:focus { 
+        color: #9b5efc;
+      }
+    }
+  }
+}

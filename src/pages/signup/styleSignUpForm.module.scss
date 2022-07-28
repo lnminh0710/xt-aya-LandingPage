@@ -1,0 +1,78 @@
+.signupFormWrapper {
+  margin-bottom: 247px;
+  .subTitle {
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    color: #484747;
+    margin-bottom: 56px;
+  }
+  .formWrapper {
+    background: #f3f2f5;
+    border-radius: 16px;
+    padding: 40px 42px;
+
+    .btnSocial {
+      width: 100%;
+      margin-bottom: 16px;
+      position: relative;
+      padding: 12px 24px;
+
+      .socialIcon {
+        position: absolute;
+        left: 1px;
+        top: 2px;
+      }
+
+      &:hover {
+        .socialIcon {
+          &.fbIcon {
+            svg path {
+              fill: #ffffff;
+            }
+          }
+        }
+      }
+    }
+
+    .splitOr {
+      font-weight: 400;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      color: #000000;
+      margin: 39px 0;
+      &::before {
+        content: '';
+        width: 50%;
+        border: 1px solid #e1d6ec;
+      }
+      &::after {
+        content: '';
+        width: 50%;
+        border: 1px solid #e1d6ec;
+      }
+
+      span {  
+        margin: 0 22px;
+      }
+    }
+
+    .chkAgree {
+      margin-bottom: 40px;
+    }
+
+    .btnWrapper {
+      margin-bottom: 40px;
+    }
+    .alreadyHaveAcc {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 26px;
+      align-items: center;
+      color: #484747;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+  }
+}

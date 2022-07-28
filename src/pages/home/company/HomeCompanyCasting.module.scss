@@ -1,0 +1,37 @@
+@import 'styles/mixins';
+.root {
+  margin-bottom: 146px;
+  min-height: 73.5px;
+  @include responsive-size(screen-m) {
+    margin-bottom: 32px;
+  }
+  @include responsive-size(screen-xxs) {
+    min-height: 37px;
+  }
+  .item {
+    min-width: 269px;
+    min-height: 73.5px;
+    background-color: #e0e0e5;
+    @include responsive-size(screen-xxs) {
+      min-width: 130px;
+      min-height: 37px;
+      width: 130px;
+      height: 37px;
+    }
+  }
+}
+
+.setting-slider {
+  height: 73.5px;
+  margin: auto;
+  position: relative;
+  width: min(100%, 1345px);
+
+  & > :nth-child(1) {
+    height: 73.5px;
+    width: min(100%, 1345px);
+    @include responsive-size(screen-xs) {
+      height: 37px;
+    }
+  }
+}

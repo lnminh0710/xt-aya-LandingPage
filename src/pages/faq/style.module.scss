@@ -1,0 +1,17 @@
+.subTitle {
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  color: #484747;
+  margin-bottom: 100px;
+  @media only screen and (max-width: 554px) {
+    margin-bottom: 30px;
+  }
+}
+
+.contentWrapper {
+  margin-bottom: 275px;
+  @media only screen and (max-width: 554px) {
+    margin-bottom: 50px;
+  }
+}

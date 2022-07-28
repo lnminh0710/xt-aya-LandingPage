@@ -1,0 +1,18 @@
+{
+  "display_Name_Firstname": "First Name",
+  "display_Name_Lastname": "Last Name",
+  "display_Name_Company": "Company",
+  "display_Name_Email": "Email",
+  "display_Name_Pass": "Password",
+  "display_Name_Website": "Website",
+  "display_Name_Phone": "Phone",
+  "display_Name_Paragraph": "Paragraph",
+  "err_Required_Firstname": "Firstname is required.",
+  "err_Required_Lastname": "Lastname is required.",
+  "err_Required_Email": "Email is required.",
+  "err_Minimum": "Minimum 6 letters.",
+  "err_Maximum_Email": "Maximum 100 letters.",
+  "err_Format_Email": "Wrong email format.",
+  "err_Required_Pass": "Password is required.",
+  "err_Required_Terms": "The terms and conditions must be accepted."
+}
