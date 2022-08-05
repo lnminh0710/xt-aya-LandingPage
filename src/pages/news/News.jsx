@@ -110,7 +110,7 @@ const News = () => {
           const isLastItem = index === tmpCates.length - 1;
           const data = getArticlesFromResponse(res?.response);
 
-          if (data?.length < 4) {
+          if (!data?.length) {
             if (isLastItem) setOtherNewsByCategory(tmpOtherNewsByCategory);
             return;
           }
@@ -160,10 +160,7 @@ const News = () => {
                       key={`category1Wrapper-${index}`}
                       className={`col-12 col-lg-3 ${item.categoryItem}`}
                     >
-                      <NewsCardVerticalNoDes
-                        newsItem={item}
-                        imgHeight={214}
-                      />
+                      <NewsCardVerticalNoDes newsItem={item} imgHeight={214} />
                     </div>
                   );
                 })}
