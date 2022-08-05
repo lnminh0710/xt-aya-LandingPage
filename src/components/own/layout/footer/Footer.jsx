@@ -15,6 +15,11 @@ import Language from './Language';
 import { Routes } from 'constants/common';
 import { useMatchQuery } from 'components/hook';
 import ImageLazyLoad from 'components/own/ImageLazyLoad';
+import { getConfigs } from './services';
+import { ConfigsConstant } from 'constants/configs';
+import { useEffect } from 'react';
+import { LanguageConstant, getLanguageKey } from 'constants/languages';
+import { useRouter } from 'next/router';
 
 const Root = styled.div`
   width: 100%;
@@ -161,12 +166,89 @@ const categories = [
     name: 'Contact',
     link: Routes.CONTACT,
   },
+  {
+    name: 'FAQ',
+    link: Routes.FAQ,
+  },
 ];
 
 const Footer = () => {
+  const router = useRouter();
+  const { locale, locales, defaultLocale } = router;
+
   const [info, setInfo] = useState(initialInfo);
   const { t } = useTranslation('common');
   const match = useMatchQuery();
+
+  useEffect(() => {
+    getConfigs().subscribe((res) => {
+      if (!res?.response?.length) return;
+
+      const currentLang = getLanguageKey(locale);
+
+      const name = res?.response.find(
+        (x) => x.ParamKey === ConfigsConstant.COMPANY_NAME
+      );
+      const address = res?.response.find(
+        (x) => x.ParamKey === ConfigsConstant.COMPANY_ADDRESS
+      );
+      const phone = res?.response.find(
+        (x) => x.ParamKey === ConfigsConstant.COMPANY_PHONE
+      );
+      const email = res?.response.find(
+        (x) => x.ParamKey === ConfigsConstant.COMPANY_EMAIL
+      );
+      const fb = res?.response.find(
+        (x) => x.ParamKey === ConfigsConstant.COMPANY_FACEBOOK
+      );
+      const twt = res?.response.find(
+        (x) => x.ParamKey === ConfigsConstant.COMPANY_TWITTER
+      );
+      const gg = res?.response.find(
+        (x) => x.ParamKey === ConfigsConstant.COMPANY_GG_PLUS
+      );
+
+      const nameTrans =
+        currentLang === LanguageConstant.VI
+          ? name?.ParamValueVN
+          : name?.ParamValueEN;
+      const addressTrans =
+        currentLang === LanguageConstant.VI
+          ? address?.ParamValueVN
+          : address?.ParamValueEN;
+      const phoneTrans =
+        currentLang === LanguageConstant.VI
+          ? phone?.ParamValueVN
+          : phone?.ParamValueEN;
+      const emailTrans =
+        currentLang === LanguageConstant.VI
+          ? email?.ParamValueVN
+          : email?.ParamValueEN;
+      const fbTrans =
+        currentLang === LanguageConstant.VI
+          ? fb?.ParamValueVN
+          : fb?.ParamValueEN;
+      const twtTrans =
+        currentLang === LanguageConstant.VI
+          ? twt?.ParamValueVN
+          : twt?.ParamValueEN;
+      const ggTrans =
+        currentLang === LanguageConstant.VI
+          ? gg?.ParamValueVN
+          : gg?.ParamValueEN;
+
+      const infoTemp = {
+        name: nameTrans,
+        address: addressTrans,
+        phone: phoneTrans,
+        email: emailTrans,
+        fb: fbTrans || 'https://facebook.com/',
+        twt: twtTrans || 'https://twitter.com/',
+        gg: ggTrans || 'https://www.google.com/',
+      };
+      setInfo(infoTemp);
+    });
+  }, []);
   return (
     <Root>
       <Content className='container-root'>
@@ -210,13 +292,13 @@ const Footer = () => {
       <Actions className='container-root'>
         {match && <Language />}
         <div className='d-flex align-items-center justify-content-between'>
-          <a href={'https://facebook.com/'} target='_blank' rel='noreferrer'>
+          <a href={info.fb} target='_blank' rel='noreferrer'>
             <FooterFacebookIcon />
           </a>
-          <a href={'https://twitter.com/'} target='_blank' rel='noreferrer'>
+          <a href={info.twt} target='_blank' rel='noreferrer'>
             <FooterTwisterIcon />
           </a>
-          <a href={'https://www.google.com/'} target='_blank' rel='noreferrer'>
+          <a href={info.gg} target='_blank' rel='noreferrer'>
             <FooterGooglePlusIcon />
           </a>
         </div>

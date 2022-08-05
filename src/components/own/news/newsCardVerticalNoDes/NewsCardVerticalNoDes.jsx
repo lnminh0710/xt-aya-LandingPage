@@ -1,17 +1,7 @@
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import newsCardVerticalNoDesStyles from './style.module.scss';
 
-const NewsCardVerticalNoDes = ({
-  newsItem,
-  titleLength = 55,
-  imgHeight = 119,
-}) => {
-  const [title, setTitle] = useState(newsItem.Title);
-  useEffect(() => {
-    if (title?.length > titleLength)
-      setTitle(`${title.slice(0, titleLength)}...`);
-  }, []);
+const NewsCardVerticalNoDes = ({ newsItem, imgHeight = 119 }) => {
   return (
     <div className={`${newsCardVerticalNoDesStyles.newsCardVerticalWrapper}`}>
       <div className={`${newsCardVerticalNoDesStyles.hiddenPhone}`}>
@@ -37,7 +27,7 @@ const NewsCardVerticalNoDes = ({
             <Link
               href={`/news/${newsItem.CategroySlugURL}/${newsItem.SlugURL}`}
             >
-              {title}
+              {newsItem.Title}
             </Link>
           )}
         </h4>
@@ -68,7 +58,7 @@ const NewsCardVerticalNoDes = ({
               <Link
                 href={`/news/${newsItem.CategroySlugURL}/${newsItem.SlugURL}`}
               >
-                {title}
+                {newsItem.Title}
               </Link>
             )}
           </h4>

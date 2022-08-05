@@ -163,11 +163,7 @@ const NewsDetail = () => {
                 {recentPosts?.length &&
                   recentPosts.map((item, index) => {
                     return (
-                      <RecentNews
-                        key={`recent-${index}`}
-                        dataSource={item}
-                        titleLength={40}
-                      />
+                      <RecentNews key={`recent-${index}`} dataSource={item} />
                     );
                   })}
               </div>

@@ -1,13 +1,7 @@
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import styles from './style.module.scss';
 
-const RecentNews = ({ dataSource, titleLength = 20 }) => {
-  const [title, setTitle] = useState(dataSource.Title);
-  useEffect(() => {
-    if (title?.length > titleLength)
-      setTitle(`${title.slice(0, titleLength)}...`);
-  }, []);
+const RecentNews = ({ dataSource }) => {
   return (
     <div className={`row ${styles.recentItem}`}>
       {dataSource.CategroySlugURL && dataSource.SlugURL && (
@@ -30,7 +24,7 @@ const RecentNews = ({ dataSource, titleLength = 20 }) => {
               href={`/news/${dataSource.CategroySlugURL}/${dataSource.SlugURL}`}
               title={dataSource.Title}
             >
-              {title}
+              {dataSource.Title}
             </Link>
           )}
         </h4>

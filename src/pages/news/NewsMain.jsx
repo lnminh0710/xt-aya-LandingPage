@@ -29,15 +29,11 @@ const NewsMain = ({ dataSource, t }) => {
                       <Link
                         href={`/news/${dataSource[0].CategroySlugURL}/${dataSource[0].SlugURL}`}
                       >
-                        {dataSource[0].Title?.length > 40
-                          ? `${dataSource[0].Title.slice(0, 40)}...`
-                          : dataSource[0].Title}
+                        {dataSource[0].Title}
                       </Link>
                     </h4>
                     <p>
-                      {dataSource[0].Teaser?.length > 120
-                        ? `${dataSource[0].Teaser.slice(0, 120)}...`
-                        : dataSource[0].Teaser}
+                      {dataSource[0].Teaser}
                       <Link
                         href={`/news/${dataSource[0].CategroySlugURL}/${dataSource[0].SlugURL}`}
                       >
@@ -59,7 +55,7 @@ const NewsMain = ({ dataSource, t }) => {
                   key={`subMainWrapper-${index}`}
                   className={topNewsStyle.subMainItem}
                 >
-                  <NewsCardVertical newsItem={news} desLength={125} t={t} />
+                  <NewsCardVertical newsItem={news} t={t} />
                 </div>
               );
             })}
@@ -74,7 +70,7 @@ const NewsMain = ({ dataSource, t }) => {
                 key={`othersWrapper-${index}`}
                 className={`col-12 col-lg-3 ${topNewsStyle.otherItem}`}
               >
-                <NewsCardVerticalNoDes newsItem={news} titleLength={70} t={t} />
+                <NewsCardVerticalNoDes newsItem={news} t={t} />
               </div>
             );
           })}

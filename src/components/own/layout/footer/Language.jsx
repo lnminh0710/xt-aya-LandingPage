@@ -2,7 +2,6 @@ import { EngFlag, VniFlag } from 'assets/svg/flag';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import styled from 'styled-components';
 
 const Label = styled.div`

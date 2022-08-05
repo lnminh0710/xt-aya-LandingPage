@@ -162,7 +162,6 @@ const News = () => {
                     >
                       <NewsCardVerticalNoDes
                         newsItem={item}
-                        titleLength={70}
                         imgHeight={214}
                       />
                     </div>
@@ -174,7 +173,7 @@ const News = () => {
       )}
       <div className={styles.hotNewsWrapper}>
         <h1 className={styles.highlightText}>
-          <span>{t('highlight', { ns: 'news' })}</span>
+          <span className={styles.text}>{t('highlight', { ns: 'news' })}</span>
         </h1>
         <div className={styles.hotnewsWrapper}>
           {hotNews?.length &&
@@ -219,7 +218,6 @@ const News = () => {
                         >
                           <NewsCardVerticalNoDes
                             newsItem={item}
-                            titleLength={70}
                             imgHeight={214}
                           />
                         </div>
