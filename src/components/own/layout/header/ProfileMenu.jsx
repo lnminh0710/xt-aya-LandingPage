@@ -1,0 +1,47 @@
+import React, { useCallback, useState } from 'react';
+import { Dropdown } from 'react-bootstrap';
+
+//i18n
+
+// users
+import produce from 'immer';
+import { ChevronDownIcon, UserIcon } from 'assets/svg';
+import Image from 'next/image';
+
+const ProfileMenu = ({ userInfo }) => {
+  return (
+    <Dropdown className='d-inline-block user-dropdown'>
+      <Dropdown.Toggle
+        tag='button'
+        className='btn header-item waves-effect'
+        id='page-header-user-dropdown'
+      >
+        {/* <img className="rounded-circle header-profile-user me-1" src={userInfo?.avatar || defaultAvatar} alt="" /> */}
+        <span className='d-xl-inline-block ms-1 text-transform'>
+          {userInfo?.displayName ?? 'Admin'}
+        </span>
+        <Image
+          src={userInfo?.loginPicture || '/images/user.webp'}
+          layout='responsive'
+          objectFit='cover'
+          alt='user-login-picture'
+          className='header-avatar'
+          width={48}
+          height={48}
+        />
+        <ChevronDownIcon />
+      </Dropdown.Toggle>
+      <Dropdown.Menu className='dropdown-menu-end'>
+        {/* <Dropdown.Item href="#">
+          <i className="ri-user-line align-middle me-1"></i> {'Profile'}
+        </Dropdown.Item>
+        <Dropdown.Item divider /> */}
+        <Dropdown.Item className='text-danger' href='/logout'>
+          <i className='ri-shut-down-line align-middle me-1 text-danger'></i>{' '}
+          {'Logout'}
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+};
+export default ProfileMenu;

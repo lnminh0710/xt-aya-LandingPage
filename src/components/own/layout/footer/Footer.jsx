@@ -36,9 +36,7 @@ const Content = styled.div`
   grid-template-columns: 86px 1fr max-content;
   grid-column-gap: 134px;
   padding: 62px 216px;
-  a {
-    width: 86px;
-  }
+
   @media only screen and (max-width: 1296px) {
     padding: 56px 14px;
   }

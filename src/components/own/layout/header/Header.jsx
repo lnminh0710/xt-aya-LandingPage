@@ -7,17 +7,24 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Language from './Language';
 import Menu from './Menu';
+import axios from 'axios';
 
 import styles from './Header.module.scss';
 import MenuMobile from './MenuMobile';
 import { LOGIN_ENDPOINT, ROOT_DOMAIN } from 'constants/common';
-import ImageLazyLoad from 'components/own/ImageLazyLoad';
+import { useRouter } from 'next/router';
+import { getToken, setToken } from 'utils/localstorage';
+import ProfileMenu from './ProfileMenu';
+import { useCallback } from 'react';
 
 const Root = styled.div`
   height: 100px;
   background: #fafafa;
   display: grid;
-  grid-template-columns: 80px 1fr max-content max-content max-content;
+  grid-template-columns: ${({ logged }) =>
+    logged
+      ? '80px 1fr max-content max-content'
+      : '80px 1fr max-content max-content max-content'};
   grid-column-gap: 28px;
   align-items: center;
   padding: 0 64px;
@@ -25,7 +32,6 @@ const Root = styled.div`
   top: 0;
   z-index: 10000;
   @media only screen and (max-width: 1296px) {
-    grid-template-columns: 84px 1fr max-content max-content max-content;
     padding: 0 14px;
     max-width: 100vw;
   }
@@ -80,24 +86,48 @@ const Item = styled.div`
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const [userInfo, setUserInfo] = useState(null);
   const { t } = useTranslation('common');
   const match = useMatchQuery();
+  const router = useRouter();
+  const { at } = router.query;
+  const getUserProfile = useCallback(() => {
+    const token = getToken();
+    if (token) {
+      axios.get('users/profile').then((res) => {
+        setUserInfo(res);
+      });
+    } else setUserInfo(null);
+  }, []);
+  useEffect(() => {
+    getUserProfile();
+  }, [getUserProfile]);
 
   useEffect(() => {
     if (open) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'auto';
   }, [open]);
 
+  useEffect(() => {
+    if (at) {
+      setToken(at);
+      router.replace(router.pathname, undefined, { shallow: true });
+      getUserProfile();
+    }
+  }, [at, getUserProfile, router]);
+
   return (
-    <Root fullWidth={open} id='header-sticky'>
+    <Root logged={!!userInfo} fullWidth={open} id='header-sticky'>
       <div>
         <Link href={'/'}>
           <a>
-            <ImageLazyLoad
+            <Image
               src={'/images/logo.webp'}
               alt='logo'
               width={84}
               height={84}
+              layout='responsive'
+              objectFit='cover'
             />
           </a>
         </Link>
@@ -106,7 +136,7 @@ const Header = () => {
       {match ? (
         <>
           <div className='d-flex align-items-center justify-content-end'>
-            {open && (
+            {open && !userInfo && (
               <>
                 <a href={LOGIN_ENDPOINT} rel='noreferrer' className='me-3'>
                   <Item>{t('Login')}</Item>
@@ -129,6 +159,11 @@ const Header = () => {
             </div>
           </div>
           <MenuMobile open={open} setOpen={setOpen} />
+        </>
+      ) : !!userInfo ? (
+        <>
+          <ProfileMenu userInfo={userInfo} />
+          <Language />
         </>
       ) : (
         <>

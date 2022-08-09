@@ -76,13 +76,12 @@ const CompanyCasting = () => {
       infinite: true,
       variableWidth: true,
       touchThreshold: 100,
-      speed: 500,
-      slidesToShow: 6,
+      speed: 2000,
       slidesToScroll: 1,
       touchMove: true,
       autoplay: true,
-      pauseOnHover: true,
-      autoplaySpeed: 1000,
+      cssEase: 'linear',
+      autoplaySpeed: 2000,
       swipe: true,
       arrows: false,
     }),
@@ -92,35 +91,25 @@ const CompanyCasting = () => {
   const match = useMatchQuery('(max-width:480px)');
 
   return (
-    <div className={clsx('container-root', styles.root)}>
-      {loading ? (
-        <div className='d-flex'>
-          <div className={clsx('react-loading-skeleton mx-1', styles.item)} />
-          <div className={clsx('react-loading-skeleton mx-1', styles.item)} />
-          <div className={clsx('react-loading-skeleton mx-1', styles.item)} />
-          <div className={clsx('react-loading-skeleton mx-1', styles.item)} />
-          <div className={clsx('react-loading-skeleton mx-1', styles.item)} />
-        </div>
-      ) : (
-        <Slider {...settings}>
-          {data.map((_p, i) => (
-            <div key={i} className={styles.item}>
-              <Link href={_p.DirectURL || '#'} passHref>
-                <a target='_blank'>
-                  <Image
-                    src={_p.Picture}
-                    width={match ? 130 : 269}
-                    height={match ? 37 : 73.5}
-                    alt={_p.Picture}
-                    layout='responsive'
-                    objectFit='contain'
-                  />
-                </a>
-              </Link>
-            </div>
-          ))}
-        </Slider>
-      )}
+    <div className={clsx(styles.root)}>
+      <Slider {...settings} slidesToShow={Math.min(6, data.length)}>
+        {data.map((_p, i) => (
+          <div key={i} className={styles.item}>
+            <Link href={_p.DirectURL || '#'} passHref>
+              <a target='_blank'>
+                <Image
+                  src={_p.Picture}
+                  width={match ? 130 : 269}
+                  height={match ? 37 : 73.5}
+                  alt={_p.Picture}
+                  layout='responsive'
+                  objectFit='contain'
+                />
+              </a>
+            </Link>
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 };

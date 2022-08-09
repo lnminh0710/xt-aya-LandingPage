@@ -1,6 +1,7 @@
 import getConfig from 'next/config';
 const { publicRuntimeConfig } = getConfig();
 
+export const LOCAL_STORAGE_TOKEN = 'aya_landing-page_token';
 export const API_ENDPOINT = publicRuntimeConfig.apiEndpoint;
 export const ROOT_DOMAIN = publicRuntimeConfig.rootDomain;
 export const LOGIN_ENDPOINT = publicRuntimeConfig.loginEndpoint;
@@ -18,4 +19,9 @@ export const Routes = {
   TERM: '/terms',
   PRIVACY: '/privacy',
   CONTACT: '/contact',
+};
+
+export const HttpCode = {
+  Unauthorized: 401,
+  InternalServerError: 500,
 };

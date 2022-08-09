@@ -1,8 +1,9 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Home from 'pages/home/Home';
-const Homepage = () => <Home />;
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
+const Homepage = () => <Home />;
 
 // export const getStaticProps = async ({ locale }) => ({
 //   props: {

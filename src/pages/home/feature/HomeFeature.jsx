@@ -26,7 +26,7 @@ const Item = ({ t, description, Icon, title }) => {
 const HomeFeature = () => {
   const { t } = useTranslation('home');
   return (
-    <div className={clsx('root-container', styles.root)}>
+    <div className={clsx('container-root', styles.root)}>
       <div className={styles.title}>{t('Features')}</div>
       <div className={styles.content}>
         {features.map((data, index) => (

@@ -350,3 +350,37 @@ input.radio-aya {
   padding: 0 16px;
   margin: auto;
 }
+
+.header-item {
+  box-shadow: none !important;
+  border: 0;
+  border-radius: 0px;
+
+  background-color: transparent;
+  color: #636e75;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 26px;
+
+  display: grid;
+  grid-template-columns: 1fr 48px 8px;
+  grid-gap: 8px;
+
+  align-items: center;
+  &:hover,
+  &:focus {
+    color: #636e75;
+    background-color: transparent;
+  }
+}
+.dropdown-toggle:after {
+  border: unset !important;
+}
+
+.header-avatar {
+  border: 1px solid #9454fc !important;
+  border-radius: 50%;
+  padding: 3px !important;
+  background-color: #9454fc;
+}
