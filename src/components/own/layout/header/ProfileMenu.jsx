@@ -8,7 +8,7 @@ import produce from 'immer';
 import { ChevronDownIcon, UserIcon } from 'assets/svg';
 import Image from 'next/image';
 
-const ProfileMenu = ({ userInfo }) => {
+const ProfileMenu = ({ logout, userInfo }) => {
   return (
     <Dropdown className='d-inline-block user-dropdown'>
       <Dropdown.Toggle
@@ -32,11 +32,10 @@ const ProfileMenu = ({ userInfo }) => {
         <ChevronDownIcon />
       </Dropdown.Toggle>
       <Dropdown.Menu className='dropdown-menu-end'>
-        {/* <Dropdown.Item href="#">
-          <i className="ri-user-line align-middle me-1"></i> {'Profile'}
+        <Dropdown.Item href='#'>
+          <i className='ri-user-line align-middle me-1'></i> {'Profile'}
         </Dropdown.Item>
-        <Dropdown.Item divider /> */}
-        <Dropdown.Item className='text-danger' href='/logout'>
+        <Dropdown.Item className='text-danger' onClick={logout}>
           <i className='ri-shut-down-line align-middle me-1 text-danger'></i>{' '}
           {'Logout'}
         </Dropdown.Item>

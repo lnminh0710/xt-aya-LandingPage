@@ -11,11 +11,22 @@ import axios from 'axios';
 
 import styles from './Header.module.scss';
 import MenuMobile from './MenuMobile';
-import { LOGIN_ENDPOINT, ROOT_DOMAIN } from 'constants/common';
+import { APP_ID, Configuration, LOGIN_ENDPOINT } from 'constants/common';
 import { useRouter } from 'next/router';
-import { getToken, setToken } from 'utils/localstorage';
+import {
+  getLogged,
+  getToken,
+  getUid,
+  removeLogged,
+  removeToken,
+  removeUid,
+  setLogged,
+  setToken,
+  setUid,
+} from 'utils/localstorage';
 import ProfileMenu from './ProfileMenu';
 import { useCallback } from 'react';
+import { useRef } from 'react';
 
 const Root = styled.div`
   height: 100px;
@@ -82,23 +93,104 @@ const Item = styled.div`
   /* Grey/01 */
 
   color: #2c2b34;
+  cursor: pointer;
 `;
 
+var interval;
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
+  const [urlCheckLogin, setUrlCheckLogin] = useState('');
+
+  const ref = useRef();
+
   const { t } = useTranslation('common');
   const match = useMatchQuery();
+
   const router = useRouter();
-  const { at } = router.query;
+
+  const { at, uid } = router.query;
+
+  const initInterval = useCallback(() => {
+    if (interval) clearInterval(interval);
+    const access_token = getToken();
+    const logged = getLogged();
+
+    const uid = getUid();
+
+    const loginUrl = `${LOGIN_ENDPOINT}/nopromt?${
+      Configuration.QUERY_ACTION
+    }=status&${Configuration.QUERY_DOMAIN_KEY}=${APP_ID}&${
+      Configuration.QUERY_DOMAIN_ORIGIN
+    }=${window.location.origin}&${
+      Configuration.QUERY_UID
+    }=${uid}&logged=${!!logged}`;
+
+    setUrlCheckLogin(loginUrl);
+
+    if (!!access_token) {
+      interval = setInterval(() => {
+        const current_token = getToken();
+        if (!current_token) {
+          clearInterval(interval);
+          alert('Your recently signed out of Aya account. Click ok to update');
+          window.location.reload();
+        }
+      }, 300);
+    }
+  }, []);
+
   const getUserProfile = useCallback(() => {
     const token = getToken();
     if (token) {
       axios.get('users/profile').then((res) => {
         setUserInfo(res);
+        initInterval();
       });
     } else setUserInfo(null);
+  }, [initInterval]);
+
+  const logout = useCallback(() => {
+    if (interval) clearInterval(interval);
+    ref.current.contentWindow.postMessage(
+      {
+        type: 'logout',
+      },
+      LOGIN_ENDPOINT
+    );
+    removeLogged();
+    removeToken();
+    removeUid();
+    window.location.reload();
   }, []);
+
+  useEffect(() => {
+    const checkToken = () => {
+      return (e) => {
+        if (e.origin !== LOGIN_ENDPOINT) return;
+        if (e.data?.type === 'logout') {
+          setUrlCheckLogin('');
+          if (interval) clearInterval(interval);
+          removeUid();
+          removeToken();
+
+          alert('Your recently signed out of Aya account. Click ok to update');
+          window.location.reload();
+        } else if (e.data?.type === 'login') {
+          setUid(e.data.data.uaid);
+          setToken(e.data.data.access_token);
+          localStorage.setItem(Configuration.LOCAL_STORAGE_LOGGED, 'true');
+          initInterval();
+        }
+      };
+    };
+    window.addEventListener('message', checkToken(), false);
+
+    return () => {
+      window.removeEventListener('message', checkToken(), false);
+    };
+  }, [initInterval]);
+
   useEffect(() => {
     getUserProfile();
   }, [getUserProfile]);
@@ -111,10 +203,17 @@ const Header = () => {
   useEffect(() => {
     if (at) {
       setToken(at);
+      setUid(uid);
+      setLogged();
       router.replace(router.pathname, undefined, { shallow: true });
       getUserProfile();
     }
-  }, [at, getUserProfile, router]);
+  }, [at, getUserProfile, initInterval, router, uid]);
+
+  const routerToLogin = useCallback((path) => {
+    window.location.href =
+      LOGIN_ENDPOINT + path + '?xreply=' + window.location.origin;
+  }, []);
 
   return (
     <Root logged={!!userInfo} fullWidth={open} id='header-sticky'>
@@ -138,14 +237,13 @@ const Header = () => {
           <div className='d-flex align-items-center justify-content-end'>
             {open && !userInfo && (
               <>
-                <a href={LOGIN_ENDPOINT} rel='noreferrer' className='me-3'>
-                  <Item>{t('Login')}</Item>
-                </a>
-                <a href={LOGIN_ENDPOINT + '/signup'} rel='noreferrer'>
-                  <ButtonCreate className='me-2'>
-                    {t('Create Account')}
-                  </ButtonCreate>
-                </a>
+                <Item className='me-2' onClick={() => routerToLogin('')}>
+                  {t('Login')}
+                </Item>
+
+                <ButtonCreate onClick={() => routerToLogin('/signup')}>
+                  {t('Create Account')}
+                </ButtonCreate>
               </>
             )}
 
@@ -162,22 +260,25 @@ const Header = () => {
         </>
       ) : !!userInfo ? (
         <>
-          <ProfileMenu userInfo={userInfo} />
+          <ProfileMenu userInfo={userInfo} logout={logout} />
           <Language />
         </>
       ) : (
         <>
-          <a href={LOGIN_ENDPOINT + '?xreply=' + ROOT_DOMAIN} rel='noreferrer'>
-            <Item>{t('Login')}</Item>
-          </a>
-          <a
-            href={LOGIN_ENDPOINT + '/signup?xreply=' + ROOT_DOMAIN}
-            rel='noreferrer'
-          >
-            <ButtonCreate>{t('Create Account')}</ButtonCreate>
-          </a>
-          <Language />
+          <Item onClick={() => routerToLogin('')}>{t('Login')}</Item>
+
+          <ButtonCreate onClick={() => routerToLogin('/signup')}>
+            {t('Create Account')}
+          </ButtonCreate>
         </>
+      )}
+      {!!urlCheckLogin && (
+        <iframe
+          ref={ref}
+          src={urlCheckLogin}
+          frameBorder='0'
+          className='d-none'
+        ></iframe>
       )}
     </Root>
   );
