@@ -12,7 +12,7 @@ const HomeIntroduce = () => {
   const [isShowVideo, showVideo] = useState(false);
   const matches = useMatchQuery();
   return (
-    <div className={clsx('container-root', styles.root)}>
+    <div className={clsx(styles.root)}>
       <div className={styles.title}>{t('What is AYA')}?</div>
       {matches && (
         <div className={clsx(styles['sub-title'], 'mb-4')}>

@@ -11,7 +11,7 @@
   .item {
     min-width: 269px;
     min-height: 73.5px;
-    background-color: #e0e0e5;
+    background-color: #fff;
     @include responsive-size(screen-xxs) {
       min-width: 130px;
       min-height: 37px;

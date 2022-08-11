@@ -3,6 +3,8 @@ import { ShellProvider } from 'context/Shell';
 import Layout from 'components/own/layout/Layout';
 
 import '../styles/globals.scss';
+import { setUpApi } from 'utils/http-intercept';
+setUpApi();
 
 function MyApp({ Component, pageProps }) {
   return (

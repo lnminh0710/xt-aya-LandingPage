@@ -27,6 +27,7 @@ const nextConfig = {
     // Will be available on both server and client
     rootDomain: process.env.NEXT_DOMAIN_URL,
     apiEndpoint: process.env.NEXT_API_ENDPOINT,
+    authEndpoint: process.env.NEXT_AUTH_ENDPOINT,
     loginEndpoint: process.env.NEXT_LOGIN_URL,
     appId: process.env.NEXT_APP_ID,
   },

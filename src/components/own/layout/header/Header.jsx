@@ -7,17 +7,35 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Language from './Language';
 import Menu from './Menu';
+import axios from 'axios';
 
 import styles from './Header.module.scss';
 import MenuMobile from './MenuMobile';
-import { LOGIN_ENDPOINT, ROOT_DOMAIN } from 'constants/common';
-import ImageLazyLoad from 'components/own/ImageLazyLoad';
+import { APP_ID, Configuration, LOGIN_ENDPOINT } from 'constants/common';
+import { useRouter } from 'next/router';
+import {
+  getLogged,
+  getToken,
+  getUid,
+  removeLogged,
+  removeToken,
+  removeUid,
+  setLogged,
+  setToken,
+  setUid,
+} from 'utils/localstorage';
+import ProfileMenu from './ProfileMenu';
+import { useCallback } from 'react';
+import { useRef } from 'react';
 
 const Root = styled.div`
   height: 100px;
   background: #fafafa;
   display: grid;
-  grid-template-columns: 80px 1fr max-content max-content max-content;
+  grid-template-columns: ${({ logged }) =>
+    logged
+      ? '80px 1fr max-content max-content'
+      : '80px 1fr max-content max-content max-content'};
   grid-column-gap: 28px;
   align-items: center;
   padding: 0 64px;
@@ -25,7 +43,6 @@ const Root = styled.div`
   top: 0;
   z-index: 10000;
   @media only screen and (max-width: 1296px) {
-    grid-template-columns: 84px 1fr max-content max-content max-content;
     padding: 0 14px;
     max-width: 100vw;
   }
@@ -76,28 +93,140 @@ const Item = styled.div`
   /* Grey/01 */
 
   color: #2c2b34;
+  cursor: pointer;
 `;
 
+var interval;
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const [userInfo, setUserInfo] = useState(null);
+  const [urlCheckLogin, setUrlCheckLogin] = useState('');
+
+  const ref = useRef();
+
   const { t } = useTranslation('common');
   const match = useMatchQuery();
+
+  const router = useRouter();
+
+  const { at, uid } = router.query;
+
+  const initInterval = useCallback(() => {
+    if (interval) clearInterval(interval);
+    const access_token = getToken();
+    const logged = getLogged();
+
+    const uid = getUid();
+
+    const loginUrl = `${LOGIN_ENDPOINT}/nopromt?${
+      Configuration.QUERY_ACTION
+    }=status&${Configuration.QUERY_DOMAIN_KEY}=${APP_ID}&${
+      Configuration.QUERY_DOMAIN_ORIGIN
+    }=${window.location.origin}&${
+      Configuration.QUERY_UID
+    }=${uid}&logged=${!!logged}`;
+
+    setUrlCheckLogin(loginUrl);
+
+    if (!!access_token) {
+      interval = setInterval(() => {
+        const current_token = getToken();
+        if (!current_token) {
+          clearInterval(interval);
+          alert('Your recently signed out of Aya account. Click ok to update');
+          window.location.reload();
+        }
+      }, 300);
+    }
+  }, []);
+
+  const getUserProfile = useCallback(() => {
+    const token = getToken();
+    if (token) {
+      axios.get('users/profile').then((res) => {
+        setUserInfo(res);
+        initInterval();
+      });
+    } else setUserInfo(null);
+  }, [initInterval]);
+
+  const logout = useCallback(() => {
+    if (interval) clearInterval(interval);
+    ref.current.contentWindow.postMessage(
+      {
+        type: 'logout',
+      },
+      LOGIN_ENDPOINT
+    );
+    removeLogged();
+    removeToken();
+    removeUid();
+    window.location.reload();
+  }, []);
+
+  useEffect(() => {
+    const checkToken = () => {
+      return (e) => {
+        if (e.origin !== LOGIN_ENDPOINT) return;
+        if (e.data?.type === 'logout') {
+          setUrlCheckLogin('');
+          if (interval) clearInterval(interval);
+          removeUid();
+          removeToken();
+
+          alert('Your recently signed out of Aya account. Click ok to update');
+          window.location.reload();
+        } else if (e.data?.type === 'login') {
+          setUid(e.data.data.uaid);
+          setToken(e.data.data.access_token);
+          localStorage.setItem(Configuration.LOCAL_STORAGE_LOGGED, 'true');
+          initInterval();
+        }
+      };
+    };
+    window.addEventListener('message', checkToken(), false);
+
+    return () => {
+      window.removeEventListener('message', checkToken(), false);
+    };
+  }, [initInterval]);
+
+  useEffect(() => {
+    getUserProfile();
+  }, [getUserProfile]);
 
   useEffect(() => {
     if (open) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'auto';
   }, [open]);
 
+  useEffect(() => {
+    if (at) {
+      setToken(at);
+      setUid(uid);
+      setLogged();
+      router.replace(router.pathname, undefined, { shallow: true });
+      getUserProfile();
+    }
+  }, [at, getUserProfile, initInterval, router, uid]);
+
+  const routerToLogin = useCallback((path) => {
+    window.location.href =
+      LOGIN_ENDPOINT + path + '?xreply=' + window.location.origin;
+  }, []);
+
   return (
-    <Root fullWidth={open} id='header-sticky'>
+    <Root logged={!!userInfo} fullWidth={open} id='header-sticky'>
       <div>
         <Link href={'/'}>
           <a>
-            <ImageLazyLoad
+            <Image
               src={'/images/logo.webp'}
               alt='logo'
               width={84}
               height={84}
+              layout='responsive'
+              objectFit='cover'
             />
           </a>
         </Link>
@@ -106,16 +235,15 @@ const Header = () => {
       {match ? (
         <>
           <div className='d-flex align-items-center justify-content-end'>
-            {open && (
+            {open && !userInfo && (
               <>
-                <a href={LOGIN_ENDPOINT} rel='noreferrer' className='me-3'>
-                  <Item>{t('Login')}</Item>
-                </a>
-                <a href={LOGIN_ENDPOINT + '/signup'} rel='noreferrer'>
-                  <ButtonCreate className='me-2'>
-                    {t('Create Account')}
-                  </ButtonCreate>
-                </a>
+                <Item className='me-2' onClick={() => routerToLogin('')}>
+                  {t('Login')}
+                </Item>
+
+                <ButtonCreate onClick={() => routerToLogin('/signup')}>
+                  {t('Create Account')}
+                </ButtonCreate>
               </>
             )}
 
@@ -130,19 +258,27 @@ const Header = () => {
           </div>
           <MenuMobile open={open} setOpen={setOpen} />
         </>
-      ) : (
+      ) : !!userInfo ? (
         <>
-          <a href={LOGIN_ENDPOINT + '?xreply=' + ROOT_DOMAIN} rel='noreferrer'>
-            <Item>{t('Login')}</Item>
-          </a>
-          <a
-            href={LOGIN_ENDPOINT + '/signup?xreply=' + ROOT_DOMAIN}
-            rel='noreferrer'
-          >
-            <ButtonCreate>{t('Create Account')}</ButtonCreate>
-          </a>
+          <ProfileMenu userInfo={userInfo} logout={logout} />
           <Language />
         </>
+      ) : (
+        <>
+          <Item onClick={() => routerToLogin('')}>{t('Login')}</Item>
+
+          <ButtonCreate onClick={() => routerToLogin('/signup')}>
+            {t('Create Account')}
+          </ButtonCreate>
+        </>
+      )}
+      {!!urlCheckLogin && (
+        <iframe
+          ref={ref}
+          src={urlCheckLogin}
+          frameBorder='0'
+          className='d-none'
+        ></iframe>
       )}
     </Root>
   );

@@ -202,6 +202,25 @@ export const ChevronDown = () => (
   </svg>
 );
 
+export const ChevronDownIcon = () => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    width='12'
+    height='7'
+    viewBox='0 0 12 7'
+    fill='none'
+  >
+    <path
+      d='M10 2L6 6L2 2'
+      stroke='#2C2B34'
+      strokeWidth='2'
+      strokeMiterlimit='10'
+      strokeLinecap='square'
+      strokeLinejoin='round'
+    />
+  </svg>
+);
+
 export const ChevronLeft = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
