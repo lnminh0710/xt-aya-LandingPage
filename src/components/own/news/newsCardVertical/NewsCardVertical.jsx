@@ -28,14 +28,23 @@ const NewsCardVertical = ({ newsItem, t }) => {
           </div>
         </Link>
       )}
-      <p>
-        {newsItem.Teaser}{' '}
+      <div className={newsCardVerticalStyles.teaserWrapper}>
+        <div
+          className={`${newsCardVerticalStyles.teaser}`}
+          title={newsItem.Teaser}
+        >
+          {newsItem.Teaser}
+        </div>
         {newsItem.CategroySlugURL && newsItem.SlugURL && (
           <Link href={`/news/${newsItem.CategroySlugURL}/${newsItem.SlugURL}`}>
-            <a className='link-href purple'>{t('readMore')}</a>
+            <a
+              className={`link-href purple ${newsCardVerticalStyles.readMore}`}
+            >
+              {t('readMore')}
+            </a>
           </Link>
         )}
-      </p>
+      </div>
     </div>
   );
 };

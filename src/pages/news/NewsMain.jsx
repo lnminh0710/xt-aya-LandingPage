@@ -37,7 +37,9 @@ const NewsMain = ({ dataSource, t }) => {
                       <Link
                         href={`/news/${dataSource[0].CategroySlugURL}/${dataSource[0].SlugURL}`}
                       >
-                        <span className={`link-href purple`}>
+                        <span
+                          className={`link-href purple ${topNewsStyle.readMore}`}
+                        >
                           {t('readMore')}
                         </span>
                       </Link>
@@ -47,13 +49,13 @@ const NewsMain = ({ dataSource, t }) => {
               </Link>
             )}
         </div>
-        <div className={`col-12 col-lg-4 ${topNewsStyle.subMainWrapper}`}>
+        <div className={`row col-12 col-lg-4 ${topNewsStyle.subMainWrapper}`}>
           {dataSource?.length >= 3 &&
             [dataSource[1], dataSource[2]].map((news, index) => {
               return (
                 <div
                   key={`subMainWrapper-${index}`}
-                  className={topNewsStyle.subMainItem}
+                  className={`col-12 col-sm-6 ${topNewsStyle.subMainItem}`}
                 >
                   <NewsCardVertical newsItem={news} t={t} />
                 </div>

@@ -1,14 +1,28 @@
 .newsCardVerticalWrapper {
   .otherImg {
     height: 214px;
+    max-width: 416px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
     position: relative;
     cursor: pointer;
     margin-bottom: 8px;
+    @media only screen and (max-width: 554px) {
+      height: 184px;
+    }
 
     .otherTitle {
+      overflow: hidden;
+      line-height: 24px;
+      max-height: 68px;
+      // &:before {
+      //   content: '...';
+      //   position: absolute;
+      //   right: 24px;
+      //   bottom: 0;
+      // }
+
       padding: 16px;
       position: absolute;
       left: 0;
@@ -28,11 +42,26 @@
       }
     }
   }
-  p {
-    font-weight: 400;
-    font-size: 16px;
-    text-align: justify;
-    color: #858585;
-    padding: 0 16px;
+  .teaserWrapper {
+    position: relative;
+    .teaser {
+      overflow: hidden;
+      line-height: 26px;
+      max-height: 78px;
+
+      color: #858585;
+      font-weight: 400;
+      font-size: 16px;
+      text-align: justify;
+      padding: 0 16px;
+      position: relative;
+    }
+    .readMore {
+      position: absolute;
+      right: 15px;
+      bottom: 1px;
+      background: white;
+      padding-left: 25px;
+    }
   }
 }
