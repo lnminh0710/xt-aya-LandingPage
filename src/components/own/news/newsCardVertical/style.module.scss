@@ -1,4 +1,7 @@
 .newsCardVerticalWrapper {
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 15px;
+  }
   .otherImg {
     height: 214px;
     max-width: 416px;
@@ -8,6 +11,9 @@
     position: relative;
     cursor: pointer;
     margin-bottom: 8px;
+    @media only screen and (max-width: 768px) {
+      max-width: inherit;
+    }
     @media only screen and (max-width: 554px) {
       height: 184px;
     }
@@ -16,6 +22,12 @@
       overflow: hidden;
       line-height: 24px;
       max-height: 68px;
+      @media only screen and (max-width: 768px) {
+        max-width: 72px;
+      }
+      @media only screen and (max-width: 554px) {
+        max-height: 100px;
+      }
       // &:before {
       //   content: '...';
       //   position: absolute;

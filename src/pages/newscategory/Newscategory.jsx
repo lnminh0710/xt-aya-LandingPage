@@ -124,13 +124,17 @@ const NewsCategory = () => {
   return (
     <div className={`custom-container ${styles.newsWrapper}`}>
       <h1 className={`header-title ${styles.title}`}>{categoryTitle}</h1>
-      <NewsMain dataSource={topNews}  t={t}/>
+      <NewsMain dataSource={topNews} t={t} />
       <div className={styles.hotnewsWrapper}>
         {categoryData?.length &&
           categoryData.map((item, index) => {
             return (
               <div key={`category-${index}`} className={styles.hotnewsItem}>
-                <NewsCardHorizontal dataSource={item} t={t} />
+                <NewsCardHorizontal
+                  dataSource={item}
+                  t={t}
+                  bgColor={'#ffffff'}
+                />
               </div>
             );
           })}

@@ -158,7 +158,7 @@ const News = () => {
                   return (
                     <div
                       key={`category1Wrapper-${index}`}
-                      className={`col-12 col-lg-3 ${item.categoryItem}`}
+                      className={`col-12 col-sm-6 col-md-3 ${item.categoryItem}`}
                     >
                       <NewsCardVerticalNoDes newsItem={item} imgHeight={214} />
                     </div>
@@ -177,7 +177,11 @@ const News = () => {
             hotNews.map((item, index) => {
               return (
                 <div key={`hotnews-${index}`} className={styles.hotnewsItem}>
-                  <NewsCardHorizontal dataSource={item} t={t} />
+                  <NewsCardHorizontal
+                    dataSource={item}
+                    t={t}
+                    bgColor={'#2c2438'}
+                  />
                 </div>
               );
             })}
@@ -211,7 +215,7 @@ const News = () => {
                       return (
                         <div
                           key={`category2Wrapper-${index}`}
-                          className={`col-12 col-lg-3 ${item.categoryItem}`}
+                          className={`col-12 col-sm-6 col-md-3 ${item.categoryItem}`}
                         >
                           <NewsCardVerticalNoDes
                             newsItem={item}
