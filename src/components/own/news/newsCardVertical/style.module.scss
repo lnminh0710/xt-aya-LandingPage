@@ -15,18 +15,15 @@
       max-width: inherit;
     }
     @media only screen and (max-width: 554px) {
-      height: 184px;
+      height: 214px;
     }
 
     .otherTitle {
       overflow: hidden;
       line-height: 24px;
       max-height: 68px;
-      @media only screen and (max-width: 768px) {
-        max-width: 72px;
-      }
       @media only screen and (max-width: 554px) {
-        max-height: 100px;
+        max-height: 68px;
       }
       // &:before {
       //   content: '...';

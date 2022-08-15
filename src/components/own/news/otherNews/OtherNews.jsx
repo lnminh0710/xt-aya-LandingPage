@@ -9,7 +9,7 @@ const OtherNews = ({ otherNewsList, t }) => {
           return (
             <div
               key={`other-${index}`}
-              className={`col-12 col-md-4 ${styles.otherItem}`}
+              className={`col-12 col-sm-6 col-md-4 ${styles.otherItem}`}
             >
               <NewsCardVertical newsItem={item} t={t} />
             </div>

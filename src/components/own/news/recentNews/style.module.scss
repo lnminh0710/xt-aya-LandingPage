@@ -1,5 +1,9 @@
 .recentItem {
   padding: 12px;
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 15px;
+    padding: 0;
+  }
   .recentImg {
     height: 70px;
     background-repeat: no-repeat;
@@ -10,6 +14,10 @@
   .recentBody {
     position: relative;
     h4 {
+      overflow: hidden;
+      line-height: 26px;
+      max-height: 26px;
+
       position: absolute;
       left: 15px;
       top: 0;

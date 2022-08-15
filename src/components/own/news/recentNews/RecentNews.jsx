@@ -28,7 +28,7 @@ const RecentNews = ({ dataSource }) => {
             </Link>
           )}
         </h4>
-        <p>{dataSource.CreateDate}</p>
+        <p>{new Date(dataSource.CreateDate).toLocaleString('fr-FR')}</p>
       </div>
     </div>
   );

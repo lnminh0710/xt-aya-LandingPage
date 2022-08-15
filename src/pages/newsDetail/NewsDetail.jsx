@@ -159,11 +159,18 @@ const NewsDetail = () => {
                 {t('recentPost', { ns: 'news' })}
               </h4>
               {/* <RecentNews recentNewsList={recentPosts} /> */}
-              <div className={styles.recentList}>
+              <div className={`row m-0 ${styles.recentList}`}>
                 {recentPosts?.length &&
                   recentPosts.map((item, index) => {
                     return (
-                      <RecentNews key={`recent-${index}`} dataSource={item} />
+                      <>
+                        <div className='col-12 col-sm-6 col-md-4 col-lg-12'>
+                          <RecentNews
+                            key={`recent-${index}`}
+                            dataSource={item}
+                          />
+                        </div>
+                      </>
                     );
                   })}
               </div>
