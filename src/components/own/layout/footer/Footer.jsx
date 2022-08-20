@@ -246,7 +246,8 @@ const Footer = () => {
       };
       setInfo(infoTemp);
     });
-  }, []);
+  }, [locale]);
+
   return (
     <Root>
       <Content className='container-root'>

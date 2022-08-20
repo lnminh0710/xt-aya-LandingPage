@@ -7,6 +7,7 @@ export const LOCAL_STORAGE_IS_LOGGED = 'aya_landing-page_logged';
 export const API_ENDPOINT = publicRuntimeConfig.apiEndpoint;
 export const ROOT_DOMAIN = publicRuntimeConfig.rootDomain;
 export const LOGIN_ENDPOINT = publicRuntimeConfig.loginEndpoint;
+export const FILE_ENDPOINT = publicRuntimeConfig.fileEndpoint;
 export const APP_ID = publicRuntimeConfig.appId;
 
 export const Routes = {

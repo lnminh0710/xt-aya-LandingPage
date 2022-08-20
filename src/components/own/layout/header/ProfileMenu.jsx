@@ -7,6 +7,7 @@ import { Dropdown } from 'react-bootstrap';
 import produce from 'immer';
 import { ChevronDownIcon, UserIcon } from 'assets/svg';
 import Image from 'next/image';
+import { FILE_ENDPOINT } from 'constants/common';
 
 const ProfileMenu = ({ logout, userInfo }) => {
   return (
@@ -21,11 +22,11 @@ const ProfileMenu = ({ logout, userInfo }) => {
           {userInfo?.displayName ?? 'Admin'}
         </span>
         <Image
-          src={userInfo?.loginPicture || '/images/user.webp'}
+          src={FILE_ENDPOINT + userInfo?.loginPicture || '/images/user.webp'}
           layout='responsive'
           objectFit='cover'
           alt='user-login-picture'
-          className='header-avatar'
+          className='header-avatar rounded-circle'
           width={48}
           height={48}
         />
