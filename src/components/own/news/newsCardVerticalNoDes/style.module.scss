@@ -1,4 +1,7 @@
 .newsCardVerticalWrapper {
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 15px;
+  }
   .otherImg {
     background-repeat: no-repeat;
     background-size: cover;
@@ -8,6 +11,12 @@
     margin-bottom: 8px;
   }
   .otherTitle {
+    overflow: hidden;
+    line-height: 24px;
+    max-height: 72px;
+    @media only screen and (max-width: 554px) {
+      max-height: 100px;
+    }
     font-weight: 600;
     font-size: 16px;
     color: #2c2b34;

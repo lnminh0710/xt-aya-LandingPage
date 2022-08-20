@@ -1,11 +1,10 @@
 import Link from 'next/link';
 import newsCardHorizontalStyles from './style.module.scss';
 
-const NewsCardHorizontal = ({ dataSource, t }) => {
+const NewsCardHorizontal = ({ dataSource, t, bgColor }) => {
   return (
     <div className={`row ${newsCardHorizontalStyles.newsItem}`}>
-      <div className={`col-12 col-lg-4 ${newsCardHorizontalStyles.newsImg}`}>
-        +
+      <div className={`col-12 col-md-4 ${newsCardHorizontalStyles.newsImg}`}>
         {dataSource.CategroySlugURL && dataSource.SlugURL && (
           <Link
             href={`/news/${dataSource.CategroySlugURL}/${dataSource.SlugURL}`}
@@ -20,8 +19,8 @@ const NewsCardHorizontal = ({ dataSource, t }) => {
           </Link>
         )}
       </div>
-      <div className={`col-12 col-lg-4 ${newsCardHorizontalStyles.newsTitle}`}>
-        <p>
+      <div className={`col-12 col-md-4 ${newsCardHorizontalStyles.newsTitle}`}>
+        <p className={newsCardHorizontalStyles.titleText}>
           {dataSource.CategroySlugURL && dataSource.SlugURL && (
             <Link
               href={`/news/${dataSource.CategroySlugURL}/${dataSource.SlugURL}`}
@@ -34,15 +33,24 @@ const NewsCardHorizontal = ({ dataSource, t }) => {
           {new Date(dataSource.CreateDate).toLocaleString('fr-FR')}
         </p>
       </div>
-      <div className={`col-12 col-lg-4 ${newsCardHorizontalStyles.newsDes}`}>
-        {dataSource.Teaser}{' '}
-        {dataSource.CategroySlugURL && dataSource.SlugURL && (
-          <Link
-            href={`/news/${dataSource.CategroySlugURL}/${dataSource.SlugURL}`}
-          >
-            <span className='link-href purple'>{t('readMore')}</span>
-          </Link>
-        )}
+      <div
+        className={`col-12 col-md-4 ${newsCardHorizontalStyles.newsDesWrapper}`}
+      >
+        <div className={newsCardHorizontalStyles.newsDes}>
+          <p className={newsCardHorizontalStyles.text}>{dataSource.Teaser}</p>
+          {dataSource.CategroySlugURL && dataSource.SlugURL && (
+            <Link
+              href={`/news/${dataSource.CategroySlugURL}/${dataSource.SlugURL}`}
+            >
+              <span
+                className={`link-href purple ${newsCardHorizontalStyles.readMore}`}
+                style={{ backgroundColor: bgColor }}
+              >
+                {t('readMore')}
+              </span>
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );

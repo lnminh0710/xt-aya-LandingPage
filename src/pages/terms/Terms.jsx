@@ -13,7 +13,7 @@ const Terms = () => {
       <div className={styles.content}>
         <div
           dangerouslySetInnerHTML={{
-            __html: t('content', { interpolation: { escapeValue: false } }),
+            __html: t('content_2', { interpolation: { escapeValue: false } }),
           }}
         />
       </div>

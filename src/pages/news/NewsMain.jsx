@@ -7,7 +7,7 @@ const NewsMain = ({ dataSource, t }) => {
   return (
     <div className={topNewsStyle.topNewsContainer}>
       <div className={`row ${topNewsStyle.banner}`}>
-        <div className={`col-12 col-lg-8 ${topNewsStyle.mainWrapper}`}>
+        <div className={`col-12 col-md-8 ${topNewsStyle.mainWrapper}`}>
           {dataSource?.length &&
             dataSource[0]?.CategroySlugURL &&
             dataSource[0]?.SlugURL && (
@@ -34,26 +34,28 @@ const NewsMain = ({ dataSource, t }) => {
                     </h4>
                     <p>
                       {dataSource[0].Teaser}
-                      <Link
+                      {/* <Link
                         href={`/news/${dataSource[0].CategroySlugURL}/${dataSource[0].SlugURL}`}
                       >
-                        <span className={`link-href purple`}>
+                        <span
+                          className={`link-href purple ${topNewsStyle.readMore}`}
+                        >
                           {t('readMore')}
                         </span>
-                      </Link>
+                      </Link> */}
                     </p>
                   </div>
                 </div>
               </Link>
             )}
         </div>
-        <div className={`col-12 col-lg-4 ${topNewsStyle.subMainWrapper}`}>
+        <div className={`row col-12 col-md-4 ${topNewsStyle.subMainWrapper}`}>
           {dataSource?.length >= 3 &&
             [dataSource[1], dataSource[2]].map((news, index) => {
               return (
                 <div
                   key={`subMainWrapper-${index}`}
-                  className={topNewsStyle.subMainItem}
+                  className={`col-12 col-sm-6 col-md-12 ${topNewsStyle.subMainItem}`}
                 >
                   <NewsCardVertical newsItem={news} t={t} />
                 </div>
@@ -68,7 +70,7 @@ const NewsMain = ({ dataSource, t }) => {
             return (
               <div
                 key={`othersWrapper-${index}`}
-                className={`col-12 col-lg-3 ${topNewsStyle.otherItem}`}
+                className={`col-12 col-sm-6 col-md-3 ${topNewsStyle.otherItem}`}
               >
                 <NewsCardVerticalNoDes newsItem={news} t={t} />
               </div>
