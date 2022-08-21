@@ -8,8 +8,16 @@ import produce from 'immer';
 import { ChevronDownIcon, UserIcon } from 'assets/svg';
 import Image from 'next/image';
 import { FILE_ENDPOINT } from 'constants/common';
+import { useMemo } from 'react';
 
 const ProfileMenu = ({ logout, userInfo }) => {
+  const profilePicture = useMemo(() => {
+    if (!userInfo?.loginPicture) return '/images/user.webp';
+
+    if (userInfo?.loginPicture.includes('http')) return userInfo?.loginPicture;
+
+    return FILE_ENDPOINT + userInfo?.loginPicture;
+  }, [userInfo?.loginPicture]);
   return (
     <Dropdown className='d-inline-block user-dropdown'>
       <Dropdown.Toggle
@@ -21,19 +29,24 @@ const ProfileMenu = ({ logout, userInfo }) => {
         <span className='d-xl-inline-block ms-1 text-transform'>
           {userInfo?.displayName ?? 'Admin'}
         </span>
-        <Image
-          src={
-            userInfo?.loginPicture
-              ? FILE_ENDPOINT + userInfo?.loginPicture
-              : '/images/user.webp'
-          }
+        <div
+          style={{
+            backgroundImage: `url(${profilePicture}) center no-repeat`,
+            backgroundSize: 'contain',
+            height: 48,
+            width: 48,
+          }}
+          className='header-avatar rounded-circle'
+        ></div>
+        {/* <Image
+          src={profilePicture}
           layout='responsive'
           objectFit='cover'
           alt='user-login-picture'
           className='header-avatar rounded-circle'
           width={48}
           height={48}
-        />
+        /> */}
         <ChevronDownIcon />
       </Dropdown.Toggle>
       <Dropdown.Menu className='dropdown-menu-end'>
