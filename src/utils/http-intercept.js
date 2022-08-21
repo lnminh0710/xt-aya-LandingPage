@@ -4,7 +4,7 @@ import getConfig from 'next/config';
 import { get as _get } from 'lodash';
 
 import { getToken, removeToken } from './localstorage';
-import { HttpCode } from 'constants/common';
+import { Configuration, HttpCode, LOGIN_ENDPOINT } from 'constants/common';
 const { publicRuntimeConfig } = getConfig();
 
 function formatResponse(response) {
@@ -59,6 +59,22 @@ function handleAfterCallApi() {
       return formatResponse(response);
     },
     function (error) {
+      const originalRequest = error.config;
+      if (
+        error.response.status === 401 &&
+        (!originalRequest._retry || originalRequest._retry < 4)
+      ) {
+        if (!originalRequest._retry) {
+          const node = document.createElement('iframe');
+          node.src = `${LOGIN_ENDPOINT}/nopromt?${Configuration.QUERY_ACTION}=refresh-token&${Configuration.QUERY_DOMAIN_ORIGIN}=${window.location.origin}`;
+          node.className = 'd-none';
+          document.getElementById('header-sticky').appendChild(node);
+          originalRequest._retry = 1;
+        } else originalRequest._retry = originalRequest._retry + 1;
+        return setTimeout(() => {
+          return axios(originalRequest);
+        }, 2000);
+      }
       // Any status codes that falls outside the range of 2xx cause this function to trigger
       // Do something with response error
 

@@ -181,6 +181,8 @@ const Header = () => {
           setToken(e.data.data.access_token);
           localStorage.setItem(Configuration.LOCAL_STORAGE_LOGGED, 'true');
           initInterval();
+        } else if (e.data?.type === 'update-token') {
+          setToken(e.data.data);
         }
       };
     };

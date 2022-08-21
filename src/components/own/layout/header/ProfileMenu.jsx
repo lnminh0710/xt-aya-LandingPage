@@ -22,7 +22,11 @@ const ProfileMenu = ({ logout, userInfo }) => {
           {userInfo?.displayName ?? 'Admin'}
         </span>
         <Image
-          src={FILE_ENDPOINT + userInfo?.loginPicture || '/images/user.webp'}
+          src={
+            userInfo?.loginPicture
+              ? FILE_ENDPOINT + userInfo?.loginPicture
+              : '/images/user.webp'
+          }
           layout='responsive'
           objectFit='cover'
           alt='user-login-picture'
