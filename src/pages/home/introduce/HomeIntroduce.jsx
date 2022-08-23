@@ -4,6 +4,8 @@ import { useMatchQuery } from 'components/hook';
 import { ImageLazyLoad } from 'components/own';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useMemo } from 'react';
 import { useState } from 'react';
 import styles from './HomeIntroduce.module.scss';
 
@@ -11,6 +13,16 @@ const HomeIntroduce = () => {
   const { t } = useTranslation('home');
   const [isShowVideo, showVideo] = useState(false);
   const matches = useMatchQuery();
+  const router = useRouter();
+  const { locale, pathname, query, asPath } = router;
+
+  const url = useMemo(
+    () =>
+      locale === 'vi'
+        ? 'videos/AyaIntroVideo.mp4'
+        : 'videos/AyaIntroVideo-EN.mp4',
+    [locale]
+  );
   return (
     <div className={clsx(styles.root)}>
       <div className={styles.title}>{t('What is AYA')}?</div>
@@ -67,7 +79,7 @@ const HomeIntroduce = () => {
             </>
           ) : (
             <video autoPlay muted onEnded={() => showVideo(false)}>
-              <source src='videos/AyaIntroVideo.mp4' />
+              <source src={url} />
             </video>
           )}
         </div>

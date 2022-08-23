@@ -248,7 +248,12 @@ const Header = () => {
                 </ButtonCreate>
               </>
             )}
-
+            {!open && (
+              <>
+                <Language />
+                <div className='mx-2'></div>
+              </>
+            )}
             <div
               className={clsx(styles['nav-button'], { [styles.active]: open })}
               onClick={() => setOpen(!open)}
@@ -272,6 +277,7 @@ const Header = () => {
           <ButtonCreate onClick={() => routerToLogin('/signup')}>
             {t('Create Account')}
           </ButtonCreate>
+          <Language />
         </>
       )}
       {!!urlCheckLogin && (
