@@ -30,6 +30,7 @@ const nextConfig = {
     authEndpoint: process.env.NEXT_AUTH_ENDPOINT,
     loginEndpoint: process.env.NEXT_LOGIN_URL,
     fileEndpoint: process.env.NEXT_FILE_ENDPOINT,
+    talentUrl: process.env.NEXT_TALENT_URL,
     appId: process.env.NEXT_APP_ID,
   },
   i18n,

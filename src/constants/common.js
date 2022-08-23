@@ -8,6 +8,7 @@ export const API_ENDPOINT = publicRuntimeConfig.apiEndpoint;
 export const ROOT_DOMAIN = publicRuntimeConfig.rootDomain;
 export const LOGIN_ENDPOINT = publicRuntimeConfig.loginEndpoint;
 export const FILE_ENDPOINT = publicRuntimeConfig.fileEndpoint;
+export const TALENT_URL = publicRuntimeConfig.talentUrl;
 export const APP_ID = publicRuntimeConfig.appId;
 
 export const Routes = {
