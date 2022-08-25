@@ -78,7 +78,7 @@ const HomeIntroduce = () => {
               </div>
             </>
           ) : (
-            <video autoPlay muted onEnded={() => showVideo(false)}>
+            <video autoPlay controls onEnded={() => showVideo(false)}>
               <source src={url} />
             </video>
           )}
