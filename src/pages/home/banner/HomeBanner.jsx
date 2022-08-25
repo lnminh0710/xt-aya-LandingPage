@@ -25,14 +25,14 @@ const HomeBanner = ({}) => {
           placeholder={t('Search for Talents, Artists...')}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
-              router.push(TALENT_URL + '?q=' + e.target.value);
+              router.push(TALENT_URL + 'search?q=' + e.target.value);
             }
           }}
         />
         <div
           className={styles['search-button']}
           onClick={() =>
-            router.push(TALENT_URL + '?q=' + inputRef.current.value)
+            router.push(TALENT_URL + 'search?q=' + inputRef.current.value)
           }
         >
           {t('Search')}

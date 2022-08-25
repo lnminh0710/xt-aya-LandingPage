@@ -7,10 +7,13 @@ import { Dropdown } from 'react-bootstrap';
 import produce from 'immer';
 import { ChevronDownIcon, UserIcon } from 'assets/svg';
 import Image from 'next/image';
-import { FILE_ENDPOINT } from 'constants/common';
+import { FILE_ENDPOINT, TALENT_URL } from 'constants/common';
 import { useMemo } from 'react';
+import { useTranslation } from 'next-i18next';
 
 const ProfileMenu = ({ logout, userInfo }) => {
+  const { t } = useTranslation('common');
+
   const profilePicture = useMemo(() => {
     if (!userInfo?.loginPicture) return '/images/user.webp';
 
@@ -27,11 +30,11 @@ const ProfileMenu = ({ logout, userInfo }) => {
       >
         {/* <img className="rounded-circle header-profile-user me-1" src={userInfo?.avatar || defaultAvatar} alt="" /> */}
         <span className='d-xl-inline-block ms-1 text-transform'>
-          {userInfo?.displayName ?? 'Admin'}
+          {userInfo?.displayName ?? ''}
         </span>
         <div
           style={{
-            backgroundImage: `url(${profilePicture}) center no-repeat`,
+            background: `url(${profilePicture}) center no-repeat`,
             backgroundSize: 'contain',
             height: 48,
             width: 48,
@@ -50,12 +53,12 @@ const ProfileMenu = ({ logout, userInfo }) => {
         <ChevronDownIcon />
       </Dropdown.Toggle>
       <Dropdown.Menu className='dropdown-menu-end'>
-        <Dropdown.Item href='#'>
+        <Dropdown.Item href={TALENT_URL + 'setting'}>
           <i className='ri-user-line align-middle me-1'></i> {'Profile'}
         </Dropdown.Item>
         <Dropdown.Item className='text-danger' onClick={logout}>
           <i className='ri-shut-down-line align-middle me-1 text-danger'></i>{' '}
-          {'Logout'}
+          {t('Logout')}
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

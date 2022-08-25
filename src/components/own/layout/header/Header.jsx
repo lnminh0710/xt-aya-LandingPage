@@ -237,7 +237,9 @@ const Header = () => {
       {match ? (
         <>
           <div className='d-flex align-items-center justify-content-end'>
-            {open && !userInfo && (
+            <Language />
+            <div className='mx-2'></div>
+            {/* {open && !userInfo && (
               <>
                 <Item className='me-2' onClick={() => routerToLogin('')}>
                   {t('Login')}
@@ -247,13 +249,13 @@ const Header = () => {
                   {t('Create Account')}
                 </ButtonCreate>
               </>
-            )}
-            {!open && (
+            )} */}
+            {/* {!open && (
               <>
                 <Language />
                 <div className='mx-2'></div>
               </>
-            )}
+            )} */}
             <div
               className={clsx(styles['nav-button'], { [styles.active]: open })}
               onClick={() => setOpen(!open)}
@@ -263,7 +265,13 @@ const Header = () => {
               <div className={styles['nav-button__bottom']}></div>
             </div>
           </div>
-          <MenuMobile open={open} setOpen={setOpen} />
+          <MenuMobile
+            open={open}
+            setOpen={setOpen}
+            routerToLogin={routerToLogin}
+            userInfo={userInfo}
+            logout={logout}
+          />
         </>
       ) : !!userInfo ? (
         <>
