@@ -135,7 +135,7 @@ const News = () => {
         {t('title', { ns: 'news' })}
       </h1>
       <NewsMain dataSource={topNews} t={t} />
-      {firstNewsByCategory && (
+      {!!firstNewsByCategory && (
         <div className={styles.categoryWrapper}>
           <div className={styles.CateItem}>
             <h2 className={styles.header}>
@@ -173,7 +173,7 @@ const News = () => {
           <span className={styles.text}>{t('highlight', { ns: 'news' })}</span>
         </h1>
         <div className={styles.hotnewsWrapper}>
-          {hotNews?.length &&
+          {!!hotNews?.length &&
             hotNews.map((item, index) => {
               return (
                 <div key={`hotnews-${index}`} className={styles.hotnewsItem}>
@@ -188,7 +188,7 @@ const News = () => {
         </div>
       </div>
       <div className={styles.categoryWrapper}>
-        {otherNewsByCategory?.length &&
+        {!!otherNewsByCategory?.length &&
           otherNewsByCategory.map((newsCatesItem, newsCatesIndex) => {
             return (
               <div

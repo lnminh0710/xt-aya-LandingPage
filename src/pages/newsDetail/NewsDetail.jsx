@@ -108,7 +108,7 @@ const NewsDetail = () => {
   }
   return (
     <>
-      {data?.IdNews && (
+      {!!data?.IdNews && (
         <div className='custom-container'>
           <h1 className={`header-title ${styles.title}`}>{data.Title}</h1>
           <p className={styles.authorWrapper}>
@@ -155,40 +155,47 @@ const NewsDetail = () => {
                   {t('search', { ns: 'news' })}
                 </Button>
               </InputGroup> */}
-              <h4 className={styles.recentTitle}>
-                {t('recentPost', { ns: 'news' })}
-              </h4>
-              {/* <RecentNews recentNewsList={recentPosts} /> */}
-              <div className={`row m-0 ${styles.recentList}`}>
-                {recentPosts?.length &&
-                  recentPosts.map((item, index) => {
-                    return (
-                      <>
-                        <div className='col-12 col-sm-6 col-md-4 col-lg-12'>
-                          <RecentNews
-                            key={`recent-${index}`}
-                            dataSource={item}
-                          />
-                        </div>
-                      </>
-                    );
-                  })}
-              </div>
+              {!!recentPosts?.length && (
+                <>
+                  <h4 className={styles.recentTitle}>
+                    {t('recentPost', { ns: 'news' })}
+                  </h4>
+                  <div className={`row m-0 ${styles.recentList}`}>
+                    {!!recentPosts?.length &&
+                      recentPosts.map((item, index) => {
+                        return (
+                          <>
+                            <div className='col-12 col-sm-6 col-md-4 col-lg-12'>
+                              <RecentNews
+                                key={`recent-${index}`}
+                                dataSource={item}
+                              />
+                            </div>
+                          </>
+                        );
+                      })}
+                  </div>
+                </>
+              )}
             </div>
           </div>
-          <hr className={styles.hrStytle} />
-          <h4 className={styles.otherNewsTitle}>
-            {t('otherNews', { ns: 'news' })}
-          </h4>
+          {!!otherNews?.length && (
+            <>
+              <hr className={styles.hrStytle} />
+              <h4 className={styles.otherNewsTitle}>
+                {t('otherNews', { ns: 'news' })}
+              </h4>
 
-          <OtherNews otherNewsList={otherNews} t={t} />
+              <OtherNews otherNewsList={otherNews} t={t} />
 
-          {showBtnLoadMore && (
-            <div className={styles.btnWrapper}>
-              <button className='btn-aya purple' onClick={loadMoreNews}>
-                {t('moreNews', { ns: 'news' })}
-              </button>
-            </div>
+              {showBtnLoadMore && (
+                <div className={styles.btnWrapper}>
+                  <button className='btn-aya purple' onClick={loadMoreNews}>
+                    {t('moreNews', { ns: 'news' })}
+                  </button>
+                </div>
+              )}
+            </>
           )}
         </div>
       )}
