@@ -13,14 +13,6 @@ export const getArticlesFromResponse = (dataList) => {
     const data = JSON.parse(dataString);
     if (!data?.length) continue;
 
-    data[0].CategroySlugURL =
-      data[0]?.['dbo.B12NewsLanguage']?.[0]?.['dbo.B12RepNewsCategory']?.[
-        '0'
-      ]?.CategroySlugURL;
-    data[0].Title = data[0]?.['dbo.B12NewsLanguage']?.[0]?.Title;
-    data[0].Picture = data[0]?.['dbo.B12NewsLanguage']?.[0]?.Picture;
-    data[0].Teaser = data[0]?.['dbo.B12NewsLanguage']?.[0]?.Teaser;
-    data[0].NewsContent = data[0]?.['dbo.B12NewsLanguage']?.[0]?.NewsContent;
     res.push(data[0]);
   }
   return res;

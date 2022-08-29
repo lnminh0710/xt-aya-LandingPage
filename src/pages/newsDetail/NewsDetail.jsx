@@ -164,14 +164,15 @@ const NewsDetail = () => {
                     {!!recentPosts?.length &&
                       recentPosts.map((item, index) => {
                         return (
-                          <>
-                            <div className='col-12 col-sm-6 col-md-4 col-lg-12'>
-                              <RecentNews
-                                key={`recent-${index}`}
-                                dataSource={item}
-                              />
-                            </div>
-                          </>
+                          <div
+                            key={`item-${index}`}
+                            className='col-12 col-sm-6 col-md-4 col-lg-12'
+                          >
+                            <RecentNews
+                              key={`recent-${index}`}
+                              dataSource={item}
+                            />
+                          </div>
                         );
                       })}
                   </div>
