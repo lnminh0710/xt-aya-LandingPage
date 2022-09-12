@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { FILE_ENDPOINT, TALENT_URL } from 'constants/common';
 import { useMemo } from 'react';
 import { useTranslation } from 'next-i18next';
+import { getToken, getUid } from 'utils/localstorage';
 
 const ProfileMenu = ({ logout, userInfo }) => {
   const { t } = useTranslation('common');
@@ -53,8 +54,11 @@ const ProfileMenu = ({ logout, userInfo }) => {
         <ChevronDownIcon />
       </Dropdown.Toggle>
       <Dropdown.Menu className='dropdown-menu-end'>
-        <Dropdown.Item href={TALENT_URL + 'setting'}>
-          <i className='ri-user-line align-middle me-1'></i> {'Profile'}
+        <Dropdown.Item
+          href={`${TALENT_URL}setting?at=${getToken()}&uid=${getUid()}`}
+        >
+          <i className='ri-user-line align-middle me-1'></i>{' '}
+          {' Go to My Aya Talent'}
         </Dropdown.Item>
         <Dropdown.Item className='text-danger' onClick={logout}>
           <i className='ri-shut-down-line align-middle me-1 text-danger'></i>{' '}

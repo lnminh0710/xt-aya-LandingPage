@@ -107,13 +107,7 @@ const HomeTestimonials = () => {
             </div>
           )}
           <div className={clsx(styles.comment__text, {})}>
-            {t(
-              get(
-                data,
-                [currentIndex, 'dbo.B12NewsLanguage', 0, 'NewsContent'],
-                ''
-              )
-            )}
+            {t(get(data, [currentIndex, 'NewsContent'], ''))}
           </div>
           {!loading && !!data.length && (
             <div className={clsx(styles['close-quote'])}>
@@ -133,11 +127,7 @@ const HomeTestimonials = () => {
             ) : (
               <ImageLazyLoad
                 className='rounded-circle'
-                src={get(
-                  data,
-                  [currentIndex, 'dbo.B12NewsLanguage', 0, 'Picture'],
-                  ''
-                )}
+                src={get(data, [currentIndex, 'Picture'], '')}
                 width={72}
                 height={72}
                 alt={get(data, [currentIndex, 'Author'], '')}
