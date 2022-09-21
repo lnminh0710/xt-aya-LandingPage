@@ -31,12 +31,13 @@ const ProfileMenu = ({ logout, userInfo }) => {
       >
         {/* <img className="rounded-circle header-profile-user me-1" src={userInfo?.avatar || defaultAvatar} alt="" /> */}
         <span className='d-xl-inline-block ms-1 text-transform'>
-          {userInfo?.displayName ?? ''}
+          {userInfo?.displayName ??
+            `${userInfo?.firstName} ${userInfo?.lastName}`}
         </span>
         <div
           style={{
             background: `url(${profilePicture}) center no-repeat`,
-            backgroundSize: 'contain',
+            backgroundSize: 'cover',
             height: 48,
             width: 48,
           }}
