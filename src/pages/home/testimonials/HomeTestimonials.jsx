@@ -3,7 +3,7 @@ import { CloseQuoteIcon, OpenQuoteIcon } from 'assets/svg/quote';
 import clsx from 'clsx';
 import { useMatchQuery } from 'components/hook';
 import { ImageLazyLoad } from 'components/own';
-import { API_ENDPOINT } from 'constants/common';
+import { API_ENDPOINT, FILE_ENDPOINT } from 'constants/common';
 import { map } from 'lodash';
 import { get } from 'lodash';
 import { comments } from 'mockups/home';
@@ -43,6 +43,10 @@ const HomeTestimonials = () => {
       });
   }, [locale]);
 
+  console.log(
+    'Author:minh.lam , fi',
+    get(data, [currentIndex, 'Picture'], '').replace(FILE_ENDPOINT, '')
+  );
   return (
     <div className={clsx('container-root', styles.root)}>
       {match && (
@@ -127,7 +131,10 @@ const HomeTestimonials = () => {
             ) : (
               <ImageLazyLoad
                 className='rounded-circle'
-                src={get(data, [currentIndex, 'Picture'], '')}
+                src={get(data, [currentIndex, 'Picture'], '').replace(
+                  FILE_ENDPOINT,
+                  ''
+                )}
                 width={72}
                 height={72}
                 alt={get(data, [currentIndex, 'Author'], '')}
