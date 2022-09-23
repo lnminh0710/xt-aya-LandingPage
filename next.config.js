@@ -13,7 +13,12 @@ const nextConfig = {
     outputStandalone: true,
   },
   images: {
-    domains: ['m.media-amazon.com', 'bilutv.link', 'ayafile.xoontec.vn'],
+    domains: [
+      'm.media-amazon.com',
+      'bilutv.link',
+      'ayafile.xoontec.vn',
+      'ayavncloud.s3.ap-southeast-1.amazonaws.com',
+    ],
     formats: ['image/webp'],
   },
   sassOptions: {
