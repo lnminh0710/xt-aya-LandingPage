@@ -37,6 +37,10 @@ const Content = styled.div`
   grid-column-gap: 134px;
   padding: 62px 216px;
 
+  a {
+    width: 100%;
+  }
+
   @media only screen and (max-width: 1296px) {
     padding: 56px 14px;
   }
