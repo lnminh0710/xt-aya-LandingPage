@@ -141,11 +141,11 @@ const Header = () => {
   }, []);
 
   const getUserProfile = useCallback(() => {
+    initInterval();
     const token = getToken();
     if (token) {
       axios.get('users/profile').then((res) => {
         setUserInfo(res);
-        initInterval();
       });
     } else setUserInfo(null);
   }, [initInterval]);
@@ -212,7 +212,7 @@ const Header = () => {
       router.replace(router.pathname, undefined, { shallow: true });
       getUserProfile();
     }
-  }, [at, getUserProfile, initInterval, router, uid]);
+  }, [at, getUserProfile, router, uid]);
 
   const routerToLogin = useCallback((path) => {
     window.location.href =
