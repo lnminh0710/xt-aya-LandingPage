@@ -181,8 +181,10 @@ const Header = () => {
           setToken(e.data.data.access_token);
           localStorage.setItem(Configuration.LOCAL_STORAGE_LOGGED, 'true');
           initInterval();
+          getUserProfile();
         } else if (e.data?.type === 'update-token') {
           setToken(e.data.data);
+          getUserProfile();
         }
       };
     };
@@ -191,7 +193,7 @@ const Header = () => {
     return () => {
       window.removeEventListener('message', checkToken(), false);
     };
-  }, [initInterval]);
+  }, [getUserProfile, initInterval]);
 
   useEffect(() => {
     getUserProfile();
