@@ -26,10 +26,10 @@ export const setUid = (id) => {
 
 export const getUid = () => {
   if (typeof window !== 'undefined') {
-    return localStorage.getItem(LOCAL_STORAGE_UID);
+    return localStorage.getItem(LOCAL_STORAGE_UID) || '';
   }
 
-  return;
+  return '';
 };
 
 export const removeUid = () => {

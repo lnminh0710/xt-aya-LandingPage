@@ -168,16 +168,17 @@ const Header = () => {
     const checkToken = () => {
       return (e) => {
         if (e.origin !== LOGIN_ENDPOINT) return;
+
         if (e.data?.type === 'logout') {
           setUrlCheckLogin('');
           if (interval) clearInterval(interval);
           removeUid();
           removeToken();
-
+          removeLogged();
           alert('Your recently signed out of Aya account. Click ok to update');
           window.location.reload();
         } else if (e.data?.type === 'login') {
-          setUid(e.data.data.uaid);
+          setUid(e.data.data.uaid || '');
           setToken(e.data.data.access_token);
           localStorage.setItem(Configuration.LOCAL_STORAGE_LOGGED, 'true');
           initInterval();
