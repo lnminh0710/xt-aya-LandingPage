@@ -33,7 +33,7 @@ const Content = styled.div`
   flex: 1;
 
   display: grid;
-  grid-template-columns: 86px 1fr max-content;
+  grid-template-columns: 80px 1fr max-content;
   grid-column-gap: 134px;
   padding: 62px 216px;
 
@@ -47,7 +47,7 @@ const Content = styled.div`
 
   @media only screen and (max-width: 768px) {
     grid-template-columns: 1fr;
-    grid-template-rows: 86px max-content max-content;
+    grid-template-rows: 80px max-content max-content;
     grid-row-gap: 48px;
     padding: 56px 32px;
   }
