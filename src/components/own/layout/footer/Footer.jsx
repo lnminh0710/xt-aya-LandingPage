@@ -38,7 +38,7 @@ const Content = styled.div`
   padding: 62px 216px;
 
   a {
-    width: 100%;
+    width: 80px;
   }
 
   @media only screen and (max-width: 1296px) {
