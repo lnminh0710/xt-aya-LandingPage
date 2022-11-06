@@ -37,10 +37,6 @@ const Content = styled.div`
   grid-column-gap: 134px;
   padding: 62px 216px;
 
-  a {
-    width: 80px;
-  }
-
   @media only screen and (max-width: 1296px) {
     padding: 56px 14px;
   }
@@ -256,7 +252,7 @@ const Footer = () => {
     <Root>
       <Content className='container-root'>
         <Link href={Routes.HOME} passHref>
-          <a className='mx-auto'>
+          <a className='mx-auto' style={{ width: 80 }}>
             <ImageLazyLoad
               src={'/images/logo.webp'}
               alt='logo'
