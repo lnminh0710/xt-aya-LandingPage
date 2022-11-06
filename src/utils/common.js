@@ -14,3 +14,25 @@ export const checkProperties = (prev, next) => {
 
   return true;
 };
+
+export const iOS = () => {
+  if (/iPad|iPhone|iPod/.test(navigator.platform)) {
+    return true;
+  }
+  return (
+    (navigator.maxTouchPoints &&
+      navigator.maxTouchPoints > 2 &&
+      /MacIntel/.test(navigator.platform)) ||
+    [
+      'iPad Simulator',
+      'iPhone Simulator',
+      'iPod Simulator',
+      'iPad',
+      'iPhone',
+      'iPod',
+      'MacIntel',
+    ].includes(navigator.platform) ||
+    // iPad on iOS 13 detection
+    (navigator.userAgent.includes('Mac') && 'ontouchend' in document)
+  );
+};

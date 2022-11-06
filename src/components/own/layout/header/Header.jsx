@@ -27,6 +27,7 @@ import {
 import ProfileMenu from './ProfileMenu';
 import { useCallback } from 'react';
 import { useRef } from 'react';
+import { iOS } from 'utils/common';
 
 const Root = styled.div`
   height: 100px;
@@ -125,8 +126,7 @@ const Header = () => {
     }=${window.location.origin}&${
       Configuration.QUERY_UID
     }=${uid}&logged=${!!logged}`;
-
-    setUrlCheckLogin(loginUrl);
+    if (!iOS()) setUrlCheckLogin(loginUrl);
 
     if (!!access_token) {
       interval = setInterval(() => {
@@ -152,6 +152,13 @@ const Header = () => {
 
   const logout = useCallback(() => {
     if (interval) clearInterval(interval);
+    if (iOS()) {
+      removeLogged();
+      removeUid();
+      window.location.href =
+        environment.loginUrl + '/logout?xreply=' + window.location.href;
+      return;
+    }
     ref.current.contentWindow.postMessage(
       {
         type: 'logout',

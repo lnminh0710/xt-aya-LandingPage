@@ -5,14 +5,14 @@
   @include responsive-size(screen-m) {
     margin-bottom: 32px;
   }
-  @include responsive-size(screen-xxs) {
+  @include responsive-size(screen-xs) {
     min-height: 37px;
   }
   .item {
     min-width: 269px;
     min-height: 73.5px;
     background-color: #fff;
-    @include responsive-size(screen-xxs) {
+    @include responsive-size(screen-xs) {
       min-width: 130px;
       min-height: 37px;
       width: 130px;
