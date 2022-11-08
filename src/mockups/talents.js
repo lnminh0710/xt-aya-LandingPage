@@ -78,14 +78,6 @@ export const talentDataMockup = [
     avatar: '/images/will_removed/Image-2.webp',
   },
   {
-    name: 'Diễm My',
-    gender: 'Female',
-    country: 'Vietnam',
-    rating: 5,
-    follower: 10000000,
-    avatar: '/images/will_removed/Image-3.webp',
-  },
-  {
     name: 'Minh Hằng',
     gender: 'Female',
     country: 'Vietnam',
@@ -117,31 +109,6 @@ export const talentDataMockup = [
     rating: 5,
     follower: 10000000,
     avatar: '/images/will_removed/Image-7.webp',
-  },
-
-  {
-    name: 'Kim Lý',
-    gender: 'Male',
-    country: 'Vietnam',
-    rating: 5,
-    follower: 10000000,
-    avatar: '/images/will_removed/Image-8.webp',
-  },
-  {
-    name: 'Hứa Minh Đạt',
-    gender: 'Male',
-    country: 'Vietnam',
-    rating: 5,
-    follower: 10000000,
-    avatar: '/images/will_removed/Image-9.webp',
-  },
-  {
-    name: 'Nhan Phúc Vinh',
-    gender: 'Male',
-    country: 'Vietnam',
-    rating: 5,
-    follower: 10000000,
-    avatar: '/images/will_removed/Image-10.webp',
   },
   {
     name: 'Tuấn Trần',
