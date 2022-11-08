@@ -55,6 +55,8 @@ const AyaResult = () => {
             </div>
           </Link>
         ))}
+        <div className={styles.space}></div>
+        <div className={styles.space}></div>
       </div>
       <div className={clsx(styles.title, styles['text--center'])}>
         {t('Who uses Aya?')}
