@@ -152,6 +152,7 @@ const Header = () => {
 
   const logout = useCallback(() => {
     if (interval) clearInterval(interval);
+    alert('iOS() :' + iOS());
     if (iOS()) {
       removeLogged();
       removeUid();
