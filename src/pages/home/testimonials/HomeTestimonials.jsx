@@ -43,10 +43,6 @@ const HomeTestimonials = () => {
       });
   }, [locale]);
 
-  console.log(
-    'Author:minh.lam , fi',
-    get(data, [currentIndex, 'Picture'], '').replace(FILE_ENDPOINT, '')
-  );
   return (
     <div className={clsx('container-root', styles.root)}>
       {match && (

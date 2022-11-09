@@ -10,7 +10,9 @@ import { Footer } from './footer';
 
 const Root = styled.div``;
 
-const Content = styled.div``;
+const Content = styled.div`
+  min-height: calc(100vh - 391px - 100px);
+`;
 
 const Layout = ({ children, SEOInfo = {} }) => {
   const location = useRouter();

@@ -28,6 +28,10 @@ import ProfileMenu from './ProfileMenu';
 import { useCallback } from 'react';
 import { useRef } from 'react';
 import { iOS } from 'utils/common';
+import {
+  useActionGetUserInfo,
+  useUserInfo,
+} from 'components/hook/useContextSelector';
 
 const Root = styled.div`
   height: 100px;
@@ -100,9 +104,9 @@ const Item = styled.div`
 var interval;
 const Header = () => {
   const [open, setOpen] = useState(false);
-  const [userInfo, setUserInfo] = useState(null);
   const [urlCheckLogin, setUrlCheckLogin] = useState('');
-
+  const userInfo = useUserInfo();
+  const getUserProfile = useActionGetUserInfo();
   const ref = useRef();
 
   const { t } = useTranslation('common');
@@ -139,16 +143,6 @@ const Header = () => {
       }, 300);
     }
   }, []);
-
-  const getUserProfile = useCallback(() => {
-    initInterval();
-    const token = getToken();
-    if (token) {
-      axios.get('users/profile').then((res) => {
-        setUserInfo(res);
-      });
-    } else setUserInfo(null);
-  }, [initInterval]);
 
   const logout = useCallback(() => {
     if (interval) clearInterval(interval);
@@ -192,10 +186,10 @@ const Header = () => {
           setToken(e.data.data.access_token);
           localStorage.setItem(Configuration.LOCAL_STORAGE_LOGGED, 'true');
           initInterval();
-          getUserProfile();
+          getUserProfile(initInterval);
         } else if (e.data?.type === 'update-token') {
           setToken(e.data.data);
-          getUserProfile();
+          getUserProfile(initInterval);
         }
       };
     };
@@ -207,8 +201,8 @@ const Header = () => {
   }, [getUserProfile, initInterval]);
 
   useEffect(() => {
-    getUserProfile();
-  }, [getUserProfile]);
+    getUserProfile(initInterval);
+  }, [getUserProfile, initInterval]);
 
   useEffect(() => {
     if (open) document.body.style.overflow = 'hidden';
@@ -221,9 +215,9 @@ const Header = () => {
       setUid(uid);
       setLogged();
       router.replace(router.pathname, undefined, { shallow: true });
-      getUserProfile();
+      getUserProfile(initInterval);
     }
-  }, [at, getUserProfile, router, uid]);
+  }, [at, getUserProfile, initInterval, router, uid]);
 
   const routerToLogin = useCallback((path) => {
     window.location.href =

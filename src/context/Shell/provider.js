@@ -1,14 +1,16 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import SSRProvider from 'react-bootstrap/SSRProvider';
+import axios from 'axios';
 
 import { CommonContext } from './context';
 import Gallery from 'components/own/gallery/Gallery';
 import produce from 'immer';
+import { getToken } from 'utils/localstorage';
 
 export const ShellProvider = ({ children }) => {
-  const [{ clientInfo, showGallery, dataGallery, indexGallery }, setState] =
+  const [{ userInfo, showGallery, dataGallery, indexGallery }, setState] =
     useState({
-      clientInfo: null,
+      userInfo: null,
       showGallery: false,
       dataGallery: [],
       indexGallery: 0,
@@ -19,6 +21,25 @@ export const ShellProvider = ({ children }) => {
   const logOut = useCallback(async () => {}, []);
 
   const createAccount = useCallback(async (data) => {}, []);
+  const getUserProfile = useCallback((callback) => {
+    if (callback) callback();
+    const token = getToken();
+    if (token) {
+      axios.get('users/profile').then((res) => {
+        setState(
+          produce((draft) => {
+            draft.userInfo = res;
+          })
+        );
+      });
+    } else {
+      setState(
+        produce((draft) => {
+          draft.userInfo = null;
+        })
+      );
+    }
+  }, []);
 
   const openGallery = useCallback((open, data = [], index = 0) => {
     const header = document.getElementById('header-sticky');
@@ -37,15 +58,20 @@ export const ShellProvider = ({ children }) => {
     );
   }, []);
 
+  useEffect(() => {
+    getUserProfile();
+  }, [getUserProfile]);
+
   const value = useMemo(
     () => ({
-      clientInfo,
+      userInfo,
       logIn,
       logOut,
       createAccount,
       openGallery,
+      getUserProfile,
     }),
-    [clientInfo, createAccount, logIn, logOut, openGallery]
+    [userInfo, logIn, logOut, createAccount, openGallery, getUserProfile]
   );
 
   return (

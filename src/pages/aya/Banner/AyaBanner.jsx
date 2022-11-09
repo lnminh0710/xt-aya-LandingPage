@@ -12,7 +12,7 @@ const Banner = () => {
     <div className={styles.root}>
       <Image
         className={styles.banner__image}
-        src='/images/aya/banner.webp'
+        src='/images/aya/Banner.webp'
         width={match ? 390 : 1728}
         height={300}
         layout='responsive'
