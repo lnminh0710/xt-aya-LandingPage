@@ -152,12 +152,14 @@ const Header = () => {
 
   const logout = useCallback(() => {
     if (interval) clearInterval(interval);
-    alert('iOS() :' + iOS());
     if (iOS()) {
       removeLogged();
       removeUid();
-      window.location.href =
-        LOGIN_ENDPOINT + '/logout?xreply=' + window.location.href;
+      removeToken();
+      setTimeout(() => {
+        window.location.href =
+          LOGIN_ENDPOINT + '/logout?xreply=' + window.location.href;
+      }, 100);
       return;
     }
     ref.current.contentWindow.postMessage(
