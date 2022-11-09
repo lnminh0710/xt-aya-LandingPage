@@ -157,7 +157,7 @@ const Header = () => {
       removeLogged();
       removeUid();
       window.location.href =
-        environment.loginUrl + '/logout?xreply=' + window.location.href;
+        LOGIN_ENDPOINT + '/logout?xreply=' + window.location.href;
       return;
     }
     ref.current.contentWindow.postMessage(
