@@ -18,17 +18,47 @@ import { ImageLazyLoad } from 'components/own';
 import clsx from 'clsx';
 import { useCallback } from 'react';
 import { useUserInfo } from 'components/hook/useContextSelector';
+import axios from 'axios';
+import { API_ENDPOINT } from 'constants/common';
 
 const CastingDetail = () => {
   const router = useRouter();
   const userInfo = useUserInfo();
-  const { locale } = router;
+  const { locale, query } = router;
+
   const { t } = useTranslation('casting');
   const [data, setData] = useState(null);
   const [recentPosts, setRecentPost] = useState([]);
+  const [applyStatus, setApplyStatus] = useState(0);
   const [index, setIndex] = useState(1);
 
-  const applyJob = useCallback(() => {}, []);
+  console.log(
+    `Author:minh.lam , file: CastingDetail.jsx , line 27 , CastingDetail , query`,
+    query,
+    userInfo,
+    data
+  );
+
+  const applyJob = useCallback(() => {
+    axios
+      .post(API_ENDPOINT + 'casting/jobs/apply', {
+        IdNews: data?.IdNews,
+        IdTalent: userInfo?.idTalent,
+      })
+      .then((res) => {
+        console.log(
+          `Author:minh.lam , file: CastingDetail.jsx , line 46 , applyJob , res`,
+          res
+        );
+        if (res.isSuccess) setApplyStatus(1);
+        else setApplyStatus(-1);
+
+        set;
+      })
+      .catch((err) => {
+        setApplyStatus(-1);
+      });
+  }, [data?.IdNews, userInfo?.idTalent]);
 
   useEffect(() => {
     setIndex(1);
@@ -37,30 +67,16 @@ const CastingDetail = () => {
       return;
     }
 
-    function getRecentCastingFunc(idCategory, excludeId) {
-      getRecentCasting(getLanguageKey(locale), idCategory, excludeId).subscribe(
-        (res) => {
-          const data = getArticlesFromResponse(res?.response);
-          if (!data?.length) {
-            return;
-          }
-          setRecentPost(castingList);
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
-    }
-
-    getCastingDetail(getLanguageKey(locale), params.slug).subscribe(
+    getCastingDetail(getLanguageKey(locale), params.slug).then(
       (res) => {
-        const data = getArticlesFromResponse([mockupCasting]);
+        // console.log(
+        //   `Author:minh.lam , file: CastingDetail.jsx , line 49 , useEffect , res`,
+        //   res
+        // );
 
-        setData(data[0]);
+        // const data = getArticlesFromResponse([mockupCasting]);
 
-        const id = data[0].IdCasting;
-        const idCate = data[0].IdRepCastingCategory;
-        getRecentCastingFunc(idCate, id);
+        setData(res[0]);
       },
       (err) => {
         console.log(err);
@@ -108,7 +124,7 @@ const CastingDetail = () => {
               {t('Expires on')}:
             </div>
             <div className={styles['casting-detail__value']}>
-              {get(data, 'ExpireDate', '')}
+              {get(data, 'ExpiresOn', '')}
             </div>
           </div>
         </div>
@@ -118,29 +134,37 @@ const CastingDetail = () => {
               {t('Pay currency')}:
             </div>
             <div className={styles['casting-detail__value']}>
-              {get(data, 'Salary', '')}
+              {get(data, 'PayCurrency', '')}
             </div>
           </div>
         </div>
         <div className={styles.subTitle}>{data.Teaser}</div>
         <div
           className={styles.imgSubject}
-          style={{ backgroundImage: `url(${data.Picture})` }}
+          style={{
+            backgroundImage: `url(${
+              data.Picture || '/images/post-default.webp'
+            })`,
+          }}
         ></div>
         <div className={`row ${styles.content}`}>
-          <div className={`col-12 col-lg-9 ${styles.text}`}>
+          <div className={`col-12 col-lg-12 ${styles.text}`}>
             <div
               dangerouslySetInnerHTML={{
-                __html: data.CastingContent,
+                __html: data.NewsContent,
               }}
             />
-            {!!userInfo && (
+            {!!userInfo && !!userInfo?.idTalent && (
               <div className={styles['apply-button']} onClick={applyJob}>
-                {t('Apply this job')}
+                {!applyStatus
+                  ? t('Apply this job')
+                  : applyStatus === 1
+                  ? t('Applied')
+                  : t('Apply fail')}
               </div>
             )}
           </div>
-          <div className={clsx('col-12 col-lg-3')}>
+          {/* <div className={clsx('col-12 col-lg-3')}>
             <div className={styles['recent-job']}>
               <h4 className={styles.recentTitle}>{t('Recent Jobs')}</h4>
               <div className={`row m-0 `}>
@@ -173,7 +197,7 @@ const CastingDetail = () => {
                 </div>
               )}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
