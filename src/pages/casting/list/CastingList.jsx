@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useUserInfo } from 'components/hook/useContextSelector';
 import { ImageLazyLoad } from 'components/own';
 import { API_ENDPOINT } from 'constants/common';
 import produce from 'immer';
@@ -13,13 +14,14 @@ import { CastingItem } from '../item';
 import styles from './CastingList.module.scss';
 
 const initialState = {
-  list: castingList,
+  list: [],
   recent: castingList,
   loading: false,
 };
 
 const CastingList = () => {
   const [{ list, recent, loading }, setState] = useState(initialState);
+  const userInfo = useUserInfo();
   const router = useRouter();
   const { locale } = router;
 
@@ -33,7 +35,14 @@ const CastingList = () => {
       .then((res) => {
         setState(
           produce((draft) => {
-            draft.list = res;
+            draft.list = Array.isArray(res) ? res : [];
+          })
+        );
+      })
+      .catch((err) => {
+        setState(
+          produce((draft) => {
+            draft.list = [];
           })
         );
       });
@@ -44,7 +53,7 @@ const CastingList = () => {
       <div className={styles['title']}>OPEN CASTING JOBS</div>
       <div className={styles.content}>
         <div className={styles.list}>
-          {list.map((item, i) => (
+          {list?.map((item, i) => (
             <CastingItem key={i} data={item} />
           ))}
         </div>

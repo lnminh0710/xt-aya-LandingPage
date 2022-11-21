@@ -97,7 +97,7 @@ const CompanyCasting = () => {
                 <Image
                   src={_p.Picture}
                   width={match ? 130 : 269}
-                  height={match ? 37 : 73.5}
+                  height={match ? 47 : 73.5}
                   alt={_p.Picture}
                   layout='responsive'
                   objectFit='contain'

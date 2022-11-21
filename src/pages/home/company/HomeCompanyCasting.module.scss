@@ -6,7 +6,8 @@
     margin-bottom: 32px;
   }
   @include responsive-size(screen-xs) {
-    min-height: 37px;
+    min-height: 47px;
+    margin-top: 16px;
   }
   .item {
     min-width: 269px;
@@ -14,9 +15,9 @@
     background-color: #fff;
     @include responsive-size(screen-xs) {
       min-width: 130px;
-      min-height: 37px;
+      min-height: 47px;
       width: 130px;
-      height: 37px;
+      height: 47px;
     }
   }
 }
@@ -31,7 +32,7 @@
     height: 73.5px;
     width: min(100%, 1345px);
     @include responsive-size(screen-xs) {
-      height: 37px;
+      height: 47px;
     }
   }
 }
