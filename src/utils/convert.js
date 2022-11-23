@@ -1,4 +1,5 @@
 export const parseKNumber = (data) => {
+  if (!data) return 0;
   if (typeof data !== 'number') data = parseInt(data);
 
   if (data > 1000000) return '1M+';

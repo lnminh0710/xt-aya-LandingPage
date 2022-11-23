@@ -1,10 +1,13 @@
 import { StarIcon } from 'assets/svg';
+import axios from 'axios';
 import clsx from 'clsx';
 import { ImageLazyLoad } from 'components/own';
-import { TALENT_URL } from 'constants/common';
+import { API_ENDPOINT, TALENT_URL } from 'constants/common';
 import { talentDataMockup } from 'mockups/talents';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { parseKNumber } from 'utils/convert';
 import styles from './AyaResult.module.scss';
 
@@ -20,6 +23,17 @@ const renderStar = (star) => (
 
 const AyaResult = () => {
   const { t } = useTranslation(['aya']);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios(API_ENDPOINT + 'top-8-aya').then((res) => {
+      console.log(
+        `Author:minh.lam , file: AyaResult.jsx , line 33 , axios , res`,
+        res
+      );
+      setData(res);
+    });
+  }, []);
+
   return (
     <>
       <div className={styles.title}>{t('Follow our top AYA patron')}</div>
@@ -29,28 +43,28 @@ const AyaResult = () => {
         })}
       </div>
       <div className={styles.root}>
-        {talentDataMockup.map((data, index) => (
-          <Link key={index} href={TALENT_URL + 'lam-vissay/patron'}>
+        {data.map((item, index) => (
+          <Link key={index} href={TALENT_URL + item.SlugURL + '/patron'}>
             <div className={styles.user}>
               <div className={styles.user__avatar}>
                 <ImageLazyLoad
-                  src={data.avatar}
+                  src={item.ProfilePicture || '/images/post-default.webp'}
                   width={306}
                   height={360}
-                  alt={data.name}
+                  alt={item.DisplayName}
                 />
               </div>
               <div className={styles.user__name}>
-                <span>{data.name}</span>
+                <span>{item.DisplayName}</span>
               </div>
               <div className={styles.user__gender}>
-                {data.gender} • {data.country}
+                {item.DefaultValue} • {item.Ethnic}
               </div>
               <div className={styles.user__star}>
-                {renderStar(data.rating)} {data.rating}/5
+                {renderStar(item.Rating)} {item.Rating || 0}/5
               </div>
               <div className={styles.user__follower}>
-                {parseKNumber(data.follower)} Followers
+                {parseKNumber(item.Follower)} Followers
               </div>
             </div>
           </Link>
