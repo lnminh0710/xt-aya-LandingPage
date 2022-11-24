@@ -28,16 +28,21 @@ const CastingDetail = () => {
 
   const { t } = useTranslation('casting');
   const [data, setData] = useState(null);
-  const [recentPosts, setRecentPost] = useState([]);
-  const [applyStatus, setApplyStatus] = useState(0);
-  const [index, setIndex] = useState(1);
+  // const [recentPosts, setRecentPost] = useState([]);
 
-  console.log(
-    `Author:minh.lam , file: CastingDetail.jsx , line 27 , CastingDetail , query`,
-    query,
-    userInfo,
-    data
-  );
+  const getDetail = useCallback(() => {
+    if (!query?.slug) {
+      return;
+    }
+    getCastingDetail(getLanguageKey(locale), query.slug).then(
+      (res) => {
+        setData(res[0]);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }, [locale, query?.slug]);
 
   const applyJob = useCallback(() => {
     axios
@@ -46,43 +51,16 @@ const CastingDetail = () => {
         IdTalent: userInfo?.idTalent,
       })
       .then((res) => {
-        console.log(
-          `Author:minh.lam , file: CastingDetail.jsx , line 46 , applyJob , res`,
-          res
-        );
-        if (res.isSuccess) setApplyStatus(1);
-        else setApplyStatus(-1);
-
-        set;
+        getDetail();
       })
       .catch((err) => {
         setApplyStatus(-1);
       });
-  }, [data?.IdNews, userInfo?.idTalent]);
+  }, [data?.IdNews, getDetail, userInfo?.idTalent]);
 
   useEffect(() => {
-    setIndex(1);
-    const params = router.query;
-    if (!params?.slug) {
-      return;
-    }
-
-    getCastingDetail(getLanguageKey(locale), params.slug).then(
-      (res) => {
-        // console.log(
-        //   `Author:minh.lam , file: CastingDetail.jsx , line 49 , useEffect , res`,
-        //   res
-        // );
-
-        // const data = getArticlesFromResponse([mockupCasting]);
-
-        setData(res[0]);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }, [index, locale, router.query]);
+    getDetail();
+  }, [getDetail]);
 
   if (!data) return;
 
@@ -155,12 +133,13 @@ const CastingDetail = () => {
               }}
             />
             {!!userInfo && !!userInfo?.idTalent && (
-              <div className={styles['apply-button']} onClick={applyJob}>
-                {!applyStatus
-                  ? t('Apply this job')
-                  : applyStatus === 1
-                  ? t('Applied')
-                  : t('Apply fail')}
+              <div
+                className={clsx(styles['apply-button'], {
+                  [styles['applied']]: data.IsApplied,
+                })}
+                onClick={applyJob}
+              >
+                {!data.IsApplied ? t('Apply this job') : t('Applied')}
               </div>
             )}
           </div>

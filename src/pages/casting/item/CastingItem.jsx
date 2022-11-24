@@ -24,7 +24,7 @@ const CastingItem = ({ data }) => {
       <a className={styles['casting-item']} target='_blank'>
         <div>
           <ImageLazyLoad
-            src={data.Image || '/images/post-default.webp'}
+            src={data.Picture || '/images/post-default.webp'}
             alt={data.Title}
             width={523}
             height={214}

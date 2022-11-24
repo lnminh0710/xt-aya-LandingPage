@@ -58,8 +58,7 @@ const ProfileMenu = ({ logout, userInfo }) => {
         <Dropdown.Item
           href={`${TALENT_URL}setting?at=${getToken()}&uid=${getUid()}`}
         >
-          <i className='ri-user-line align-middle me-1'></i>{' '}
-          {' Go to My Aya Talent'}
+          <i className='ri-user-line align-middle me-1'></i> {t('Go to My AYA')}
         </Dropdown.Item>
         <Dropdown.Item className='text-danger' onClick={logout}>
           <i className='ri-shut-down-line align-middle me-1 text-danger'></i>{' '}

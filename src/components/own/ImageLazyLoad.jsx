@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import { includes } from 'lodash';
 
 const shimmer = (w, h) => `
 <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -52,6 +53,7 @@ const ImageLazyLoad = ({
   width,
   priority,
   loading: imageLoading,
+  srcError = '/images/post-default.webp',
   ...rest
 }) => {
   const [loading, setLoading] = useState(imageLoading);
@@ -83,12 +85,28 @@ const ImageLazyLoad = ({
   const lazyRoot = useRef(null);
   return (
     <div>
-      {src && (
+      {src && (includes(src, 'http') || src?.startsWith('/')) ? (
         <Image
           {...rest}
           loading={loading}
           lazyRoot={lazyRoot}
           src={src}
+          width={width}
+          height={height}
+          layout='responsive'
+          objectFit='cover'
+          alt={alt}
+          blurDataURL={`data:image/svg+xml;base64,${toBase64(
+            shimmer(width, height)
+          )}`}
+          placeholder='blur'
+        />
+      ) : (
+        <Image
+          {...rest}
+          loading={loading}
+          lazyRoot={lazyRoot}
+          src={srcError}
           width={width}
           height={height}
           layout='responsive'

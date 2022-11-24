@@ -201,4 +201,10 @@
 
   margin: 40px auto;
   cursor: pointer;
+
+  &.applied {
+    pointer-events: none;
+    background: #e8e8e8;
+    color: #2c2b34;
+  }
 }

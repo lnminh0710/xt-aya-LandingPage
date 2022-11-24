@@ -15,7 +15,6 @@
 .info {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 4px;
 }
 
 .casting-title {
@@ -32,7 +31,7 @@
 .casting-detail {
   display: grid;
   grid-template-columns: max-content 1fr;
-  grid-gap: 8px;
+  grid-column-gap: 8px;
 
   width: 100%;
   &__label {
