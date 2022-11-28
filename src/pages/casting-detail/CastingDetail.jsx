@@ -2,7 +2,7 @@ import { CalendarIcon, PencilIcon } from 'assets/svg';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { Button, FormControl, InputGroup } from 'react-bootstrap';
+import { Button, FormControl, InputGroup, Modal } from 'react-bootstrap';
 import {
   getCastingDetail,
   getRecentCasting,
@@ -28,6 +28,7 @@ const CastingDetail = () => {
 
   const { t } = useTranslation('casting');
   const [data, setData] = useState(null);
+  const [showConfirm, setShowConfirm] = useState(false);
   // const [recentPosts, setRecentPost] = useState([]);
 
   const getDetail = useCallback(() => {
@@ -51,12 +52,17 @@ const CastingDetail = () => {
         IdTalent: userInfo?.idTalent,
       })
       .then((res) => {
+        setShowConfirm(false);
         getDetail();
       })
       .catch((err) => {
-        setApplyStatus(-1);
+        setShowConfirm(false);
       });
   }, [data?.IdNews, getDetail, userInfo?.idTalent]);
+
+  const handleClose = useCallback(() => {
+    setShowConfirm(false);
+  }, []);
 
   useEffect(() => {
     getDetail();
@@ -137,7 +143,7 @@ const CastingDetail = () => {
                 className={clsx(styles['apply-button'], {
                   [styles['applied']]: data.IsApplied,
                 })}
-                onClick={applyJob}
+                onClick={() => setShowConfirm(true)}
               >
                 {!data.IsApplied ? t('Apply this job') : t('Applied')}
               </div>
@@ -179,6 +185,20 @@ const CastingDetail = () => {
           </div> */}
         </div>
       </div>
+      <Modal show={showConfirm} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirmation</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Do you want to apply this Job?</Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={handleClose}>
+            No
+          </Button>
+          <Button variant='primary' onClick={applyJob}>
+            Yes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };
