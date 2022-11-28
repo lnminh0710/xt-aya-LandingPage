@@ -12,6 +12,7 @@ import styles from './style.module.scss';
 import { getLanguageKey } from 'constants/languages';
 import { getArticlesFromResponse } from 'utils/article.uti';
 import { castingList, mockupCasting } from './mockup';
+import 'react-toastify/dist/ReactToastify.css';
 import { get } from 'lodash';
 import Link from 'next/link';
 import { ImageLazyLoad } from 'components/own';
@@ -20,6 +21,7 @@ import { useCallback } from 'react';
 import { useUserInfo } from 'components/hook/useContextSelector';
 import axios from 'axios';
 import { API_ENDPOINT } from 'constants/common';
+import { ToastContainer, toast } from 'react-toastify';
 
 const CastingDetail = () => {
   const router = useRouter();
@@ -52,6 +54,7 @@ const CastingDetail = () => {
         IdTalent: userInfo?.idTalent,
       })
       .then((res) => {
+        toast.success('Apply successfully');
         setShowConfirm(false);
         getDetail();
       })
@@ -199,6 +202,7 @@ const CastingDetail = () => {
           </Button>
         </Modal.Footer>
       </Modal>
+      <ToastContainer position='bottom-right' />
     </>
   );
 };
