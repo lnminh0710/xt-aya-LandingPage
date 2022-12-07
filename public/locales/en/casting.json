@@ -4,5 +4,12 @@
   "Location": "Location",
   "Expires on": "Expires on",
   "Pay currency": "Pay currency",
-  "Recent Jobs": "Recent Jobs"
+  "Recent Jobs": "Recent Jobs",
+  "Gender": "Gender",
+  "Age": "Age",
+  "from": "from",
+  "to": "to",
+  "Start on": "Start on",
+  "Language": "Language",
+  "Ethnic type": "Ethnic type"
 }

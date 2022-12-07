@@ -1,8 +1,15 @@
 {
   "Category": "Thể loại",
   "Open to": "Mở",
-  "Location": "Vị trí",
+  "Location": "Địa điểm",
   "Expires on": "Ngày hết hạn",
   "Pay currency": "Tiền cát-sê",
-  "Recent Jobs": "Việc làm gần đây"
+  "Recent Jobs": "Việc làm gần đây",
+  "Gender": "Giới tính",
+  "Age": "Độ tuổi",
+  "from": "từ",
+  "to": "đến",
+  "Start on": "Ngày bắt đầu",
+  "Language": "Ngôn ngữ",
+  "Ethnic type": "Dân tộc"
 }

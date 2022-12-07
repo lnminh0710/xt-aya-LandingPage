@@ -18,3 +18,11 @@ export const convertLanguageCode = (locale) => {
       return 1;
   }
 };
+
+export const parseDate = (data) => {
+  if (!data) return '';
+
+  const date = new Date(data);
+
+  return date.toLocaleDateString('en-GB');
+};

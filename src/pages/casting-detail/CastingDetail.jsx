@@ -22,6 +22,7 @@ import { useUserInfo } from 'components/hook/useContextSelector';
 import axios from 'axios';
 import { API_ENDPOINT } from 'constants/common';
 import { ToastContainer, toast } from 'react-toastify';
+import { parseDate } from 'utils/convert';
 
 const CastingDetail = () => {
   const router = useRouter();
@@ -89,10 +90,29 @@ const CastingDetail = () => {
           <div className={styles['casting-line']}></div>
           <div className={styles['casting-detail']}>
             <div className={styles['casting-detail__label']}>
-              {t('Open to')}:
+              {t('Gender')}:
             </div>
             <div className={styles['casting-detail__value']}>
-              {get(data, 'OpenTo', '')}
+              {get(data, 'Gender', '')}
+            </div>
+          </div>
+        </div>
+        <div className={styles.castingRow}>
+          <div className={styles['casting-detail']}>
+            <div className={styles['casting-detail__label']}>
+              {t('Start on')}:
+            </div>
+            <div className={styles['casting-detail__value']}>
+              {parseDate(get(data, 'StartOn', ''))}
+            </div>
+          </div>
+          <div className={styles['casting-line']}></div>
+          <div className={styles['casting-detail']}>
+            <div className={styles['casting-detail__label']}>
+              {t('Expires on')}:
+            </div>
+            <div className={styles['casting-detail__value']}>
+              {parseDate(get(data, 'ExpiresOn', ''))}
             </div>
           </div>
         </div>
@@ -103,25 +123,6 @@ const CastingDetail = () => {
             </div>
             <div className={styles['casting-detail__value']}>
               {get(data, 'Location', '')}
-            </div>
-          </div>
-          <div className={styles['casting-line']}></div>
-          <div className={styles['casting-detail']}>
-            <div className={styles['casting-detail__label']}>
-              {t('Expires on')}:
-            </div>
-            <div className={styles['casting-detail__value']}>
-              {get(data, 'ExpiresOn', '')}
-            </div>
-          </div>
-        </div>
-        <div className={styles.castingRow}>
-          <div className={styles['casting-detail']}>
-            <div className={styles['casting-detail__label']}>
-              {t('Pay currency')}:
-            </div>
-            <div className={styles['casting-detail__value']}>
-              {get(data, 'PayCurrency', '')}
             </div>
           </div>
         </div>
