@@ -90,6 +90,15 @@ const CastingDetail = () => {
           <div className={styles['casting-line']}></div>
           <div className={styles['casting-detail']}>
             <div className={styles['casting-detail__label']}>
+              {t('Location')}:
+            </div>
+            <div className={styles['casting-detail__value']}>
+              {get(data, 'Location', '')}
+            </div>
+          </div>
+          <div className={styles['casting-line']}></div>
+          <div className={styles['casting-detail']}>
+            <div className={styles['casting-detail__label']}>
               {t('Gender')}:
             </div>
             <div className={styles['casting-detail__value']}>
@@ -98,6 +107,17 @@ const CastingDetail = () => {
           </div>
         </div>
         <div className={styles.castingRow}>
+          <div className={styles['casting-detail']}>
+            <div className={styles['casting-detail__label']}>{t('Age')}:</div>
+            <div className={styles['casting-detail__value']}>
+              {`${t('from')} : ${get(data, 'AgeFrom', 0)} ${t('to')} ${get(
+                data,
+                'AgeTo',
+                0
+              )}`}
+            </div>
+          </div>
+          <div className={styles['casting-line']}></div>
           <div className={styles['casting-detail']}>
             <div className={styles['casting-detail__label']}>
               {t('Start on')}:
@@ -119,10 +139,19 @@ const CastingDetail = () => {
         <div className={styles.castingRow}>
           <div className={styles['casting-detail']}>
             <div className={styles['casting-detail__label']}>
-              {t('Location')}:
+              {t('Languages')}:
             </div>
             <div className={styles['casting-detail__value']}>
-              {get(data, 'Location', '')}
+              {get(data, 'Language', '')}
+            </div>
+          </div>
+          <div className={styles['casting-line']}></div>
+          <div className={styles['casting-detail']}>
+            <div className={styles['casting-detail__label']}>
+              {t('Ethnic type')}:
+            </div>
+            <div className={styles['casting-detail__value']}>
+              {get(data, 'EthnicType', '')}
             </div>
           </div>
         </div>
