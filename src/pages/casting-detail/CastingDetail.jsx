@@ -96,7 +96,9 @@ const CastingDetail = () => {
               {get(data, 'Location', '')}
             </div>
           </div>
-          <div className={styles['casting-line']}></div>
+          <div
+            className={clsx(styles['casting-line'], styles['hide-in-mobile'])}
+          ></div>
           <div className={styles['casting-detail']}>
             <div className={styles['casting-detail__label']}>
               {t('Gender')}:
@@ -105,8 +107,9 @@ const CastingDetail = () => {
               {get(data, 'Gender', '')}
             </div>
           </div>
-        </div>
-        <div className={styles.castingRow}>
+          <div
+            className={clsx(styles['casting-line'], styles['show-in-mobile'])}
+          ></div>
           <div className={styles['casting-detail']}>
             <div className={styles['casting-detail__label']}>{t('Age')}:</div>
             <div className={styles['casting-detail__value']}>
@@ -117,7 +120,10 @@ const CastingDetail = () => {
               )}`}
             </div>
           </div>
-          <div className={styles['casting-line']}></div>
+          <div
+            className={clsx(styles['casting-line'], styles['hide-in-mobile'])}
+          ></div>
+
           <div className={styles['casting-detail']}>
             <div className={styles['casting-detail__label']}>
               {t('Start on')}:
@@ -135,8 +141,6 @@ const CastingDetail = () => {
               {parseDate(get(data, 'ExpiresOn', ''))}
             </div>
           </div>
-        </div>
-        <div className={styles.castingRow}>
           <div className={styles['casting-detail']}>
             <div className={styles['casting-detail__label']}>
               {t('Languages')}:

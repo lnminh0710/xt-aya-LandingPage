@@ -122,9 +122,25 @@
 .castingRow {
   display: grid;
   grid-template-columns: max-content max-content max-content max-content max-content;
-  grid-gap: 16px;
+  grid-column-gap: 16px;
+  grid-row-gap: 8px;
+  @media only screen and (max-width: 554px) {
+    grid-template-columns: max-content max-content max-content;
+  }
 }
 
+.hide-in-mobile {
+  @media only screen and (max-width: 554px) {
+    display: none;
+  }
+}
+
+.show-in-mobile {
+  display: none;
+  @media only screen and (max-width: 554px) {
+    display: unset;
+  }
+}
 .casting-detail {
   display: grid;
   grid-template-columns: max-content 1fr;
