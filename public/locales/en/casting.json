@@ -11,5 +11,8 @@
   "to": "to",
   "Start on": "Start on",
   "Language": "Language",
-  "Ethnic type": "Ethnic type"
+  "Ethnic type": "Ethnic type",
+  "Male": "Male",
+  "Female": "Female",
+  "Other": "Other"
 }
