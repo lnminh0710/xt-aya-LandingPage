@@ -135,7 +135,7 @@ const CastingDetail = () => {
           <div className={styles['casting-line']}></div>
           <div className={styles['casting-detail']}>
             <div className={styles['casting-detail__label']}>
-              {t('Expires on')}:
+              {t('Deadline')}:
             </div>
             <div className={styles['casting-detail__value']}>
               {parseDate(get(data, 'ExpiresOn', ''))}

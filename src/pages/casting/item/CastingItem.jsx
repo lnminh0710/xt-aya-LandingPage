@@ -28,7 +28,7 @@ const fields1 = [
 ];
 
 const fields2 = [
-  { title: 'Expires on', field: 'ExpiresOn' },
+  { title: 'Deadline', field: 'ExpiresOn' },
   { title: 'Start on', field: 'JobStartOn' },
 ];
 
@@ -50,7 +50,7 @@ const CastingItem = ({ data }) => {
       href={data.IdNewsCasting ? `/casting/${data.IdNewsCasting}` : '#'}
       passHref
     >
-      <a className={styles['casting-item']} target='_blank'>
+      <a className={styles['casting-item']}>
         <div>
           <ImageLazyLoad
             src={data.Picture || '/images/post-default.webp'}
