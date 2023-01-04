@@ -7,6 +7,14 @@
   grid-gap: 19px;
 
   color: #2c2b34;
+
+  @include responsive-size(screen-l) {
+    grid-template-columns: 400px 1fr;
+  }
+  @include responsive-size(screen-m) {
+    grid-template-columns: 1fr;
+    height: unset;
+  }
   &:hover {
     color: #2c2b34;
   }
@@ -37,6 +45,10 @@
   &__row {
     display: flex;
     grid-gap: 8px;
+
+    @include responsive-size(screen-m) {
+      flex-wrap: wrap;
+    }
   }
 }
 
