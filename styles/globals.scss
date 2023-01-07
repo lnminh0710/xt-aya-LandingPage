@@ -64,6 +64,12 @@ a {
   padding: 12px 24px;
   border: none;
 
+  &.default {
+    color: #2c2b34;
+
+    background: #e0e0e0;
+  }
+
   &.purple {
     color: #ffffff;
     background: #674f82;
@@ -93,7 +99,6 @@ a {
   margin-bottom: 32px;
   .form-control {
     background: #ffffff;
-    border: 1px solid transparent;
     border-radius: 36px;
     position: relative;
     padding: 11px 24px;

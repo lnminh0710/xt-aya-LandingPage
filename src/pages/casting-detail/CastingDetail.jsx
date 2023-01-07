@@ -1,21 +1,12 @@
-import { CalendarIcon, PencilIcon } from 'assets/svg';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { Button, FormControl, InputGroup, Modal } from 'react-bootstrap';
-import {
-  getCastingDetail,
-  getRecentCasting,
-  getOtherCasting,
-} from './services';
+import { Button, Form, Modal } from 'react-bootstrap';
+import { getCastingDetail } from './services';
 import styles from './style.module.scss';
 import { getLanguageKey } from 'constants/languages';
-import { getArticlesFromResponse } from 'utils/article.uti';
-import { castingList, mockupCasting } from './mockup';
 import 'react-toastify/dist/ReactToastify.css';
 import { get } from 'lodash';
-import Link from 'next/link';
-import { ImageLazyLoad } from 'components/own';
 import clsx from 'clsx';
 import { useCallback } from 'react';
 import { useUserInfo } from 'components/hook/useContextSelector';
@@ -23,6 +14,8 @@ import axios from 'axios';
 import { API_ENDPOINT } from 'constants/common';
 import { ToastContainer, toast } from 'react-toastify';
 import { parseDate } from 'utils/convert';
+import InputFormikControl from 'components/own/form-control/InputFormikControl';
+import { FormikContext, useFormik } from 'formik';
 
 const CastingDetail = () => {
   const router = useRouter();
@@ -71,6 +64,27 @@ const CastingDetail = () => {
   useEffect(() => {
     getDetail();
   }, [getDetail]);
+
+  const formik = useFormik({
+    initialValues: { Note: '' },
+    onSubmit: (values, { setStatus, setSubmitting }) => {
+      axios
+        .post(API_ENDPOINT + 'casting/jobs/apply', {
+          IdNews: data?.IdNews,
+          IdTalent: userInfo?.idTalent,
+          Note: values.Note,
+        })
+        .then((res) => {
+          formik.resetForm();
+          toast.success('Apply successfully');
+          setShowConfirm(false);
+          getDetail();
+        })
+        .catch((err) => {
+          setShowConfirm(false);
+        });
+    },
+  });
 
   if (!data) return;
 
@@ -223,18 +237,31 @@ const CastingDetail = () => {
         </div>
       </div>
       <Modal show={showConfirm} onHide={handleClose} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Confirmation</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Do you want to apply this Job?</Modal.Body>
-        <Modal.Footer>
-          <Button variant='secondary' onClick={handleClose}>
-            No
-          </Button>
-          <Button variant='primary' onClick={applyJob}>
-            Yes
-          </Button>
-        </Modal.Footer>
+        <FormikContext.Provider value={formik}>
+          <Modal.Header closeButton>
+            <Modal.Title>Confirmation</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className={styles.confirm_title}>
+              Do you want to apply this Job?
+            </div>
+            <Form className='form-wrapper'>
+              <InputFormikControl
+                formik={formik}
+                controlName='Note'
+                displayName={t('Personal note')}
+              ></InputFormikControl>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button className='btn-aya default' onClick={handleClose}>
+              Cancel
+            </Button>
+            <Button className='btn-aya purple ' onClick={formik.submitForm}>
+              Submit
+            </Button>
+          </Modal.Footer>
+        </FormikContext.Provider>
       </Modal>
       <ToastContainer position='bottom-right' />
     </>
