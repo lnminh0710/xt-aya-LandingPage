@@ -3,8 +3,17 @@
 import Head from 'next/head';
 
 const TITLE = 'AYA VietNam';
+const IMAGE = '/images/logo.webp';
+const DESC =
+  'The Casting and Crowdfunding platform for artists and creators. Connect with your fans and get paid for doing what you love | AyaVn';
 
-const LayoutHead = ({ SEOInfo }) => (
+const LayoutHead = ({
+  SEOInfo = {
+    title: 'Aya VN',
+    image: '/images/logo.webp',
+    desc: 'The Casting and Crowdfunding platform for artists and creators. Connect with your fans and get paid for doing what you love | AyaVn',
+  },
+}) => (
   <Head>
     <title>{SEOInfo?.title || TITLE}</title>
     <meta
@@ -13,22 +22,22 @@ const LayoutHead = ({ SEOInfo }) => (
     />
     <link rel='icon' href='/favicon.ico' />
     <meta name='title' content={SEOInfo?.title || TITLE} />
-    <meta name='description' content={SEOInfo?.desc || ''} />
-    <meta name='image' content={SEOInfo?.image || ''} />
+    <meta name='description' content={SEOInfo?.desc || DESC} />
+    <meta name='image' content={SEOInfo?.image || IMAGE} />
 
     <meta name='og:title' content={SEOInfo?.title || TITLE} />
-    <meta name='og:description' content={SEOInfo?.desc || ''} />
-    <meta name='og:image' content={SEOInfo?.image || ''} />
+    <meta name='og:description' content={SEOInfo?.desc || DESC} />
+    <meta name='og:image' content={SEOInfo?.image || IMAGE} />
 
     <meta itemProp='name' content={SEOInfo?.title || TITLE} />
-    <meta itemProp='description' content={SEOInfo?.desc || ''} />
-    <meta itemProp='image' content={SEOInfo?.image || ''} />
+    <meta itemProp='description' content={SEOInfo?.desc || DESC} />
+    <meta itemProp='image' content={SEOInfo?.image || IMAGE} />
 
     <meta property='og:url' content={SEOInfo.url || ''} />
     <meta property='og:type' content='website' />
     <meta property='og:title' content={SEOInfo?.title || TITLE} />
-    <meta property='og:description' content={SEOInfo?.desc || ''} />
-    <meta property='og:image' content={SEOInfo?.image || ''} />
+    <meta property='og:description' content={SEOInfo?.desc || DESC} />
+    <meta property='og:image' content={SEOInfo?.image || IMAGE} />
   </Head>
 );
 
