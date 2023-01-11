@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { convertLanguageCode } from 'utils/convert';
 import { CastingItem } from '../item';
+import { getArticlesFromResponse } from 'utils/article.uti';
 
 import styles from './CastingList.module.scss';
 
@@ -35,7 +36,7 @@ const CastingList = () => {
       .then((res) => {
         setState(
           produce((draft) => {
-            draft.list = Array.isArray(res) ? res : [];
+            draft.list = Array.isArray(res) ? getArticlesFromResponse(res) : [];
           })
         );
       })

@@ -16,6 +16,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { parseDate } from 'utils/convert';
 import InputFormikControl from 'components/own/form-control/InputFormikControl';
 import { FormikContext, useFormik } from 'formik';
+import { getArticlesFromResponse } from 'utils/article.uti';
 
 const CastingDetail = () => {
   const router = useRouter();
@@ -33,7 +34,7 @@ const CastingDetail = () => {
     }
     getCastingDetail(getLanguageKey(locale), query.slug).then(
       (res) => {
-        setData(res[0]);
+        setData(getArticlesFromResponse(res)[0]);
       },
       (err) => {
         console.log(err);
