@@ -41,7 +41,7 @@ const PackagePrice = ({ title, packageList }) => {
                 );
               })}
           </div>
-          {packageList?.length &&
+          {!!packageList?.length &&
             packageList.map((packageItem, indexPackgage) => {
               return (
                 <div
@@ -63,7 +63,7 @@ const PackagePrice = ({ title, packageList }) => {
                       </a>
                     </Link>
                   </div>
-                  {packageItem?.data?.length &&
+                  {!!packageItem?.data?.length &&
                     packageItem.data.map((detailItem, indexDetail) => {
                       return (
                         <div

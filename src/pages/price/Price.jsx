@@ -6,6 +6,7 @@ import styles from './style.module.scss';
 import { getConfigs } from './services';
 import { LanguageConstant, getLanguageKey } from 'constants/languages';
 import { ConfigsConstant } from 'constants/configs';
+import { TALENT_URL } from 'constants/common';
 
 const Price = () => {
   const router = useRouter();
@@ -258,7 +259,7 @@ const Price = () => {
         console.log(err);
       }
     );
-  }, []);
+  }, [locale, t]);
   return (
     <div className='custom-container'>
       <h1 className={`header-title ${styles.customHeader}`}>{t('title')}</h1>
