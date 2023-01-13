@@ -77,7 +77,9 @@ const CastingDetail = () => {
         })
         .then((res) => {
           formik.resetForm();
-          toast.success('Apply successfully');
+          toast.success(
+            'Apply successfully. Confirmation has been sent to your email.'
+          );
           setShowConfirm(false);
           getDetail();
         })
