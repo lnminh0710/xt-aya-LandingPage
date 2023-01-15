@@ -31,6 +31,7 @@ const Item = styled.div`
   align-items: center;
   /* border-bottom: 2px solid; */
   box-shadow: ${({ active }) => (active ? 'inset 0px -3px 0px #9454fc' : '')};
+  height: 40px;
   a:hover {
     color: #2c2b34;
   }
