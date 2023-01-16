@@ -10,7 +10,7 @@ const DESC =
 const LayoutHead = ({
   SEOInfo = {
     title: 'Aya VN',
-    image: '/images/logo.webp',
+    image: 'https://ayavn.com/images/logo.webp',
     desc: 'The Casting and Crowdfunding platform for artists and creators. Connect with your fans and get paid for doing what you love | AyaVn',
   },
 }) => (
