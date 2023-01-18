@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 import { getCastingDetail } from './services';
 import styles from './style.module.scss';
@@ -17,6 +17,7 @@ import { parseDate } from 'utils/convert';
 import InputFormikControl from 'components/own/form-control/InputFormikControl';
 import { FormikContext, useFormik } from 'formik';
 import { getArticlesFromResponse } from 'utils/article.uti';
+import { GenderOptions } from 'pages/casting/item/CastingItem';
 
 const CastingDetail = ({ data: d }) => {
   const router = useRouter();
@@ -27,6 +28,13 @@ const CastingDetail = ({ data: d }) => {
   const [data, setData] = useState(d);
   const [showConfirm, setShowConfirm] = useState(false);
   // const [recentPosts, setRecentPost] = useState([]);
+  const gender = useMemo(() => {
+    const value = data?.Gender;
+    if (!value) return [];
+    value = value.split(',');
+
+    return GenderOptions.filter((_opt) => value.indexOf(_opt.value) > -1);
+  }, [data?.Gender]);
 
   const getDetail = useCallback(() => {
     if (!query?.slug) {
@@ -117,7 +125,9 @@ const CastingDetail = ({ data: d }) => {
               {t('Gender')}:
             </div>
             <div className={styles['casting-detail__value']}>
-              {get(data, 'Gender', '')}
+              {gender.map((_g, i) =>
+                i != 0 ? ', ' + t(_g.label) : t(_g.label)
+              )}
             </div>
           </div>
           <div

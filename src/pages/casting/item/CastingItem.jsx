@@ -7,7 +7,7 @@ import { get } from 'lodash';
 import styles from './CastingItem.module.scss';
 import { parseDate } from 'utils/convert';
 import { useMemo } from 'react';
-const GenderOptions = [
+export const GenderOptions = [
   {
     label: 'Male',
     value: '0',
