@@ -2,8 +2,8 @@
 /* eslint-disable @next/next/no-css-tags */
 import Head from 'next/head';
 
-const TITLE = 'AYA VietNam';
-const IMAGE = '/images/logo.webp';
+const TITLE = 'AYA VN';
+const IMAGE = 'https://ayavn.com/images/logo.webp';
 const DESC =
   'The Casting and Crowdfunding platform for artists and creators. Connect with your fans and get paid for doing what you love | AyaVn';
 
@@ -25,13 +25,7 @@ const LayoutHead = ({
     <meta name='description' content={SEOInfo?.desc || DESC} />
     <meta name='image' content={SEOInfo?.image || IMAGE} />
 
-    <meta name='og:title' content={SEOInfo?.title || TITLE} />
-    <meta name='og:description' content={SEOInfo?.desc || DESC} />
-    <meta name='og:image' content={SEOInfo?.image || IMAGE} />
-
     <meta itemProp='name' content={SEOInfo?.title || TITLE} />
-    <meta itemProp='description' content={SEOInfo?.desc || DESC} />
-    <meta itemProp='image' content={SEOInfo?.image || IMAGE} />
 
     <meta property='og:url' content={SEOInfo.url || ''} />
     <meta property='og:type' content='website' />

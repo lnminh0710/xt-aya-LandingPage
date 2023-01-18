@@ -18,13 +18,13 @@ import InputFormikControl from 'components/own/form-control/InputFormikControl';
 import { FormikContext, useFormik } from 'formik';
 import { getArticlesFromResponse } from 'utils/article.uti';
 
-const CastingDetail = () => {
+const CastingDetail = ({ data: d }) => {
   const router = useRouter();
   const userInfo = useUserInfo();
   const { locale, query } = router;
 
   const { t } = useTranslation('casting');
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(d);
   const [showConfirm, setShowConfirm] = useState(false);
   // const [recentPosts, setRecentPost] = useState([]);
 
@@ -61,10 +61,6 @@ const CastingDetail = () => {
   const handleClose = useCallback(() => {
     setShowConfirm(false);
   }, []);
-
-  useEffect(() => {
-    getDetail();
-  }, [getDetail]);
 
   const formik = useFormik({
     initialValues: { Note: '' },

@@ -9,8 +9,9 @@ import { getNewsDetail, getRecentNews, getOtherNews } from './services';
 import styles from './style.module.scss';
 import { getLanguageKey } from 'constants/languages';
 import { getArticlesFromResponse } from 'utils/article.uti';
+import { useCallback } from 'react';
 
-const NewsDetail = () => {
+const NewsDetail = ({ data: d }) => {
   const router = useRouter();
   const { locale, locales, defaultLocale } = router;
   const { t } = useTranslation(['common', 'news']);
@@ -29,78 +30,68 @@ const NewsDetail = () => {
   const [idNews, setIdNews] = useState('');
   const [idCategory, setIdCategory] = useState('');
   const [showBtnLoadMore, setShowBtnLoadMore] = useState(true);
+  const getRecentNewsFunc = useCallback(
+    (idCategory, excludeId) => {
+      getRecentNews(getLanguageKey(locale), idCategory, excludeId).subscribe(
+        (res) => {
+          const data = getArticlesFromResponse(res?.response);
+          if (!data?.length) {
+            return;
+          }
+          setRecentPost(data);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    },
+    [locale]
+  );
+  const getOtherNewsFunc = useCallback(
+    (idRepNewCategory, excludeId, nextIndex) => {
+      getOtherNews(
+        idRepNewCategory,
+        getLanguageKey(locale),
+        excludeId,
+        nextIndex,
+        3
+      ).subscribe(
+        (res) => {
+          const data = getArticlesFromResponse(res?.response);
+          if (!data?.length) {
+            setShowBtnLoadMore(false);
+            return;
+          }
+
+          if (nextIndex === 1) {
+            setOtherNews(data);
+            return;
+          }
+          const tempData = [...otherNews];
+          tempData.push(...data);
+          setOtherNews(tempData);
+          if (data?.length < 3) setShowBtnLoadMore(false);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    },
+    [locale, otherNews]
+  );
 
   useEffect(() => {
     setIndex(1);
-    const params = router.query;
-    if (!params?.slugDetail) {
-      return;
-    }
+    setData(d);
 
-    getNewsDetail(getLanguageKey(locale), params.slugDetail).subscribe(
-      (res) => {
-        const data = getArticlesFromResponse(res?.response);
-        if (!data?.length) {
-          return;
-        }
-        setData(data[0]);
+    const id = d?.IdNews;
+    const idCate = d?.IdRepNewsCategory;
+    setIdNews(id);
+    setIdCategory(idCate);
+    getRecentNewsFunc(idCate, id);
+    getOtherNewsFunc(idCate, id, index);
+  }, [d, getOtherNewsFunc, getRecentNewsFunc, index]);
 
-        const id = data[0].IdNews;
-        const idCate = data[0].IdRepNewsCategory;
-        setIdNews(id);
-        setIdCategory(idCate);
-        getRecentNewsFunc(idCate, id);
-        getOtherNewsFunc(idCate, id, index);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }, [router.query]);
-
-  function getRecentNewsFunc(idCategory, excludeId) {
-    getRecentNews(getLanguageKey(locale), idCategory, excludeId).subscribe(
-      (res) => {
-        const data = getArticlesFromResponse(res?.response);
-        if (!data?.length) {
-          return;
-        }
-        setRecentPost(data);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }
-  function getOtherNewsFunc(idRepNewCategory, excludeId, nextIndex) {
-    getOtherNews(
-      idRepNewCategory,
-      getLanguageKey(locale),
-      excludeId,
-      nextIndex,
-      3
-    ).subscribe(
-      (res) => {
-        const data = getArticlesFromResponse(res?.response);
-        if (!data?.length) {
-          setShowBtnLoadMore(false);
-          return;
-        }
-
-        if (nextIndex === 1) {
-          setOtherNews(data);
-          return;
-        }
-        const tempData = [...otherNews];
-        tempData.push(...data);
-        setOtherNews(tempData);
-        if (data?.length < 3) setShowBtnLoadMore(false);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }
   function loadMoreNews() {
     const indexTemp = index + 1;
     setIndex(indexTemp);
