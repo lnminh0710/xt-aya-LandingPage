@@ -78,6 +78,10 @@ const CastingDetail = ({ data: d }) => {
           IdNews: data?.IdNews,
           IdTalent: userInfo?.idTalent,
           Note: values.Note,
+          Job: data.Title,
+          TalentName:
+            userInfo?.displayName ||
+            `${userInfo?.firstName} ${userInfo?.lastName}`,
         })
         .then((res) => {
           formik.resetForm();
