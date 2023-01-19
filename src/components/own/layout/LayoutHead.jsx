@@ -4,14 +4,13 @@ import Head from 'next/head';
 
 const TITLE = 'AYA VN';
 const IMAGE = 'https://ayavn.com/images/logo.webp';
-const DESC =
-  'The Casting and Crowdfunding platform for artists and creators. Connect with your fans and get paid for doing what you love | AyaVn';
+const DESC = 'AyaVn | Creativity powered by community';
 
 const LayoutHead = ({
   SEOInfo = {
     title: 'Aya VN',
     image: 'https://ayavn.com/images/logo.webp',
-    desc: 'The Casting and Crowdfunding platform for artists and creators. Connect with your fans and get paid for doing what you love | AyaVn',
+    desc: 'AyaVn | Creativity powered by community',
   },
 }) => (
   <Head>
@@ -27,7 +26,7 @@ const LayoutHead = ({
 
     <meta itemProp='name' content={SEOInfo?.title || TITLE} />
 
-    <meta property='og:url' content={SEOInfo.url || ''} />
+    <meta property='og:url' content={SEOInfo?.url || ''} />
     <meta property='og:type' content='website' />
     <meta property='og:title' content={SEOInfo?.title || TITLE} />
     <meta property='og:description' content={SEOInfo?.desc || DESC} />
