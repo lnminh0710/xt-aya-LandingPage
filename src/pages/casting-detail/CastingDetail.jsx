@@ -256,7 +256,7 @@ const CastingDetail = ({ data: d }) => {
           </Modal.Header>
           <Modal.Body>
             <div className={styles.confirm_title}>
-              Do you want to apply this Job?
+              {t('Do you want to apply for this Job?')}
             </div>
             <Form className='form-wrapper'>
               <InputFormikControl
@@ -268,10 +268,10 @@ const CastingDetail = ({ data: d }) => {
           </Modal.Body>
           <Modal.Footer>
             <Button className='btn-aya default' onClick={handleClose}>
-              Cancel
+              {t('Cancel')}
             </Button>
             <Button className='btn-aya purple ' onClick={formik.submitForm}>
-              Submit
+              {t('Submit')}
             </Button>
           </Modal.Footer>
         </FormikContext.Provider>

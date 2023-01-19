@@ -15,5 +15,10 @@
   "Male": "Nam",
   "Female": "Nữ",
   "Other": "Khác",
-  "Personal note": "Ghi chú"
+  "Personal note": "Ghi chú",
+  "Apply this job": "Nộp đơn",
+  "Applied": "Đã nộp",
+  "Do you want to apply for this Job": "Bạn có muốn nộp đơn cho công việc này",
+  "Cancel": "Huỷ",
+  "Submit": "Nộp đơn"
 }
