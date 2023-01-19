@@ -29,7 +29,7 @@ const CastingDetail = ({ data: d }) => {
   const [showConfirm, setShowConfirm] = useState(false);
   // const [recentPosts, setRecentPost] = useState([]);
   const gender = useMemo(() => {
-    const value = data?.Gender;
+    let value = data?.Gender;
     if (!value) return [];
     value = value.split(',');
 

@@ -39,7 +39,7 @@ const fields3 = [
 const CastingItem = ({ data }) => {
   const { t } = useTranslation(['casting']);
   const gender = useMemo(() => {
-    const value = data?.Gender;
+    let value = data?.Gender;
     if (!value) return [];
     value = value.split(',');
 
