@@ -24,7 +24,8 @@ const CastingDetail = ({ data: d }) => {
   const userInfo = useUserInfo();
   const { locale, query } = router;
 
-  const { t } = useTranslation('casting');
+  const { t, i18n } = useTranslation('casting');
+
   const [data, setData] = useState(d);
   const [showConfirm, setShowConfirm] = useState(false);
   // const [recentPosts, setRecentPost] = useState([]);
@@ -50,22 +51,6 @@ const CastingDetail = ({ data: d }) => {
     );
   }, [locale, query?.slug]);
 
-  const applyJob = useCallback(() => {
-    axios
-      .post(API_ENDPOINT + 'casting/jobs/apply', {
-        IdNews: data?.IdNews,
-        IdTalent: userInfo?.idTalent,
-      })
-      .then((res) => {
-        toast.success('Apply successfully');
-        setShowConfirm(false);
-        getDetail();
-      })
-      .catch((err) => {
-        setShowConfirm(false);
-      });
-  }, [data?.IdNews, getDetail, userInfo?.idTalent]);
-
   const handleClose = useCallback(() => {
     setShowConfirm(false);
   }, []);
@@ -86,7 +71,14 @@ const CastingDetail = ({ data: d }) => {
         .then((res) => {
           formik.resetForm();
           toast.success(
-            'Apply successfully. Confirmation has been sent to your email.'
+            get(
+              i18n.getDataByLanguage(locale),
+              [
+                'casting',
+                'Applied successfully. Confirmation has been sent to your email.',
+              ],
+              'Applied successfully. Confirmation has been sent to your email.'
+            )
           );
           setShowConfirm(false);
           getDetail();
