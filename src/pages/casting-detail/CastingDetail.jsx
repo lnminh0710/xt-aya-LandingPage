@@ -252,11 +252,11 @@ const CastingDetail = ({ data: d }) => {
       <Modal show={showConfirm} onHide={handleClose} centered>
         <FormikContext.Provider value={formik}>
           <Modal.Header closeButton>
-            <Modal.Title>Confirmation</Modal.Title>
+            <Modal.Title>{t('Confirmation')}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className={styles.confirm_title}>
-              {t('Do you want to apply for this Job?')}
+              {t('Do you want to apply for this Job')}?
             </div>
             <Form className='form-wrapper'>
               <InputFormikControl

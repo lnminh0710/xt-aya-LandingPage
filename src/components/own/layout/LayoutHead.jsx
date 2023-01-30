@@ -2,15 +2,15 @@
 /* eslint-disable @next/next/no-css-tags */
 import Head from 'next/head';
 
-const TITLE = 'AYA VN';
+const TITLE = 'AyaVn | Creativity powered by community';
 const IMAGE = 'https://ayavn.com/images/logo.webp';
-const DESC = 'AyaVn | Creativity powered by community';
+const DESC = '';
 
 const LayoutHead = ({
   SEOInfo = {
-    title: 'Aya VN',
+    title: 'AyaVn | Creativity powered by community',
     image: 'https://ayavn.com/images/logo.webp',
-    desc: 'AyaVn | Creativity powered by community',
+    desc: '',
   },
 }) => (
   <Head>

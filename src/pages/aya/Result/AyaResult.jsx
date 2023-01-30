@@ -57,9 +57,7 @@ const AyaResult = () => {
               <div className={styles.user__name}>
                 <span>{item.DisplayName}</span>
               </div>
-              <div className={styles.user__gender}>
-                {item.DefaultValue} • {item.Ethnic}
-              </div>
+              <div className={styles.user__gender}>{item.JobPosition}</div>
               <div className={styles.user__star}>
                 {renderStar(item.Rating)} {item.Rating || 0}/5
               </div>
