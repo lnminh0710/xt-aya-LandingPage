@@ -3,16 +3,16 @@
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 
-const TITLE = 'AyaVn | Creativity powered by community';
+const TITLE = 'AyaVn | Sáng tạo được cung cấp bởi cộng đồng';
 const IMAGE = 'https://ayavn.com/images/logo.webp';
 const DESC =
-  'The Casting and Crowdfunding platform for artists and creators. Connect with your fans and get paid for doing what you love | AyaVn';
+  'Nền tảng Casting và Crowdfunding dành cho các nghệ sĩ và người sáng tạo. Kết nối với người hâm mộ của bạn và được trả tiền khi làm những gì bạn yêu thích | AyaVn';
 
 const LayoutHead = ({
   SEOInfo = {
-    title: 'AyaVn | Creativity powered by community',
+    title: 'AyaVn | Sáng tạo được cung cấp bởi cộng đồng',
     image: 'https://ayavn.com/images/logo.webp',
-    desc: 'The Casting and Crowdfunding platform for artists and creators. Connect with your fans and get paid for doing what you love | AyaVn',
+    desc: 'Nền tảng Casting và Crowdfunding dành cho các nghệ sĩ và người sáng tạo. Kết nối với người hâm mộ của bạn và được trả tiền khi làm những gì bạn yêu thích | AyaVn',
   },
 }) => {
   const { t } = useTranslation('common');
