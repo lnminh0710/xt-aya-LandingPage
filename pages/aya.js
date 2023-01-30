@@ -6,7 +6,6 @@ const AyaPage = () => <Aya />;
 export const getStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale, ['common', 'aya'])),
-    SEOInfo: { title: 'Aya VN', desc: 'terms' },
   },
 });
 

@@ -6,7 +6,6 @@ const PrivacyPage = () => <Privacy />;
 export const getStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale, ['common', 'privacy'])),
-    SEOInfo: { title: 'Aya VN', desc: 'privacy' },
   },
 });
 

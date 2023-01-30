@@ -6,7 +6,7 @@ const CastingPage = () => <Casting />;
 export const getStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale, ['common', 'casting'])),
-    SEOInfo: { title: 'Aya VN - Casting', desc: 'Casting' },
+    SEOInfo: { title: 'AyaVn | Casting' },
   },
 });
 

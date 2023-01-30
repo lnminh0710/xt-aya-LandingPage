@@ -24,7 +24,7 @@ export async function getServerSideProps({ locale, params, res }) {
         ...response,
         data: data,
         SEOInfo: {
-          title: 'Aya VN - ' + data?.Title,
+          title: 'AyaVn | ' + data?.Title,
           desc: data?.Teaser,
           image: data?.Picture,
         },

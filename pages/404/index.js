@@ -6,7 +6,7 @@ const NotFoundPage = () => <NotFound />;
 export const getStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale, ['common'])),
-    SEOInfo: { title: 'Aya VN - 404', desc: 'Talent AYA' },
+    SEOInfo: { title: 'AyaVn | 404', desc: 'Talent AYA' },
   },
 });
 

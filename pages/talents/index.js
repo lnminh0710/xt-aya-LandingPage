@@ -6,7 +6,7 @@ const TalentsPage = () => <Talents />;
 export const getStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale, ['common', 'talent'])),
-    SEOInfo: { title: 'Aya VN - Talent', desc: 'Talent AYA' },
+    SEOInfo: { title: 'AyaVn | Talent', desc: 'Talent AYA' },
   },
 });
 

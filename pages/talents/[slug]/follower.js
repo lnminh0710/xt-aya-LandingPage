@@ -13,7 +13,7 @@ export async function getServerSideProps({ locale, params, res }) {
       props: {
         ...response,
         data,
-        SEOInfo: { title: 'Aya VN - ' + data.name, desc: data.about || '' },
+        SEOInfo: { title: 'AyaVn | ' + data.name, desc: data.about || '' },
       },
     };
   } catch (error) {

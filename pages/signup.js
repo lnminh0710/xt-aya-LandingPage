@@ -6,7 +6,6 @@ const SignUpPage = () => <SignUp />;
 export const getStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale, ['common', 'signup', 'fields'])),
-    SEOInfo: { title: 'Aya VN', desc: 'Sign Up' },
   },
 });
 

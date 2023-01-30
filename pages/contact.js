@@ -6,7 +6,6 @@ const ContactPage = () => <Contact />;
 export const getStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale, ['common', 'contact', 'fields'])),
-    SEOInfo: { title: 'Aya VN', desc: 'terms' },
   },
 });
 

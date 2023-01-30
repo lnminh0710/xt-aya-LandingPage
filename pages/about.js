@@ -6,7 +6,6 @@ const AboutPage = () => <AboutUs />;
 export const getStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale, ['common', 'aboutus'])),
-    SEOInfo: { title: 'Aya VN', desc: 'About Us' },
   },
 });
 
