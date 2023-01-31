@@ -6,17 +6,20 @@ const AboutUs = () => {
   return (
     <div className={`custom-container ${styles.aboutusWrapper}`}>
       <h1 className={`header-title ${styles.title}`}>{t('title')}</h1>
-      <p className={styles.text}>{t('text_1')}</p>
-      <div
+      <p
+        className={styles.text}
+        dangerouslySetInnerHTML={{ __html: t('text_1') }}
+      ></p>
+      {/* <div
         className={styles.bgImg}
         style={{ backgroundImage: `url(/images/aboutus/aboutus_1.png)` }}
-      ></div>
+      ></div> */}
       <p className={styles.text}>{t('text_2')}</p>
       <p className={styles.text}>{t('text_3')}</p>
-      <div
+      {/* <div
         className={styles.bgImg}
         style={{ backgroundImage: `url(/images/aboutus/aboutus_2.png)` }}
-      ></div>
+      ></div> */}
     </div>
   );
 };

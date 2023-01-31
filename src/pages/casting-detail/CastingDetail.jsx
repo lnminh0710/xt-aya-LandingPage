@@ -201,7 +201,7 @@ const CastingDetail = ({ data: d }) => {
                 })}
                 onClick={() => setShowConfirm(true)}
               >
-                {!data.IsApplied ? t('Apply this job') : t('Applied')}
+                {!data.IsApplied ? t('Apply for this job') : t('Applied')}
               </div>
             )}
           </div>
@@ -234,7 +234,7 @@ const CastingDetail = ({ data: d }) => {
               </div>
               {!!userInfo && (
                 <div className={styles['apply-button']} onClick={applyJob}>
-                  {t('Apply this job')}
+                  {t('Apply for this job')}
                 </div>
               )}
             </div>
@@ -248,7 +248,7 @@ const CastingDetail = ({ data: d }) => {
           </Modal.Header>
           <Modal.Body>
             <div className={styles.confirm_title}>
-              {t('Do you want to apply for this Job')}?
+              {t('Do you want to send a note for this Job')}?
             </div>
             <Form className='form-wrapper'>
               <InputFormikControl

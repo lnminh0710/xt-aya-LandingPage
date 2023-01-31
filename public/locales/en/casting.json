@@ -11,12 +11,14 @@
   "to": "to",
   "Start on": "Job time",
   "Language": "Language",
+  "Languages": "Languages",
   "Ethnic type": "Ethnic type",
   "Male": "Male",
   "Female": "Female",
   "Other": "Other",
+  "Apply for this job": "Apply for this job",
   "Personal note": "Personal note",
-  "Do you want to apply for this Job": "Do you want to apply for this Job",
+  "Do you want to send a note for this Job": "Do you want to send a note for this Job",
   "Confirmation": "Confirmation",
   "Applied successfully. Confirmation has been sent to your email.": "Applied successfully. Confirmation has been sent to your email."
 }

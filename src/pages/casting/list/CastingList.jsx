@@ -51,7 +51,7 @@ const CastingList = () => {
 
   return (
     <div className={styles.root}>
-      <div className={styles['title']}>OPEN CASTING JOBS</div>
+      <div className={styles['title']}>CASTING</div>
       <div className={styles.content}>
         <div className={styles.list}>
           {list?.map((item, i) => (

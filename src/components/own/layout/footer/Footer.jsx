@@ -1,14 +1,11 @@
 import { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 import {
   FooterFacebookIcon,
-  FooterGooglePlusIcon,
   FooterLocationIcon,
   FooterMailIcon,
   FooterPhoneIcon,
-  FooterTwisterIcon,
 } from 'assets/svg';
 import { useTranslation } from 'next-i18next';
 import Language from './Language';
@@ -294,14 +291,14 @@ const Footer = () => {
           <a href={info.fb} target='_blank' rel='noreferrer'>
             <FooterFacebookIcon />
           </a>
-          <a href={info.twt} target='_blank' rel='noreferrer'>
+          {/* <a href={info.twt} target='_blank' rel='noreferrer'>
             <FooterTwisterIcon />
           </a>
           <a href={info.gg} target='_blank' rel='noreferrer'>
             <FooterGooglePlusIcon />
-          </a>
+          </a> */}
         </div>
-        <ActionSubTitle>AyaVn.com All Rights are Reserved</ActionSubTitle>
+        <ActionSubTitle>AyaVn.com - All Rights Reserved</ActionSubTitle>
         {!match && <Language />}
       </Actions>
     </Root>

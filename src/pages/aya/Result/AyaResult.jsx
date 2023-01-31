@@ -36,7 +36,9 @@ const AyaResult = () => {
 
   return (
     <>
-      <div className={styles.title}>{t('Follow our top AYA patron')}</div>
+      <div className={styles.title}>
+        {t('Follow our top AYA-patron creator')}
+      </div>
       <div className={styles.description}>
         {t('and find out thousands of patrons that you will be love', {
           ns: 'aya',

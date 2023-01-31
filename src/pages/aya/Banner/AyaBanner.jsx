@@ -26,9 +26,7 @@ const Banner = () => {
       />
 
       <div className={styles.content}>
-        <div className={styles.title}>
-          {t('Find your AYA patron you already love!')}
-        </div>
+        <div className={styles.title}>{t('Find your AYA-patron creator')}</div>
         <div className={styles['search-box']}>
           <MagnifyingIcon />
           <input
