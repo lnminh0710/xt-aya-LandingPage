@@ -4,14 +4,14 @@ import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 
 const TITLE = 'AyaVn | Sáng tạo được cung cấp bởi cộng đồng';
-const IMAGE = 'https://ayavn.com/images/logo.webp';
+const IMAGE = 'https://ayavn.com/images/meta-image.webp';
 const DESC =
   'Nền tảng Casting và Crowdfunding dành cho các nghệ sĩ và người sáng tạo. Kết nối với người hâm mộ của bạn và được trả tiền khi làm những gì bạn yêu thích | AyaVn';
 
 const LayoutHead = ({
   SEOInfo = {
     title: 'AyaVn | Sáng tạo được cung cấp bởi cộng đồng',
-    image: 'https://ayavn.com/images/logo.webp',
+    image: 'https://ayavn.com/images/meta-image.webp',
     desc: 'Nền tảng Casting và Crowdfunding dành cho các nghệ sĩ và người sáng tạo. Kết nối với người hâm mộ của bạn và được trả tiền khi làm những gì bạn yêu thích | AyaVn',
   },
 }) => {
