@@ -6,7 +6,6 @@ import { ImageLazyLoad } from 'components/own';
 import { API_ENDPOINT, FILE_ENDPOINT } from 'constants/common';
 import { map } from 'lodash';
 import { get } from 'lodash';
-import { comments } from 'mockups/home';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -39,7 +38,7 @@ const HomeTestimonials = () => {
         });
       })
       .catch(() => {
-        setState({ data: comments, loading: false });
+        setState({ data: [], loading: false });
       });
   }, [locale]);
 
