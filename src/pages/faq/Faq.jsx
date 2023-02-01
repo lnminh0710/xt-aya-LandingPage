@@ -26,7 +26,8 @@ const Faq = () => {
         console.log(error);
       }
     );
-  }, []);
+  }, [locale]);
+
   return (
     <div className='container'>
       <h1 className='header-title'>{t('title')}</h1>
@@ -47,7 +48,9 @@ const Faq = () => {
                     </span>
                     <span className={`title`}>{item.Title}</span>
                   </Accordion.Header>
-                  <Accordion.Body>{item.NewsContent}</Accordion.Body>
+                  <Accordion.Body
+                    dangerouslySetInnerHTML={{ __html: item.NewsContent }}
+                  ></Accordion.Body>
                 </Accordion.Item>
               </Accordion>
             );
