@@ -42,6 +42,8 @@ const HomeTestimonials = () => {
       });
   }, [locale]);
 
+  if (!data.length && !loading) return <></>;
+
   return (
     <div className={clsx('container-root', styles.root)}>
       {match && (
