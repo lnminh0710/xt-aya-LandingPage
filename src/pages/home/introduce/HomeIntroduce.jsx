@@ -66,6 +66,9 @@ const HomeIntroduce = () => {
           <div className={styles['video-container__backdrop']}></div>
           {!isShowVideo ? (
             <>
+              <div className={styles['video-title']}>
+                {t('A short clip that explains Aya')}
+              </div>
               <ImageLazyLoad
                 src={'/images/home/video-background.webp'}
                 layout='responsive'

@@ -107,6 +107,19 @@
   }
 }
 
+.video-title {
+  position: absolute;
+  top: 20px;
+  z-index: 6;
+  width: 100%;
+  text-align: center;
+
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  color: #454545;
+}
+
 .sub-title {
   max-width: min(636px, calc(100vw - 32px));
   font-weight: 500;
