@@ -30,7 +30,10 @@ const ProfileMenu = ({ logout, userInfo }) => {
         id='page-header-user-dropdown'
       >
         {/* <img className="rounded-circle header-profile-user me-1" src={userInfo?.avatar || defaultAvatar} alt="" /> */}
-        <span className='d-xl-inline-block ms-1 text-transform'>
+        <span
+          className='d-xl-inline-block ms-1 text-transform'
+          style={{ width: 80 }}
+        >
           {userInfo?.displayName ??
             `${userInfo?.firstName || ''} ${userInfo?.lastName || ''}`}
         </span>

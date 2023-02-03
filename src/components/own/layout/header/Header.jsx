@@ -39,7 +39,7 @@ const Root = styled.div`
   display: grid;
   grid-template-columns: ${({ logged }) =>
     logged
-      ? '80px 1fr max-content max-content'
+      ? '80px 1fr 180px max-content'
       : '80px 1fr max-content max-content max-content'};
   grid-column-gap: 28px;
   align-items: center;

@@ -7,7 +7,7 @@ import styled from 'styled-components';
 const Root = styled.div`
   display: grid;
   grid-template-columns: repeat(${({ total }) => total}, max-content);
-  grid-column-gap: 28px;
+  grid-column-gap: 24px;
   align-items: center;
   justify-content: center;
   height: 100%;

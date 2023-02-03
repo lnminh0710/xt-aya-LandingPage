@@ -22,6 +22,7 @@ const Label = styled.div`
   color: #000000;
 
   margin-right: 12px;
+  width: 25px;
 `;
 
 const LinkLang = styled.a`
