@@ -14,32 +14,28 @@ import TextAreaFormikControl from 'components/own/form-control/TextAreaFormikCon
 
 const Contact = () => {
   const router = useRouter();
-  const { t } = useTranslation('contact');
+  const { locale, query } = router;
+  const { t, i18n } = useTranslation('contact');
   const [isLoading, setLoading] = useState(false);
 
   //#region --- define form
   const dataSchema = Yup.object().shape({
-    firstName: Yup.string().required(
-      t('err_Required_Firstname', { ns: 'fields' })
+    FullName: Yup.string().required(
+      t('err_Required_FullName', { ns: 'fields' })
     ),
-    lastName: Yup.string().required(
-      t('err_Required_Lastname', { ns: 'fields' })
-    ),
-    email: Yup.string()
+    ToEmail: Yup.string()
       .email(t('err_Format_Email', { ns: 'fields' }))
-      .min(6, t('err_Minimum', { ns: 'fields' }))
-      .max(100, t('err_Maximum_Email', { ns: 'fields' }))
       .required(t('err_Required_Email', { ns: 'fields' })),
   });
   const initialValues = {
-    firstName: '',
-    lastName: '',
-    company: '',
-    email: '',
-    website: '',
-    phoneNumber: '',
-    paragraph: '',
+    FullName: '',
+    Company: '',
+    ToEmail: '',
+    Website: '',
+    PhoneNr: '',
+    Message: '',
   };
+
   const formik = useFormik({
     initialValues,
     validationSchema: dataSchema,
@@ -49,18 +45,29 @@ const Contact = () => {
         (res) => {
           toast.dismiss();
           setLoading(false);
-          if (!res.response) {
-            toast.warn('Error');
-            return;
-          }
-
-          toast.success('Success');
+          toast.success(
+            get(
+              i18n.getDataByLanguage(locale),
+              [
+                'common',
+                'Sent successfully. Your question has been sent to the administrator.',
+              ],
+              'Gửi thành công. Câu hỏi của bạn đã được gửi đến quản trị viên.'
+            )
+          );
           formik.resetForm();
         },
         (err) => {
           toast.dismiss();
+          //Error_Contact
           setLoading(false);
-          toast.error(err.message);
+          toast.success(
+            get(
+              i18n.getDataByLanguage(locale),
+              ['common', 'Error_Contact'],
+              'Lỗi: Vui lòng kiểm tra email của bạn và thử lại'
+            )
+          );
         }
       );
     },
@@ -84,40 +91,34 @@ const Contact = () => {
               <Form className='form-wrapper'>
                 <InputFormikControl
                   formik={formik}
-                  controlName='firstName'
-                  displayName={t('display_Name_Firstname', { ns: 'fields' })}
+                  controlName='FullName'
+                  displayName={t('display_Name_FullName', { ns: 'fields' })}
                   isRequired={true}
                 />
                 <InputFormikControl
                   formik={formik}
-                  controlName='lastName'
-                  displayName={t('display_Name_Lastname', { ns: 'fields' })}
-                  isRequired={true}
-                />
-                <InputFormikControl
-                  formik={formik}
-                  controlName='company'
+                  controlName='Company'
                   displayName={t('display_Name_Company', { ns: 'fields' })}
                 />
                 <InputFormikControl
                   formik={formik}
-                  controlName='email'
+                  controlName='ToEmail'
                   displayName={t('display_Name_Email', { ns: 'fields' })}
                   isRequired={true}
                 />
                 <InputFormikControl
                   formik={formik}
-                  controlName='website'
+                  controlName='Website'
                   displayName={t('display_Name_Website', { ns: 'fields' })}
                 />
                 <InputFormikControl
                   formik={formik}
-                  controlName='phoneNumber'
+                  controlName='PhoneNr'
                   displayName={t('display_Name_Phone', { ns: 'fields' })}
                 />
                 <TextAreaFormikControl
                   formik={formik}
-                  controlName='paragraph'
+                  controlName='Message'
                   displayName={t('display_Name_Paragraph', { ns: 'fields' })}
                 />
 
@@ -130,7 +131,14 @@ const Contact = () => {
                 ) : (
                   <Button
                     className='btn-aya purple w-100'
-                    onClick={formik.submitForm}
+                    onClick={() => {
+                      console.log(
+                        `Author:minh.lam , file: Contact.jsx , line 129 , Contact , formik.errors`,
+                        formik.errors
+                      );
+
+                      formik.submitForm();
+                    }}
                   >
                     {t('btn_Send_Mes')}
                   </Button>

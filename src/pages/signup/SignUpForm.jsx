@@ -20,7 +20,7 @@ const SignUpForm = ({ roleType }) => {
   //#region --- define form
   const dataSchema = Yup.object().shape({
     firstName: Yup.string().required(
-      t('err_Required_Firstname', { ns: 'fields' })
+      t('err_Required_FullName', { ns: 'fields' })
     ),
     lastName: Yup.string().required(
       t('err_Required_Lastname', { ns: 'fields' })
@@ -101,7 +101,7 @@ const SignUpForm = ({ roleType }) => {
                   <InputFormikControl
                     formik={formik}
                     controlName='firstName'
-                    displayName={t('display_Name_Firstname', { ns: 'fields' })}
+                    displayName={t('display_Name_FullName', { ns: 'fields' })}
                     isRequired={true}
                   />
                 </div>

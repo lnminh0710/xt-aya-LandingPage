@@ -1,5 +1,5 @@
 {
-  "display_Name_Firstname": "Tên",
+  "display_Name_FullName": "Họ và tên",
   "display_Name_Lastname": "Họ",
   "display_Name_Company": "Công ty",
   "display_Name_Email": "Email",
@@ -7,7 +7,7 @@
   "display_Name_Website": "Website",
   "display_Name_Phone": "Số điện thoại",
   "display_Name_Paragraph": "Nội dung",
-  "err_Required_Firstname": "Trường Tên bắt buộc.",
+  "err_Required_FullName": "Trường Họ và tên bắt buộc.",
   "err_Required_Lastname": "Trường Họ bắt buộc.",
   "err_Required_Email": "Trường Email bắt buộc.",
   "err_Minimum_Email": "Tối thiểu phải có 6 ký tự.",
