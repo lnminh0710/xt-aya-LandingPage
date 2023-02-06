@@ -27,6 +27,8 @@ const Item = styled.a`
 
   color: #2c2b34;
   height: 100%;
+  display: flex;
+  align-items: center;
   border-bottom: ${({ active }) =>
     active ? '4px solid #9454fc' : '4px solid transparent'};
   height: 40px;
