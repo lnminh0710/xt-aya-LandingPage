@@ -17,7 +17,7 @@ const Root = styled.div`
   }
 `;
 
-const Item = styled.div`
+const Item = styled.a`
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
@@ -27,12 +27,10 @@ const Item = styled.div`
 
   color: #2c2b34;
   height: 100%;
-  display: flex;
-  align-items: center;
-  /* border-bottom: 2px solid; */
-  box-shadow: ${({ active }) => (active ? 'inset 0px -3px 0px #9454fc' : '')};
+  border-bottom: ${({ active }) =>
+    active ? '4px solid #9454fc' : '4px solid transparent'};
   height: 40px;
-  a:hover {
+  &:hover {
     color: #2c2b34;
   }
 `;
@@ -44,11 +42,9 @@ const Menu = () => {
   return (
     <Root total={menuMockup.length}>
       {menuMockup.map((_menu, index) => (
-        <Item key={index} active={router?.pathname === _menu.link}>
-          <Link href={_menu.link} passHref>
-            <a>{t(_menu.name)}</a>
-          </Link>
-        </Item>
+        <Link key={index} href={_menu.link} passHref>
+          <Item active={router?.pathname === _menu.link}>{t(_menu.name)}</Item>
+        </Link>
       ))}
     </Root>
   );
