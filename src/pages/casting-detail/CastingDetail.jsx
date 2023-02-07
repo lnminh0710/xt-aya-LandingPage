@@ -64,6 +64,7 @@ const CastingDetail = ({ data: d }) => {
           IdTalent: userInfo?.idTalent,
           Note: values.Note,
           Job: data.Title,
+          Email: data.Email || '',
           TalentName:
             userInfo?.displayName ||
             `${userInfo?.firstName} ${userInfo?.lastName}`,
