@@ -226,7 +226,7 @@ const Header = () => {
         path +
         '?xreply=' +
         window.location.origin +
-        '?lang=' +
+        '&lang=' +
         router.locale;
     },
     [router.locale]
