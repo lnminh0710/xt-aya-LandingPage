@@ -1,3 +1,4 @@
+import { TALENT_URL } from 'constants/common';
 import { menuMockup } from 'mockups/menu';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
@@ -43,6 +44,9 @@ const Menu = () => {
 
   return (
     <Root total={menuMockup.length}>
+      <Link href={TALENT_URL + 'search?lang=' + router.locale} passHref>
+        <Item>{t('Talents')}</Item>
+      </Link>
       {menuMockup.map((_menu, index) => (
         <Link key={index} href={_menu.link} passHref>
           <Item active={router?.pathname === _menu.link}>{t(_menu.name)}</Item>
