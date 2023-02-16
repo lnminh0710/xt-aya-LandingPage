@@ -219,10 +219,18 @@ const Header = () => {
     }
   }, [at, getUserProfile, initInterval, router, uid]);
 
-  const routerToLogin = useCallback((path) => {
-    window.location.href =
-      LOGIN_ENDPOINT + path + '?xreply=' + window.location.origin;
-  }, []);
+  const routerToLogin = useCallback(
+    (path) => {
+      window.location.href =
+        LOGIN_ENDPOINT +
+        path +
+        '?xreply=' +
+        window.location.origin +
+        '?lang=' +
+        router.locale;
+    },
+    [router.locale]
+  );
 
   return (
     <Root logged={!!userInfo} fullWidth={open} id='header-sticky'>
