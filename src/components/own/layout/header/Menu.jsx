@@ -43,7 +43,7 @@ const Menu = () => {
   const router = useRouter();
 
   return (
-    <Root total={menuMockup.length}>
+    <Root total={menuMockup.length + 1}>
       <Link href={TALENT_URL + 'search?lang=' + router.locale} passHref>
         <Item>{t('Talents')}</Item>
       </Link>
