@@ -11,9 +11,11 @@ import { FILE_ENDPOINT, TALENT_URL } from 'constants/common';
 import { useMemo } from 'react';
 import { useTranslation } from 'next-i18next';
 import { getToken, getUid } from 'utils/localstorage';
+import { useRouter } from 'next/router';
 
 const ProfileMenu = ({ logout, userInfo }) => {
   const { t } = useTranslation('common');
+  const { locale } = useRouter();
 
   const profilePicture = useMemo(() => {
     if (!userInfo?.loginPicture) return '/images/user.webp';
@@ -59,7 +61,7 @@ const ProfileMenu = ({ logout, userInfo }) => {
       </Dropdown.Toggle>
       <Dropdown.Menu className='dropdown-menu-end'>
         <Dropdown.Item
-          href={`${TALENT_URL}setting?at=${getToken()}&uid=${getUid()}`}
+          href={`${TALENT_URL}setting?at=${getToken()}&uid=${getUid()}&lang=${locale}`}
         >
           <i className='ri-user-line align-middle me-1'></i> {t('Go to My AYA')}
         </Dropdown.Item>

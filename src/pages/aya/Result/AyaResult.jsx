@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { StarIcon } from 'assets/svg';
 import axios from 'axios';
 import clsx from 'clsx';
@@ -6,8 +7,7 @@ import { API_ENDPOINT, TALENT_URL } from 'constants/common';
 import { talentDataMockup } from 'mockups/talents';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { parseKNumber } from 'utils/convert';
 import styles from './AyaResult.module.scss';
 
@@ -23,6 +23,7 @@ const renderStar = (star) => (
 
 const AyaResult = () => {
   const { t } = useTranslation(['aya']);
+  const router = useRouter();
   const [data, setData] = useState([]);
   useEffect(() => {
     axios(API_ENDPOINT + 'top-8-aya').then((res) => {
@@ -46,7 +47,12 @@ const AyaResult = () => {
       </div>
       <div className={styles.root}>
         {data.map((item, index) => (
-          <Link key={index} href={TALENT_URL + item.SlugURL + '/patron'}>
+          <Link
+            key={index}
+            href={
+              TALENT_URL + item.SlugURL + '/patron' + '?lang=' + router.locale
+            }
+          >
             <div className={styles.user}>
               <div className={styles.user__avatar}>
                 <ImageLazyLoad

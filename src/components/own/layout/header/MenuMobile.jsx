@@ -2,6 +2,7 @@ import { FILE_ENDPOINT, TALENT_URL } from 'constants/common';
 import { menuMockup } from 'mockups/menu';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useMemo } from 'react';
 import { Modal } from 'react-bootstrap';
 import styled from 'styled-components';
@@ -82,6 +83,7 @@ const Logout = styled.div`
 
 const MenuMobile = ({ open, logout, setOpen, routerToLogin, userInfo }) => {
   const { t } = useTranslation('common');
+  const { locale } = useRouter();
   const profilePicture = useMemo(() => {
     if (!userInfo?.loginPicture) return '/images/user.webp';
 
@@ -120,7 +122,7 @@ const MenuMobile = ({ open, logout, setOpen, routerToLogin, userInfo }) => {
               }}
               className='header-avatar rounded-circle'
               onClick={() => {
-                window.location.href = TALENT_URL + 'setting';
+                window.location.href = TALENT_URL + `setting?lang=${locale}`;
               }}
             ></div>
             <span className='d-xl-inline-block ms-1 text-transform'>

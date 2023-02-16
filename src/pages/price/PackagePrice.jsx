@@ -1,11 +1,15 @@
 import { CheckIcon, InfoIcon, LineIcon } from 'assets/svg';
+import { TALENT_URL } from 'constants/common';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { getToken, getUid } from 'utils/localstorage';
 import packageStyles from './packagePrice.module.scss';
 
 const PackagePrice = ({ title, packageList }) => {
   const { t } = useTranslation('price');
+  const { locale } = useRouter();
   const [dynamicCol, setDynamicCol] = useState(0);
   useEffect(() => {
     setDynamicCol(12 / (packageList?.length + 1));
@@ -57,7 +61,9 @@ const PackagePrice = ({ title, packageList }) => {
                     <p className={packageStyles.packagePrice}>
                       {packageItem.price}
                     </p>
-                    <Link href={packageItem.urlJoin}>
+                    <Link
+                      href={`${TALENT_URL}setting?at=${getToken()}&uid=${getUid()}&lang=${locale}`}
+                    >
                       <a className={`btn-aya purple ${packageStyles.btnJoin}`}>
                         {t('btnJoinNow')}
                       </a>
