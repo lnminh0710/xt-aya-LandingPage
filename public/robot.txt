@@ -1,4 +1,8 @@
+User-agent: Googlebot
+allow:/*
 
-# Allow all crawlers
-User-agent: *
-Allow: /
+User-agent: AdsBot-Google
+allow:/*
+
+User-agent: Googlebot-Image
+allow:/*
