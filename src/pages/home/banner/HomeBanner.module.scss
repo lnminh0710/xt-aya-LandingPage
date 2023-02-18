@@ -6,8 +6,10 @@
   justify-content: center;
   position: relative;
   margin-bottom: 19px;
+  height: 700px;
   @include responsive-size(screen-m) {
     margin-bottom: 0;
+    height: calc(100vw * 300 / 390);
   }
   video {
     width: var(--maxWidth);

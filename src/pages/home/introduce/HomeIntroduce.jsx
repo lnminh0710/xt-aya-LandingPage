@@ -14,7 +14,7 @@ const HomeIntroduce = () => {
   const [isShowVideo, showVideo] = useState(false);
   const matches = useMatchQuery();
   const router = useRouter();
-  const { locale, pathname, query, asPath } = router;
+  const { locale } = router;
 
   const url = useMemo(
     () =>
