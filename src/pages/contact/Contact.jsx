@@ -162,15 +162,17 @@ const Contact = () => {
         </div>
       </div>
       <Modal show={showConfirm} onHide={handleClose} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>{t('Contact Us')}</Modal.Title>
+        <Modal.Header className='modal-no-border'>
+          <Modal.Title className='text-center w-100'>
+            {t('Contact Us')}
+          </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <div className={styles.confirm_title}>
+        <Modal.Body className='modal-no-border my-5'>
+          <div className={styles['modal-description']}>
             {t('Message sent. Thank you for contacting us')}?
           </div>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer className='modal-no-border justify-content-center'>
           <Button className='btn-aya purple' onClick={handleClose}>
             {t('Close')}
           </Button>
