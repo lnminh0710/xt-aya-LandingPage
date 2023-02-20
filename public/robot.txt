@@ -1,8 +1,8 @@
 User-agent: Googlebot
-allow:/*
+allow:/
 
 User-agent: AdsBot-Google
-allow:/*
+allow:/
 
 User-agent: Googlebot-Image
-allow:/*
+allow:/
