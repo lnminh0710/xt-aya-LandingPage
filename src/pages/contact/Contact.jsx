@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from './style.module.scss';
-// import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 import * as Yup from 'yup';
 import { FormikContext, useFormik } from 'formik';
 import { Button, Form, Modal } from 'react-bootstrap';
@@ -64,13 +64,13 @@ const Contact = () => {
           // toast.dismiss();
           //Error_Contact
           setLoading(false);
-          // toast.error(
-          //   get(
-          //     i18n.getDataByLanguage(locale),
-          //     ['common', 'Error_Contact'],
-          //     'Lỗi: Vui lòng kiểm tra email của bạn và thử lại'
-          //   )
-          // );
+          toast.error(
+            get(
+              i18n.getDataByLanguage(locale),
+              ['common', 'Error_Contact'],
+              'Lỗi: Vui lòng kiểm tra email của bạn và thử lại'
+            )
+          );
         }
       );
     },
@@ -178,6 +178,7 @@ const Contact = () => {
           </Button>
         </Modal.Footer>
       </Modal>
+      <ToastContainer position='bottom-right' />
     </>
   );
 };
