@@ -1,4 +1,5 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import dynamic from 'next/dynamic';
 
 const Aya = dynamic(() => import('pages/aya/Aya'), {
   loading: () => 'Loading...',
