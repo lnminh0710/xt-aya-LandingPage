@@ -163,7 +163,7 @@ const Contact = () => {
       </div>
       <Modal show={showConfirm} onHide={handleClose} centered>
         <Modal.Header className='modal-no-border'>
-          <Modal.Title className='text-center w-100'>
+          <Modal.Title className='text-center w-100 mt-4 c-purple'>
             {t('Contact Us')}
           </Modal.Title>
         </Modal.Header>
