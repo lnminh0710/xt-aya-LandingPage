@@ -1,12 +1,12 @@
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from './style.module.scss';
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 import * as Yup from 'yup';
 import { FormikContext, useFormik } from 'formik';
-import { Button, Form } from 'react-bootstrap';
-import { useState } from 'react';
+import { Button, Form, Modal } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import { subtmitContact } from './services';
 import InputFormikControl from 'components/own/form-control/InputFormikControl';
@@ -17,6 +17,7 @@ const Contact = () => {
   const { locale, query } = router;
   const { t, i18n } = useTranslation('contact');
   const [isLoading, setLoading] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
 
   //#region --- define form
   const dataSchema = Yup.object().shape({
@@ -43,35 +44,42 @@ const Contact = () => {
       setLoading(true);
       subtmitContact(values).subscribe(
         (res) => {
-          toast.dismiss();
+          // toast.dismiss();
           setLoading(false);
-          toast.success(
-            get(
-              i18n.getDataByLanguage(locale),
-              [
-                'common',
-                'Sent successfully. Your question has been sent to the administrator.',
-              ],
-              'Gửi thành công. Câu hỏi của bạn đã được gửi đến quản trị viên.'
-            )
-          );
+          setShowConfirm(true);
+          formik.resetForm();
+          // toast.success(
+          //   get(
+          //     i18n.getDataByLanguage(locale),
+          //     [
+          //       'common',
+          //       'Sent successfully. Your question has been sent to the administrator.',
+          //     ],
+          //     'Gửi thành công. Câu hỏi của bạn đã được gửi đến quản trị viên.'
+          //   )
+          // );
           formik.resetForm();
         },
         (err) => {
-          toast.dismiss();
+          // toast.dismiss();
           //Error_Contact
           setLoading(false);
-          toast.success(
-            get(
-              i18n.getDataByLanguage(locale),
-              ['common', 'Error_Contact'],
-              'Lỗi: Vui lòng kiểm tra email của bạn và thử lại'
-            )
-          );
+          // toast.error(
+          //   get(
+          //     i18n.getDataByLanguage(locale),
+          //     ['common', 'Error_Contact'],
+          //     'Lỗi: Vui lòng kiểm tra email của bạn và thử lại'
+          //   )
+          // );
         }
       );
     },
   });
+
+  const handleClose = useCallback(() => {
+    setShowConfirm(false);
+  }, []);
+
   //#endregion
 
   return (
@@ -153,7 +161,21 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <ToastContainer position='bottom-right' />
+      <Modal show={showConfirm} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>{t('Contact Us')}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className={styles.confirm_title}>
+            {t('Message sent. Thank you for contacting us')}?
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button className='btn-aya purple' onClick={handleClose}>
+            {t('Close')}
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };
