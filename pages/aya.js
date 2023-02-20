@@ -1,6 +1,8 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import Aya from 'pages/aya/Aya';
 
+const Aya = dynamic(() => import('pages/aya/Aya'), {
+  loading: () => 'Loading...',
+});
 const AyaPage = () => <Aya />;
 
 export const getStaticProps = async ({ locale }) => ({

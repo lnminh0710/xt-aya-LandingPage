@@ -1,6 +1,9 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import AboutUs from 'pages/aboutus/AboutUs';
+import dynamic from 'next/dynamic';
 
+const AboutUs = dynamic(() => import('pages/aboutus/AboutUs'), {
+  loading: () => 'Loading...',
+});
 const AboutPage = () => <AboutUs />;
 
 export const getStaticProps = async ({ locale }) => ({
