@@ -133,7 +133,7 @@ const CastingDetail = ({ data: d }) => {
           <div className={styles['casting-detail']}>
             <div className={styles['casting-detail__label']}>{t('Age')}:</div>
             <div className={styles['casting-detail__value']}>
-              {`${t('from')} : ${get(data, 'AgeFrom', 0)} ${t('to')} ${get(
+              {`${t('from')} ${get(data, 'AgeFrom', 0)} ${t('to')} ${get(
                 data,
                 'AgeTo',
                 0
@@ -149,7 +149,7 @@ const CastingDetail = ({ data: d }) => {
               {t('Start on')}:
             </div>
             <div className={styles['casting-detail__value']}>
-              {parseDate(get(data, 'StartOn', ''))}
+              {parseDate(get(data, 'JobStartOn', ''))}
             </div>
           </div>
           <div className={styles['casting-line']}></div>
