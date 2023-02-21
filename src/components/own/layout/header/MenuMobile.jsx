@@ -102,6 +102,11 @@ const MenuMobile = ({ open, logout, setOpen, routerToLogin, userInfo }) => {
       contentClassName={'content-menu'}
       dialogClassName={'modal-menu'}
     >
+      <MenuItem>
+        <Link href={TALENT_URL + 'search?lang=' + locale} passHref>
+          <Item onClick={() => setOpen(false)}>{t('Talents')}</Item>
+        </Link>
+      </MenuItem>
       {menuMockup.map((_menu, index) => (
         <MenuItem key={index}>
           <Link href={_menu.link} passHref>

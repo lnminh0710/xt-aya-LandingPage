@@ -118,6 +118,18 @@
   font-size: 24px;
   line-height: 36px;
   color: #454545;
+
+  @include responsive-size(screen-m) {
+    top: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  @include responsive-size(screen-xs) {
+    top: 5px;
+    font-size: 12px;
+    line-height: 22px;
+  }
 }
 
 .sub-title {
