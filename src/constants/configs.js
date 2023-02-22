@@ -8,4 +8,5 @@ export const ConfigsConstant = {
   COMPANY_FACEBOOK: 'CompanyFacebook',
   COMPANY_EMAIL: 'CompanyEmail',
   COMPANY_ADDRESS: 'CompanyAddress',
+  PHOTO_CREDIT: 'PhotoCredit',
 };
