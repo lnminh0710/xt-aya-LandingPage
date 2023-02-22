@@ -175,8 +175,6 @@ const Footer = () => {
 
   const [info, setInfo] = useState(initialInfo);
 
-  console.log(`Author:minh.lam , file: Footer.jsx:177 , Footer , info:`, info);
-
   const { t } = useTranslation('common');
   const match = useMatchQuery();
 

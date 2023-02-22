@@ -27,10 +27,6 @@ const AyaResult = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios(API_ENDPOINT + 'top-8-aya').then((res) => {
-      console.log(
-        `Author:minh.lam , file: AyaResult.jsx , line 33 , axios , res`,
-        res
-      );
       setData(res);
     });
   }, []);

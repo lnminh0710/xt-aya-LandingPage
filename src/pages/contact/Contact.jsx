@@ -141,11 +141,6 @@ const Contact = () => {
                   <Button
                     className='btn-aya purple w-100'
                     onClick={() => {
-                      console.log(
-                        `Author:minh.lam , file: Contact.jsx , line 129 , Contact , formik.errors`,
-                        formik.errors
-                      );
-
                       formik.submitForm();
                     }}
                   >
