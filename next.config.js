@@ -37,6 +37,7 @@ const nextConfig = {
     fileEndpoint: process.env.NEXT_FILE_ENDPOINT,
     talentUrl: process.env.NEXT_TALENT_URL,
     appId: process.env.NEXT_APP_ID,
+    gtmId: process.env.NEXT_GTM_ID,
   },
   i18n,
 };
