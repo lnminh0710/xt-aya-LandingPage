@@ -139,7 +139,6 @@ const initialInfo = {
   address: '68 Nguyễn Huệ, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, VN',
   phone: '+84 97 2347 517',
   email: 'info@ayavn.com',
-  photoCredit: null,
 };
 
 const categories = [
@@ -166,6 +165,10 @@ const categories = [
   {
     name: 'FAQ',
     link: Routes.FAQ,
+  },
+  {
+    name: 'Photos Credit',
+    link: Routes.PHOTOS_CREDIT,
   },
 ];
 
@@ -205,9 +208,6 @@ const Footer = () => {
       const gg = res?.response.find(
         (x) => x.ParamKey === ConfigsConstant.COMPANY_GG_PLUS
       );
-      const photoCredit = res?.response.find(
-        (x) => x.ParamKey === ConfigsConstant.PHOTO_CREDIT
-      );
 
       const nameTrans =
         currentLang === LanguageConstant.VI
@@ -237,10 +237,6 @@ const Footer = () => {
         currentLang === LanguageConstant.VI
           ? gg?.ParamValueVN
           : gg?.ParamValueEN;
-      const creditTrans =
-        currentLang === LanguageConstant.VI
-          ? photoCredit?.ParamValueVN
-          : photoCredit?.ParamValueEN;
 
       const infoTemp = {
         name: nameTrans,
@@ -250,7 +246,6 @@ const Footer = () => {
         fb: fbTrans || 'https://facebook.com/',
         twt: twtTrans || 'https://twitter.com/',
         gg: ggTrans || 'https://www.google.com/',
-        photoCredit: creditTrans,
       };
       setInfo(infoTemp);
     });
@@ -293,12 +288,6 @@ const Footer = () => {
               </Link>
             ))}
           </Categories>
-          {!!info.photoCredit && (
-            <>
-              <Title className='mt-3'>{t('Photos Credit')}</Title>
-              <div dangerouslySetInnerHTML={{ __html: info.photoCredit }} />
-            </>
-          )}
         </div>
       </Content>
       <Line />

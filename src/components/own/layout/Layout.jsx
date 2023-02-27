@@ -11,7 +11,7 @@ import { Footer } from './footer';
 const Root = styled.div``;
 
 const Content = styled.div`
-  min-height: calc(100vh - 391px - 100px);
+  min-height: calc(100vh - 423px - 100px);
 `;
 
 const Layout = ({ children, SEOInfo = {} }) => {

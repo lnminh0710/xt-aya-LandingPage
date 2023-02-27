@@ -20,6 +20,7 @@ export const Routes = {
   CASTING: '/casting',
   PRICE: '/plan',
   FAQ: '/faq',
+  PHOTOS_CREDIT: '/photos-credit',
   TERM: '/terms',
   PRIVACY: '/privacy',
   CONTACT: '/contact',
