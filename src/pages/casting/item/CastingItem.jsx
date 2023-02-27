@@ -28,7 +28,7 @@ const fields1 = [
 ];
 
 const fields2 = [
-  { title: 'Deadline', field: 'ExpiresOn' },
+  { title: 'Deadline', field: 'ExpiresOn', type: 'date' },
   { title: 'Start on', field: 'JobStartOn' },
 ];
 
@@ -105,7 +105,9 @@ const CastingItem = ({ data }) => {
                     {t(_f.title)}:
                   </div>
                   <div className={styles['casting-detail__value']}>
-                    {parseDate(get(data, _f.field))}
+                    {_f.type === 'date'
+                      ? parseDate(get(data, _f.field))
+                      : get(data, _f.field)}
                   </div>
                 </div>
               ))}

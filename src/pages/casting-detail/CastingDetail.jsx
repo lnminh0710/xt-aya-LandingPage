@@ -149,7 +149,7 @@ const CastingDetail = ({ data: d }) => {
               {t('Start on')}:
             </div>
             <div className={styles['casting-detail__value']}>
-              {parseDate(get(data, 'JobStartOn', ''))}
+              {get(data, 'JobStartOn', '')}
             </div>
           </div>
           <div className={styles['casting-line']}></div>
