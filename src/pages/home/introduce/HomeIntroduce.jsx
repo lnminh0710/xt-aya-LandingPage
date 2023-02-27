@@ -42,15 +42,15 @@ const HomeIntroduce = () => {
               )}
             </div>
           )}
-          <ImageLazyLoad
+          {/* <ImageLazyLoad
             src={'/images/home/intro-background.webp'}
             layout='responsive'
             width={1108}
             height={953}
             alt='gradient'
-          />
+          /> */}
         </div>
-        <div className={styles['link-break']}>
+        {/* <div className={styles['link-break']}>
           <ImageLazyLoad
             src={'/images/home/intro-gradient.webp'}
             layout='responsive'
@@ -58,7 +58,7 @@ const HomeIntroduce = () => {
             height={175}
             alt='gradient'
           />
-        </div>
+        </div> */}
         <div
           className={styles['video-container']}
           onClick={() => showVideo(true)}
