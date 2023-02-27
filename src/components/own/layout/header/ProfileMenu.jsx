@@ -33,19 +33,21 @@ const ProfileMenu = ({ logout, userInfo }) => {
       >
         {/* <img className="rounded-circle header-profile-user me-1" src={userInfo?.avatar || defaultAvatar} alt="" /> */}
         <span
-          className='d-xl-inline-block ms-1 text-transform'
+          className='text-clamp-2'
           style={{
             width: 80,
-
-            display: '-webkit-box',
-            '-webkit-line-clamp': 2,
-            '-webkit-box-orient': 'vertical',
-            overflow: 'hidden',
-            wordBreak: 'break-word',
           }}
         >
           {userInfo?.displayName ??
-            `${userInfo?.firstName || ''} ${userInfo?.lastName || ''}`}
+            `${userInfo?.firstName || ''} ${userInfo?.lastName || ''} ${
+              userInfo?.firstName || ''
+            } ${userInfo?.lastName || ''} ${userInfo?.firstName || ''} ${
+              userInfo?.lastName || ''
+            } ${userInfo?.firstName || ''} ${userInfo?.lastName || ''} ${
+              userInfo?.firstName || ''
+            } ${userInfo?.lastName || ''} ${userInfo?.firstName || ''} ${
+              userInfo?.lastName || ''
+            }`}
         </span>
         <div
           style={{

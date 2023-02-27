@@ -368,7 +368,7 @@ input.radio-aya {
   line-height: 26px;
 
   display: grid;
-  grid-template-columns: 1fr 48px 8px;
+  grid-template-columns: 1fr 48px 12px;
   grid-gap: 8px;
 
   align-items: center;
@@ -399,4 +399,16 @@ input.radio-aya {
 
 .c-purple {
   color: #674f82 !important;
+}
+
+.text-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.dropdown-toggle {
+  white-space: unset;
 }
