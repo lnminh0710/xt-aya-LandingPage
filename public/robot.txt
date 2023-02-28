@@ -1,9 +1,4 @@
 User-agent: *
-Disallow: /*.json$
-Disallow: /*_buildManifest.js$
-Disallow: /*_middlewareManifest.js$
-Disallow: /*_ssgManifest.js$
-Disallow: /*.js$
-Disallow: /*.css$
+Allow: /_next/
 
 Sitemap: https://ayavn.com/sitemap.xml
