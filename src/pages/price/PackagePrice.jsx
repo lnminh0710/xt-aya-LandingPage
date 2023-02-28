@@ -37,7 +37,7 @@ const PackagePrice = ({ title, packageList }) => {
                         : packageStyles.cOdd
                     }`}
                   >
-                    {permissionItem.permissionName}{' '}
+                    {t(permissionItem.permissionName)}{' '}
                     <span title={permissionItem.permissionDes}>
                       <InfoIcon />
                     </span>
@@ -56,10 +56,10 @@ const PackagePrice = ({ title, packageList }) => {
                 >
                   <div className={packageStyles.header}>
                     <p className={packageStyles.packageName}>
-                      {packageItem.name}
+                      {t(packageItem.name)}
                     </p>
                     <p className={packageStyles.packagePrice}>
-                      {packageItem.price}
+                      {t(packageItem.price)}
                     </p>
                     <Link
                       href={`${TALENT_URL}setting?at=${getToken()}&uid=${getUid()}&lang=${locale}`}
