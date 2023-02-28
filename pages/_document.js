@@ -13,6 +13,11 @@ export default function Document() {
           href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap'
           rel='stylesheet'
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: ` if (window.location.origin.includes("https://webcache.googleusercontent.com")) { window.OhistoryReplaceState = window.history["replaceState"]; window.history["replaceState"] = (...args)=> { try { return window.OhistoryReplaceState.apply(window.history, args) } catch (e) { console.log(e) } }; window.OhistoryPushState = window.history["pushState"]; window.history["pushState"] = (...args)=> { try { return window.OhistoryPushState.apply(window.history, args) } catch (e) { console.log(e) } }; } `,
+          }}
+        />
       </Head>
       <body>
         <Main />
