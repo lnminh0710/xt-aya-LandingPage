@@ -10,7 +10,7 @@ export default function Document() {
         />
         <meta name='robots' content='all' />
         <link
-          href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap'
+          href='https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;700&display=swap'
           rel='stylesheet'
         />
         <script

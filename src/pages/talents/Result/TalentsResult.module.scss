@@ -60,7 +60,7 @@
     }
 
     &__name {
-      @include setting-font(Inter, normal, 700, 24px, 30px);
+      @include setting-font(Mulish, normal, 700, 24px, 30px);
       padding-left: 24px;
       span {
         transition: background-size 0.5s;
@@ -70,12 +70,12 @@
     }
     &__gender {
       padding-left: 24px;
-      @include setting-font(Inter, normal, 400, 14px, 24px);
+      @include setting-font(Mulish, normal, 400, 14px, 24px);
       color: #e8e8e8;
     }
     &__star {
       padding-left: 24px;
-      @include setting-font(Inter, normal, 400, 14px, 24px);
+      @include setting-font(Mulish, normal, 400, 14px, 24px);
       color: #e8e8e8;
       margin: 12px 0 16px;
       display: flex;
@@ -89,7 +89,7 @@
     }
     &__follower {
       padding-left: 24px;
-      @include setting-font(Inter, normal, 400, 14px, 24px);
+      @include setting-font(Mulish, normal, 400, 14px, 24px);
       color: #e8e8e8;
       margin-bottom: 16px;
     }

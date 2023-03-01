@@ -58,7 +58,7 @@ $breakpoints: (
   transition: $property $duration $timing $delay;
 }
 @mixin setting-font(
-  $family: 'Inter',
+  $family: 'Mulish',
   $style: normal,
   $weight: normal,
   $size: $default-size,

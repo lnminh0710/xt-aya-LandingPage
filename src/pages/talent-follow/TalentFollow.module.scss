@@ -13,7 +13,7 @@
     cursor: pointer;
   }
   .name {
-    @include setting-font(Inter, normal, 600, 18px, 24px);
+    @include setting-font(Mulish, normal, 600, 18px, 24px);
     color: #000000;
   }
 
@@ -21,7 +21,7 @@
     display: flex;
 
     &__item {
-      @include setting-font(Inter, normal, 600, 14px, 24px);
+      @include setting-font(Mulish, normal, 600, 14px, 24px);
 
       padding: 7px 14px 3px;
 
@@ -62,7 +62,7 @@
   }
 
   .more {
-    @include setting-font(Inter, normal, 600, 14px, 24px);
+    @include setting-font(Mulish, normal, 600, 14px, 24px);
     color: #9454fc;
     margin: 32px auto;
     text-align: center;

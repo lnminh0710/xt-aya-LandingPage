@@ -21,23 +21,23 @@
   }
 
   .banner {
-    @include setting-font(Inter, normal, 600, 128px, 100%);
+    @include setting-font(Mulish, normal, 600, 128px, 100%);
     text-transform: uppercase;
 
     color: #9454fc;
     @include responsive-size(screen-m) {
-      @include setting-font(Inter, normal, 700, 64px, 72px);
+      @include setting-font(Mulish, normal, 700, 64px, 72px);
       align-items: center;
     }
   }
 
   .title {
-    @include setting-font(Inter, normal, 700, 48px, 56px);
+    @include setting-font(Mulish, normal, 700, 48px, 56px);
     color: #2c2b34;
     margin-bottom: 36px;
     display: flex;
     @include responsive-size(screen-m) {
-      @include setting-font(Inter, normal, 700, 32px, 40px);
+      @include setting-font(Mulish, normal, 700, 32px, 40px);
       align-items: center;
       flex-direction: column;
       margin-bottom: 40px;
@@ -45,14 +45,14 @@
   }
 
   .sub-title {
-    @include setting-font(Inter, normal, 600, 16px, 26px);
+    @include setting-font(Mulish, normal, 600, 16px, 26px);
     color: #2c2b34;
   }
 
   .button {
     margin-top: 40px;
     @include border-button(#674f82, 164px, 48px, 45px);
-    @include setting-font(Inter, normal, 600, 16px, 26px);
+    @include setting-font(Mulish, normal, 600, 16px, 26px);
     color: #ffffff;
     @include responsive-size(screen-m) {
       margin: auto;

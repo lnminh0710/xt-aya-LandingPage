@@ -8,7 +8,7 @@
   margin-bottom: 32px;
   padding: 24px;
   .title {
-    @include setting-font(Inter, normal, 600, 18px, 24px);
+    @include setting-font(Mulish, normal, 600, 18px, 24px);
     color: #000000;
     margin-bottom: 24px;
   }
@@ -41,13 +41,13 @@
   }
 
   .action-title {
-    @include setting-font(Inter, normal, 600, 18px, 24px);
+    @include setting-font(Mulish, normal, 600, 18px, 24px);
     color: #000000;
     margin-bottom: 8px;
     margin-top: 40px;
   }
   .action {
-    @include setting-font(Inter, normal, 400, 16px, 26px);
+    @include setting-font(Mulish, normal, 400, 16px, 26px);
     display: grid;
     grid-template-columns: 10px 1fr;
     grid-gap: 8px;

@@ -5,7 +5,7 @@
 }
 
 .title {
-  @include setting-font(Inter, normal, 700, 48px, 56px);
+  @include setting-font(Mulish, normal, 700, 48px, 56px);
   text-align: center;
   color: #2c2b34;
   margin-bottom: 80px;
@@ -38,11 +38,11 @@
     }
 
     &__title {
-      @include setting-font(Inter, normal, 700, 24px, 30px);
+      @include setting-font(Mulish, normal, 700, 24px, 30px);
       margin-bottom: 18px;
     }
     &__description {
-      @include setting-font(Inter, normal, 400, 16px, 26px);
+      @include setting-font(Mulish, normal, 400, 16px, 26px);
     }
   }
 }

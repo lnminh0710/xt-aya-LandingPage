@@ -49,10 +49,10 @@
   }
 }
 .title {
-  @include setting-font(Inter, normal, 700, 48px, 56px);
+  @include setting-font(Mulish, normal, 700, 48px, 56px);
   color: #2c2b34;
   @include responsive-size(screen-m) {
-    @include setting-font(Inter, normal, 700, 32px, 40px);
+    @include setting-font(Mulish, normal, 700, 32px, 40px);
   }
 }
 .content {
@@ -64,7 +64,7 @@
   }
 
   .comment {
-    @include setting-font(Inter, normal, 400, 22px, 40px);
+    @include setting-font(Mulish, normal, 400, 22px, 40px);
     position: relative;
     .open-quote {
       position: absolute;
@@ -88,7 +88,7 @@
     grid-column-gap: 24px;
     align-items: center;
     @include responsive-size(screen-m) {
-      @include setting-font(Inter, normal, 700, 32px, 40px);
+      @include setting-font(Mulish, normal, 700, 32px, 40px);
       grid-template-columns: 72px 1fr;
     }
   }
@@ -103,7 +103,7 @@
   .user {
     &__name {
       grid-area: 1 / 2;
-      @include setting-font(Inter, normal, 700, 24px, 30px);
+      @include setting-font(Mulish, normal, 700, 24px, 30px);
       color: #2c2b34;
       .loading {
         height: 30px;
@@ -111,7 +111,7 @@
     }
     &__role {
       grid-area: 2 / 2;
-      @include setting-font(Inter, normal, 700, 14px, 24px);
+      @include setting-font(Mulish, normal, 700, 14px, 24px);
       color: #111e38;
       text-transform: uppercase;
       opacity: 0.5;

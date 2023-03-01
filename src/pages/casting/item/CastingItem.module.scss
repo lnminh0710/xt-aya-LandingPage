@@ -28,7 +28,7 @@
 }
 
 .casting-title {
-  @include setting-font(Inter, normal, 700, 22px, 30px);
+  @include setting-font(Mulish, normal, 700, 22px, 30px);
   margin-bottom: 4px;
 
   display: -webkit-box;
@@ -58,11 +58,11 @@
   grid-column-gap: 8px;
 
   &__label {
-    @include setting-font(Inter, normal, 700, 14px, 26px);
+    @include setting-font(Mulish, normal, 700, 14px, 26px);
   }
 
   &__value {
-    @include setting-font(Inter, normal, 400, 14px, 26px);
+    @include setting-font(Mulish, normal, 400, 14px, 26px);
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
@@ -72,7 +72,7 @@
 }
 
 .casting-preview {
-  @include setting-font(Inter, normal, 400, 14px, 26px);
+  @include setting-font(Mulish, normal, 400, 14px, 26px);
   height: 26px;
 
   display: -webkit-box;

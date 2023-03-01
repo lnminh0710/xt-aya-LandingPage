@@ -8,7 +8,7 @@
   margin-bottom: 32px;
   padding: 24px;
   .title {
-    @include setting-font(Inter, normal, 600, 18px, 24px);
+    @include setting-font(Mulish, normal, 600, 18px, 24px);
     color: #000000;
     margin-bottom: 24px;
   }
@@ -25,19 +25,19 @@
     margin-bottom: 24px;
 
     .benefit {
-      @include setting-font(Inter, normal, 700, 32px, 40px);
+      @include setting-font(Mulish, normal, 700, 32px, 40px);
       margin-bottom: 24px;
     }
     .join-button {
-      @include setting-font(Inter, normal, 600, 16px, 26px);
+      @include setting-font(Mulish, normal, 600, 16px, 26px);
       @include border-button(#9454fc, 128px, 40px);
     }
 
     .total-post {
-      @include setting-font(Inter, normal, 700, 48px, 56px);
+      @include setting-font(Mulish, normal, 700, 48px, 56px);
     }
     .desc-post {
-      @include setting-font(Inter, normal, 600, 14px, 24px);
+      @include setting-font(Mulish, normal, 600, 14px, 24px);
       color: #e1d6ec;
       margin-top: 4px;
     }
@@ -61,14 +61,14 @@
       justify-content: center;
       margin-bottom: 14px;
       &-title {
-        @include setting-font(Inter, normal, 600, 18px, 24px);
+        @include setting-font(Mulish, normal, 600, 18px, 24px);
         color: #fff;
         width: 209px;
         text-align: center;
         margin-bottom: 24px;
       }
       &-button {
-        @include setting-font(Inter, normal, 600, 14px, 24px);
+        @include setting-font(Mulish, normal, 600, 14px, 24px);
         @include border-button(#2c2b34, 109px, 32px);
 
         /* Grey/01 */
@@ -78,14 +78,14 @@
     }
 
     &__date {
-      @include setting-font(Inter, normal, 400, 16px, 26px);
+      @include setting-font(Mulish, normal, 400, 16px, 26px);
       padding-left: 24px;
       color: #2c2b34;
       margin-bottom: 10px;
     }
 
     &__title {
-      @include setting-font(Inter, normal, 700, 24px, 30px);
+      @include setting-font(Mulish, normal, 700, 24px, 30px);
       padding-left: 24px;
       color: #2c2b34;
       margin-bottom: 24px;
@@ -93,7 +93,7 @@
 
     &__subscribe {
       cursor: pointer;
-      @include setting-font(Inter, normal, 600, 14px, 24px);
+      @include setting-font(Mulish, normal, 600, 14px, 24px);
       @include border-button(#674f82, 117px, 32px);
 
       color: #ffffff;
@@ -102,7 +102,7 @@
     }
 
     &__summary {
-      @include setting-font(Inter, normal, 400, 12px, 16px);
+      @include setting-font(Mulish, normal, 400, 12px, 16px);
       padding-left: 24px;
       margin-bottom: 24px;
       color: #000000;
@@ -115,7 +115,7 @@
   }
 
   .explore {
-    @include setting-font(Inter, normal, 600, 14px, 24px);
+    @include setting-font(Mulish, normal, 600, 14px, 24px);
     color: #9454fc;
     margin: auto;
     width: 100px;

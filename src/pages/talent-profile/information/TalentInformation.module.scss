@@ -23,19 +23,19 @@
   align-items: center;
 
   .name {
-    @include setting-font(Inter, normal, 700, 24px, 30px);
+    @include setting-font(Mulish, normal, 700, 24px, 30px);
     color: #2c2b34;
     margin-bottom: 4px;
     text-align: center;
   }
   .job {
-    @include setting-font(Inter, normal, 400, 14px, 24px);
+    @include setting-font(Mulish, normal, 400, 14px, 24px);
     color: #484747;
     text-align: center;
     margin-bottom: 10px;
   }
   .gender {
-    @include setting-font(Inter, normal, 600, 16px, 26px);
+    @include setting-font(Mulish, normal, 600, 16px, 26px);
     color: #2c2b34;
     margin-bottom: 16px;
   }
@@ -52,12 +52,12 @@
       align-items: center;
 
       &-value {
-        @include setting-font(Inter, normal, 600, 18px, 24px);
+        @include setting-font(Mulish, normal, 600, 18px, 24px);
         color: #2c2b34;
         text-align: center;
       }
       &-label {
-        @include setting-font(Inter, normal, 400, 14px, 24px);
+        @include setting-font(Mulish, normal, 400, 14px, 24px);
         color: #484747;
         text-align: center;
         display: flex;
@@ -72,7 +72,7 @@
   }
 
   .following-button {
-    @include setting-font(Inter, normal, 600, 16px, 26px);
+    @include setting-font(Mulish, normal, 600, 16px, 26px);
     @include border-button(#713bad, 100%, 40px);
     cursor: pointer;
     /* Primary/06 */
@@ -87,7 +87,7 @@
     grid-gap: 16px;
     width: 100%;
     .inquiry-button {
-      @include setting-font(Inter, normal, 600, 16px, 26px);
+      @include setting-font(Mulish, normal, 600, 16px, 26px);
       @include border-button(#674f82, 100%, 40px);
 
       color: #ffffff;
