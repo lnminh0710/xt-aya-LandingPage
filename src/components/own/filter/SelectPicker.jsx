@@ -7,11 +7,11 @@ import { ChevronDown } from 'assets/svg';
 
 const SelectAction = styled(Select)`
   cursor: pointer;
-  width: ${({ width }) => width || '100px'};
-  font-size: 16px;
+  width: ${({ width }) => width || '80px'};
+  font-size: 14px;
   height: 48px;
   .select2-selection__indicators {
-    padding-right: 24px;
+    padding-right: 22px;
   }
   .select2-selection__menu {
     z-index: 7;
@@ -21,10 +21,10 @@ const SelectAction = styled(Select)`
     box-sizing: border-box;
     height: 48px;
     min-height: 48px;
-    border-radius: 20px;
+    border-radius: 18px;
   }
   .select2-selection__value-container {
-    padding: 0 12px 0 24px;
+    padding: 0 10px 0 22px;
   }
 `;
 

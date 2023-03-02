@@ -11,6 +11,7 @@ import {
 } from './service';
 import { getLanguageKey } from 'constants/languages';
 import { getArticlesFromResponse } from 'utils/article.uti';
+import { upperFirst } from 'lodash';
 
 const NewsCategory = () => {
   const router = useRouter();
@@ -123,7 +124,9 @@ const NewsCategory = () => {
   }
   return (
     <div className={`custom-container ${styles.newsWrapper}`}>
-      <h1 className={`header-title ${styles.title}`}>{categoryTitle}</h1>
+      <h1 className={`header-title ${styles.title}`}>
+        {upperFirst(categoryTitle)}
+      </h1>
       <NewsMain dataSource={topNews} t={t} />
       <div className={styles.hotnewsWrapper}>
         {categoryData?.length &&

@@ -1,9 +1,9 @@
 @import 'styles/mixins';
 .root {
-  max-width: min(1296px, 100vw);
+  max-width: min(1037px, 100vw);
   display: grid;
   grid-template-columns: repeat(4, 306px);
-  grid-gap: 24px;
+  grid-gap: 22px;
   margin: auto;
   height: 100%;
   margin-bottom: 56px;
@@ -16,7 +16,7 @@
     grid-template-columns: repeat(2, 306px);
   }
   @include responsive-size(screen-m) {
-    grid-template-columns: repeat(2, min(calc(50vw - 20px), 306px));
+    grid-template-columns: repeat(2, min(calc(50vw - 18px), 306px));
   }
   @include responsive-size(screen-xs) {
     grid-template-columns: repeat(1, 306px);
@@ -38,8 +38,8 @@
     justify-content: end;
     color: #ffffff;
     @include responsive-size(screen-m) {
-      height: min(360px, calc((50vw - 20px) * 360 / 306));
-      width: min(calc(50vw - 20px), 306px);
+      height: min(360px, calc((50vw - 18px) * 360 / 306));
+      width: min(calc(50vw - 18px), 306px);
     }
     @include responsive-size(screen-xs) {
       height: 360px;
@@ -60,8 +60,8 @@
     }
 
     &__name {
-      @include setting-font(Mulish, normal, 700, 24px, 30px);
-      padding-left: 24px;
+      @include setting-font(Mulish, normal, 700, 22px, 28px);
+      padding-left: 22px;
       span {
         transition: background-size 0.5s;
         background: linear-gradient(0, #fff, #fff) 0 100% no-repeat;
@@ -69,15 +69,15 @@
       }
     }
     &__gender {
-      padding-left: 24px;
-      @include setting-font(Mulish, normal, 400, 14px, 24px);
+      padding-left: 22px;
+      @include setting-font(Mulish, normal, 400, 12px, 22px);
       color: #e8e8e8;
     }
     &__star {
-      padding-left: 24px;
-      @include setting-font(Mulish, normal, 400, 14px, 24px);
+      padding-left: 22px;
+      @include setting-font(Mulish, normal, 400, 12px, 22px);
       color: #e8e8e8;
-      margin: 12px 0 16px;
+      margin: 10px 0 14px;
       display: flex;
       align-items: center;
       &-contained {
@@ -88,10 +88,10 @@
       }
     }
     &__follower {
-      padding-left: 24px;
-      @include setting-font(Mulish, normal, 400, 14px, 24px);
+      padding-left: 22px;
+      @include setting-font(Mulish, normal, 400, 12px, 22px);
       color: #e8e8e8;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
   }
 }

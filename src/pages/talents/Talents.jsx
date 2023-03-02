@@ -12,14 +12,14 @@ const MoreButton = styled.div`
   background: #674f82;
   border-radius: 45px;
   margin: auto;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
 
   font-weight: 600;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 14px;
+  line-height: 24px;
 
   /* White / 01 */
 

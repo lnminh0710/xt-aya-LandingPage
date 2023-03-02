@@ -1,7 +1,7 @@
 @import 'styles/mixins';
 .root {
   margin: auto;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   width: 100%;
   position: relative;
   height: calc(100vw * 300 / 1728);
@@ -27,13 +27,13 @@
   justify-content: center;
   z-index: 2;
   .title {
-    @include setting-font(Mulish, normal, 700, 48px, 56px);
+    @include setting-font(Mulish, normal, 700, 38px, 56px);
     text-align: center;
 
     color: #ffffff;
     margin-bottom: 40px;
     @include responsive-size(screen-m) {
-      @include setting-font(Mulish, normal, 600, 24px, 32px);
+      @include setting-font(Mulish, normal, 600, 22px, 30px);
     }
   }
 }
@@ -50,25 +50,25 @@
   grid-gap: 19px;
   justify-content: center;
   align-items: center;
-  padding: 0 12px 0 26px;
+  padding: 0 10px 0 24px;
   @include responsive-size(screen-xl) {
-    @include setting-font(Mulish, normal, 400, 14px, 24px);
+    @include setting-font(Mulish, normal, 400, 12px, 22px);
     width: 352px;
     height: 48px;
-    top: calc(50% - 24px);
+    top: calc(50% - 22px);
     left: calc(50% - 176px);
-    grid-template-columns: 20px 1fr max-content;
-    grid-gap: 14px;
+    grid-template-columns: 18px 1fr max-content;
+    grid-gap: 12px;
     padding: 0;
     padding-left: 19px;
-    padding-right: 10px;
+    padding-right: 8px;
     svg {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
     }
   }
   input {
-    @include setting-font(Mulish, normal, 300, 24px, 32px);
+    @include setting-font(Mulish, normal, 300, 22px, 30px);
     background-color: transparent;
     border: unset;
     color: #ffffff;
@@ -77,12 +77,12 @@
       border: unset !important;
     }
     @include responsive-size(screen-xl) {
-      @include setting-font(Mulish, normal, 400, 14px, 24px);
+      @include setting-font(Mulish, normal, 400, 12px, 22px);
     }
   }
 
   .search-button {
-    @include setting-font(Mulish, normal, 600, 16px, 26px);
+    @include setting-font(Mulish, normal, 600, 14px, 24px);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -99,9 +99,9 @@
     color: #fff;
 
     @include responsive-size(screen-xl) {
-      @include setting-font(Mulish, normal, 400, 14px, 24px);
+      @include setting-font(Mulish, normal, 400, 12px, 22px);
       width: 78px;
-      height: 32px;
+      height: 30px;
 
       /* Primary/02 */
 

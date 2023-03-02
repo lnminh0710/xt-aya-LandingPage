@@ -1,20 +1,20 @@
 @import 'styles/mixins';
 .root {
-  max-width: min(1296px, 100vw);
+  max-width: min(1037px, 100vw);
   display: flex;
 
   flex-wrap: wrap;
   grid-template-columns: repeat(4, 306px);
-  grid-gap: 24px;
+  grid-gap: 19px;
   margin: auto;
   height: 100%;
-  margin-bottom: 56px;
+  margin-bottom: 45px;
   @include responsive-size(screen-xl) {
     justify-content: center;
   }
   .user {
-    height: 360px;
-    width: 306px;
+    height: 288px;
+    width: 245px;
     background: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0) 39.58%,
@@ -48,8 +48,8 @@
     }
 
     &__name {
-      @include setting-font(Mulish, normal, 700, 24px, 30px);
-      padding-left: 24px;
+      @include setting-font(Mulish, normal, 700, 22px, 28px);
+      padding-left: 19px;
       span {
         transition: background-size 0.5s;
         background: linear-gradient(0, #fff, #fff) 0 100% no-repeat;
@@ -57,13 +57,13 @@
       }
     }
     &__gender {
-      padding-left: 24px;
-      @include setting-font(Mulish, normal, 400, 14px, 24px);
+      padding-left: 19px;
+      @include setting-font(Mulish, normal, 400, 12px, 22px);
       color: #e8e8e8;
     }
     &__star {
-      padding-left: 24px;
-      @include setting-font(Mulish, normal, 400, 14px, 24px);
+      padding-left: 19px;
+      @include setting-font(Mulish, normal, 400, 12px, 22px);
       color: #e8e8e8;
       margin: 12px 0 16px;
       display: flex;
@@ -76,47 +76,47 @@
       }
     }
     &__follower {
-      padding-left: 24px;
-      @include setting-font(Mulish, normal, 400, 14px, 24px);
+      padding-left: 19px;
+      @include setting-font(Mulish, normal, 400, 12px, 22px);
       color: #e8e8e8;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
   }
 
   .space {
-    width: 306px;
+    width: 245px;
   }
 }
 
 .title,
 .description {
-  max-width: min(1296px, 100vw);
+  max-width: min(1037px, 100vw);
   margin: auto;
   color: #2c2b34;
-  @media only screen and (max-width: 1296px) {
-    max-width: calc(306px * 3 + 48px);
+  @media only screen and (max-width: 1037px) {
+    max-width: calc(245px * 3 + 48px);
   }
 
   @media only screen and (max-width: 965px) {
-    max-width: calc(306px * 2 + 24px);
+    max-width: calc(245px * 2 + 22px);
   }
 
   @media only screen and (max-width: 635px) {
-    max-width: 306px;
+    max-width: 245px;
   }
 }
 
 .title {
   margin-top: 48px;
-  @include setting-font(Mulish, normal, 700, 32px, 56px);
+  @include setting-font(Mulish, normal, 700, 30px, 56px);
   @media only screen and (max-width: 635px) {
-    @include setting-font(Mulish, normal, 700, 24px, 40px);
+    @include setting-font(Mulish, normal, 700, 22px, 40px);
   }
 }
 
 .description {
   margin-bottom: 40px;
-  @include setting-font(Mulish, normal, 400, 14px, 26px);
+  @include setting-font(Mulish, normal, 400, 12px, 24px);
   @media only screen and (max-width: 635px) {
     width: 100%;
     margin-left: calc(50vw - 153px);

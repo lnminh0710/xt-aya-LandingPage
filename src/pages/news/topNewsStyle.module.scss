@@ -1,14 +1,14 @@
 .topNewsContainer {
-  margin-bottom: 65px;
+  margin-bottom: 52px;
   @media only screen and (max-width: 554px) {
-    margin-bottom: 32px;
+    margin-bottom: 26px;
   }
   .banner {
     .mainWrapper {
-      margin-bottom: 40px;
+      margin-bottom: 32px;
       .mainImg {
-        height: 620px;
-        max-width: 856px;
+        height: 496px;
+        max-width: 645px;
         background-repeat: no-repeat;
         background-position: 50% 50%;
         background-size: cover;
@@ -24,13 +24,13 @@
         }
 
         @media only screen and (max-width: 554px) {
-          height: 400px;
+          height: 320px;
         }
       }
       .textWrapper {
         position: absolute;
         bottom: 0;
-        padding: 32px;
+        padding: 30px;
         background: linear-gradient(
           180deg,
           rgba(0, 0, 0, 0) 0%,
@@ -38,12 +38,12 @@
         );
         width: 100%;
         .mainTitle {
-          line-height: 40px;
+          line-height: 32px;
           overflow: hidden;
-          height: 40px;
+          height: 32px;
 
           font-weight: 700;
-          font-size: 32px;
+          font-size: 26px;
           color: #ffffff;
           a:hover {
             color: #9b5efc;
@@ -51,12 +51,12 @@
         }
         p {
           position: relative;
-          line-height: 26px;
+          line-height: 21px;
           overflow: hidden;
-          height: 57px;
+          height: 46px;
 
           font-weight: 400;
-          font-size: 16px;
+          font-size: 14px;
           color: #e8e8e8;
           margin: 0;
 
@@ -66,7 +66,7 @@
             bottom: 5px;
             padding-left: 25px;
             background: linear-gradient(to bottom, #7f7f7f, #616161);
-            // backdrop-filter: blur(10px); 
+            // backdrop-filter: blur(10px);
           }
         }
       }
@@ -76,12 +76,12 @@
         padding-right: 0px;
       }
       .subMainItem {
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         @media only screen and (max-width: 768px) {
           padding-right: 0px;
         }
         @media only screen and (max-width: 554px) {
-          margin-bottom: 32px;
+          margin-bottom: 26px;
         }
         .co &:last-child {
           margin-bottom: 0;

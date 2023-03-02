@@ -12,17 +12,17 @@
   }
   .otherTitle {
     overflow: hidden;
-    line-height: 24px;
+    line-height: 22px;
     max-height: 72px;
     @media only screen and (max-width: 554px) {
-      max-height: 100px;
+      max-height: 80px;
     }
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
     color: #2c2b34;
     margin: 0;
     text-align: left;
-    line-height: 26px;
+    line-height: 24px;
     width: 100%;
     a:hover {
       color: #9b5efc;
@@ -33,7 +33,7 @@
       display: none;
     }
     .hiddenTablet {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       .otherImg {
         height: 119px !important;
       }

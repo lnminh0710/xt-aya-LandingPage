@@ -1,9 +1,9 @@
 @import 'styles/mixins';
 .root {
-  max-width: min(1296px, 100vw);
+  max-width: min(1037px, 100vw);
   margin: 90px auto 122px;
   display: grid;
-  padding: 0 16px;
+  padding: 0 14px;
   grid-template-columns: 1fr min(50vw, 526px);
   @include responsive-size(screen-m) {
     grid-template-columns: 1fr;
@@ -32,12 +32,12 @@
   }
 
   .title {
-    @include setting-font(Mulish, normal, 700, 48px, 56px);
+    @include setting-font(Mulish, normal, 700, 38px, 56px);
     color: #2c2b34;
     margin-bottom: 36px;
     display: flex;
     @include responsive-size(screen-m) {
-      @include setting-font(Mulish, normal, 700, 32px, 40px);
+      @include setting-font(Mulish, normal, 700, 30px, 40px);
       align-items: center;
       flex-direction: column;
       margin-bottom: 40px;
@@ -45,14 +45,14 @@
   }
 
   .sub-title {
-    @include setting-font(Mulish, normal, 600, 16px, 26px);
+    @include setting-font(Mulish, normal, 600, 14px, 24px);
     color: #2c2b34;
   }
 
   .button {
     margin-top: 40px;
-    @include border-button(#674f82, 164px, 48px, 45px);
-    @include setting-font(Mulish, normal, 600, 16px, 26px);
+    @include border-button(#674f82, 164px, 38px, 45px);
+    @include setting-font(Mulish, normal, 600, 14px, 24px);
     color: #ffffff;
     @include responsive-size(screen-m) {
       margin: auto;

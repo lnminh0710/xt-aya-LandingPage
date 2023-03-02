@@ -1,6 +1,6 @@
 .selectRoleText {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
   color: #484747;
   margin-bottom: 56px;
@@ -8,16 +8,16 @@
 .roleWrapper {
   padding: 45px 40px;
   background: #f3f2f5;
-  border-radius: 16px;
+  border-radius: 14px;
   margin-bottom: 148px;
 
   .roleList {
     margin-bottom: 45px;
 
     .roleItem {
-      padding: 20px;
+      padding: 18px;
       background: #ffffff;
-      border-radius: 16px;
+      border-radius: 14px;
       margin-bottom: 15px;
       width: 100%;
       text-align: center;
@@ -27,12 +27,12 @@
       input {
         cursor: pointer;
         position: relative;
-        left: 20px;
+        left: 18px;
       }
       .roleName {
         margin-top: 39px;
         font-weight: 600;
-        font-size: 18px;
+        font-size: 16px;
         display: flex;
         align-items: center;
         text-align: center;
@@ -50,7 +50,7 @@
         }
       }
       svg {
-        min-height: 63px;
+        min-height: 50px;
         cursor: pointer;
       }
 
@@ -76,7 +76,7 @@
   .btnWrapper {
     text-align: center;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     align-items: center;
     color: #484747;
     button {
@@ -86,14 +86,14 @@
       &.btnLight {
         color: #a9b5bc;
         font-weight: 600;
-        font-size: 16px;
+        font-size: 14px;
       }
     }
     a {
       color: #674f82;
       &:hover,
       &:active,
-      &:focus { 
+      &:focus {
         color: #9b5efc;
       }
     }

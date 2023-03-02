@@ -34,35 +34,35 @@ import {
 } from 'components/hook/useContextSelector';
 
 const Root = styled.div`
-  height: 100px;
+  height: 80px;
   background: #fafafa;
   display: grid;
   grid-template-columns: ${({ logged }) =>
     logged
-      ? '80px 1fr 180px max-content'
-      : '80px 1fr max-content max-content max-content'};
-  grid-column-gap: 28px;
+      ? '64px 1fr 180px max-content'
+      : '64px 1fr max-content max-content max-content'};
+  grid-column-gap: 26px;
   align-items: center;
-  padding: 0 64px;
+  padding: 0 51px;
   position: sticky;
   top: 0;
   z-index: 10000;
-  @media only screen and (max-width: 1296px) {
-    padding: 0 14px;
+  @media only screen and (max-width: 1037px) {
+    padding: 0 12px;
     max-width: 100vw;
   }
   @media only screen and (max-width: 900px) {
-    grid-gap: 12px;
+    grid-gap: 10px;
   }
   @media only screen and (max-width: 768px) {
-    grid-template-columns: 52px 1fr;
-    height: 63px;
+    grid-template-columns: 41px 1fr;
+    height: 50px;
     width: ${({ fullWidth }) => (fullWidth ? '100vw' : '100%')};
   }
 `;
 const ButtonCreate = styled.div`
-  width: 170px;
-  height: 48px;
+  width: 136px;
+  height: 38px;
 
   /* Primary/02 */
 
@@ -70,8 +70,8 @@ const ButtonCreate = styled.div`
   border-radius: 45px;
 
   font-weight: 600;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 14px;
+  line-height: 24px;
 
   display: flex;
   align-items: center;
@@ -81,18 +81,18 @@ const ButtonCreate = styled.div`
   cursor: pointer;
   color: #ffffff;
 
-  @media only screen and (max-width: 1296px) {
-    width: 140px;
-    height: 40px;
-    font-size: 14px;
-    line-height: 24px;
+  @media only screen and (max-width: 1037px) {
+    width: 112px;
+    height: 32px;
+    font-size: 12px;
+    line-height: 22px;
   }
 `;
 
 const Item = styled.div`
   font-weight: 600;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 14px;
+  line-height: 24px;
   /* identical to box height, or 162% */
 
   /* Grey/01 */
@@ -240,8 +240,8 @@ const Header = () => {
             <Image
               src={'/images/logo.webp'}
               alt='logo'
-              width={84}
-              height={84}
+              width={64}
+              height={64}
               layout='responsive'
               objectFit='cover'
             />

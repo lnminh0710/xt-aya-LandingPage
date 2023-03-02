@@ -5,39 +5,39 @@
 
   border: 2px solid #e8e8e8;
   border-radius: 8px;
-  margin-bottom: 32px;
-  padding: 24px;
+  margin-bottom: 30px;
+  padding: 22px;
   .title {
-    @include setting-font(Mulish, normal, 600, 18px, 24px);
+    @include setting-font(Mulish, normal, 600, 16px, 22px);
     color: #000000;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
   }
 
   .sponsor {
     width: 100%;
-    padding: 36px 60px;
+    padding: 36px 50px;
     background: linear-gradient(180deg, #3e2a57 0%, #2f1339 100%);
 
     display: grid;
     grid-template-columns: 1fr 130px 110px;
-    grid-gap: 60px;
+    grid-gap: 50px;
     color: #ffffff;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 
     .benefit {
-      @include setting-font(Mulish, normal, 700, 32px, 40px);
-      margin-bottom: 24px;
+      @include setting-font(Mulish, normal, 700, 30px, 40px);
+      margin-bottom: 22px;
     }
     .join-button {
-      @include setting-font(Mulish, normal, 600, 16px, 26px);
+      @include setting-font(Mulish, normal, 600, 14px, 24px);
       @include border-button(#9454fc, 128px, 40px);
     }
 
     .total-post {
-      @include setting-font(Mulish, normal, 700, 48px, 56px);
+      @include setting-font(Mulish, normal, 700, 38px, 56px);
     }
     .desc-post {
-      @include setting-font(Mulish, normal, 600, 14px, 24px);
+      @include setting-font(Mulish, normal, 600, 12px, 22px);
       color: #e1d6ec;
       margin-top: 4px;
     }
@@ -45,7 +45,7 @@
 
   .post {
     width: 100%;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     background: #ffffff;
     /* Grey/04 */
 
@@ -59,17 +59,17 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       &-title {
-        @include setting-font(Mulish, normal, 600, 18px, 24px);
+        @include setting-font(Mulish, normal, 600, 16px, 22px);
         color: #fff;
         width: 209px;
         text-align: center;
-        margin-bottom: 24px;
+        margin-bottom: 22px;
       }
       &-button {
-        @include setting-font(Mulish, normal, 600, 14px, 24px);
-        @include border-button(#2c2b34, 109px, 32px);
+        @include setting-font(Mulish, normal, 600, 12px, 22px);
+        @include border-button(#2c2b34, 109px, 30px);
 
         /* Grey/01 */
 
@@ -78,47 +78,47 @@
     }
 
     &__date {
-      @include setting-font(Mulish, normal, 400, 16px, 26px);
-      padding-left: 24px;
+      @include setting-font(Mulish, normal, 400, 14px, 24px);
+      padding-left: 22px;
       color: #2c2b34;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     &__title {
-      @include setting-font(Mulish, normal, 700, 24px, 30px);
-      padding-left: 24px;
+      @include setting-font(Mulish, normal, 700, 22px, 28px);
+      padding-left: 22px;
       color: #2c2b34;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     &__subscribe {
       cursor: pointer;
-      @include setting-font(Mulish, normal, 600, 14px, 24px);
-      @include border-button(#674f82, 117px, 32px);
+      @include setting-font(Mulish, normal, 600, 12px, 22px);
+      @include border-button(#674f82, 117px, 30px);
 
       color: #ffffff;
       margin: auto;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     &__summary {
-      @include setting-font(Mulish, normal, 400, 12px, 16px);
-      padding-left: 24px;
-      margin-bottom: 24px;
+      @include setting-font(Mulish, normal, 400, 10px, 14px);
+      padding-left: 22px;
+      margin-bottom: 22px;
       color: #000000;
       display: flex;
       align-items: center;
       div {
-        margin-right: 24px;
+        margin-right: 22px;
       }
     }
   }
 
   .explore {
-    @include setting-font(Mulish, normal, 600, 14px, 24px);
+    @include setting-font(Mulish, normal, 600, 12px, 22px);
     color: #9454fc;
     margin: auto;
-    width: 100px;
+    width: 80px;
     cursor: pointer;
   }
 }

@@ -17,27 +17,27 @@
 }
 
 .info {
-  padding: 24px;
+  padding: 22px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   .name {
-    @include setting-font(Mulish, normal, 700, 24px, 30px);
+    @include setting-font(Mulish, normal, 700, 22px, 28px);
     color: #2c2b34;
     margin-bottom: 4px;
     text-align: center;
   }
   .job {
-    @include setting-font(Mulish, normal, 400, 14px, 24px);
+    @include setting-font(Mulish, normal, 400, 12px, 22px);
     color: #484747;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
   .gender {
-    @include setting-font(Mulish, normal, 600, 16px, 26px);
+    @include setting-font(Mulish, normal, 600, 14px, 24px);
     color: #2c2b34;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
   .social {
@@ -45,54 +45,54 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     &__item {
       display: flex;
       flex-direction: column;
       align-items: center;
 
       &-value {
-        @include setting-font(Mulish, normal, 600, 18px, 24px);
+        @include setting-font(Mulish, normal, 600, 16px, 22px);
         color: #2c2b34;
         text-align: center;
       }
       &-label {
-        @include setting-font(Mulish, normal, 400, 14px, 24px);
+        @include setting-font(Mulish, normal, 400, 12px, 22px);
         color: #484747;
         text-align: center;
         display: flex;
         align-items: center;
         svg {
           margin-left: 4px;
-          width: 10px;
-          height: 10px;
+          width: 8px;
+          height: 8px;
         }
       }
     }
   }
 
   .following-button {
-    @include setting-font(Mulish, normal, 600, 16px, 26px);
+    @include setting-font(Mulish, normal, 600, 14px, 24px);
     @include border-button(#713bad, 100%, 40px);
     cursor: pointer;
     /* Primary/06 */
 
     color: #ffffff;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
   .action {
     display: grid;
     grid-template-columns: 1fr 40px;
-    grid-gap: 16px;
+    grid-gap: 14px;
     width: 100%;
     .inquiry-button {
-      @include setting-font(Mulish, normal, 600, 16px, 26px);
+      @include setting-font(Mulish, normal, 600, 14px, 24px);
       @include border-button(#674f82, 100%, 40px);
 
       color: #ffffff;
       svg {
-        margin-right: 10px;
+        margin-right: 8px;
       }
     }
   }

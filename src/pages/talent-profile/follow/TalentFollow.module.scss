@@ -5,15 +5,15 @@
 
   border: 2px solid #e8e8e8;
   border-radius: 8px;
-  margin-bottom: 32px;
+  margin-bottom: 30px;
 
   .tab {
     display: flex;
 
     &__item {
-      @include setting-font(Mulish, normal, 600, 14px, 24px);
+      @include setting-font(Mulish, normal, 600, 12px, 22px);
 
-      padding: 7px 14px 3px;
+      padding: 7px 12px 3px;
 
       height: 64px;
 
@@ -30,7 +30,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 16px;
+      padding: 0 14px;
 
       height: 54px;
       cursor: pointer;
@@ -42,16 +42,16 @@
   }
 
   .tab-content {
-    padding: 16px;
+    padding: 14px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 16px;
+    grid-gap: 14px;
   }
 
   .more {
-    @include setting-font(Mulish, normal, 600, 14px, 24px);
+    @include setting-font(Mulish, normal, 600, 12px, 22px);
     color: #9454fc;
-    margin: 32px auto;
+    margin: 30px auto;
     text-align: center;
     cursor: pointer;
   }

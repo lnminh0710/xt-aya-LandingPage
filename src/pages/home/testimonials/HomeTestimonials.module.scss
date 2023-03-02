@@ -1,16 +1,16 @@
 @import 'styles/mixins';
 .root {
-  margin: auto auto 140px;
+  margin: auto auto 112px;
   display: grid;
-  grid-template-columns: 660px 1fr;
-  height: 738px;
-  max-width: 1296px;
+  grid-template-columns: 528px 1fr;
+  height: 591px;
+  max-width: min(calc(100vw - 32px), 1037px);
 
   @include responsive-size(screen-xl) {
-    grid-template-columns: 480px 1fr;
+    grid-template-columns: 384px 1fr;
   }
   @include responsive-size(screen-l) {
-    grid-template-columns: 380px 1fr;
+    grid-template-columns: 304px 1fr;
   }
   @include responsive-size(screen-m) {
     grid-template-columns: unset;
@@ -21,50 +21,51 @@
 
 .banner {
   position: relative;
-  width: min(358px, calc(100vw - 32px));
+  width: min(287px, calc(100vw - 32px));
   @include responsive-size(screen-m) {
     margin: auto;
   }
   &__background {
-    width: 306px;
+    width: 245px;
     @include responsive-size(screen-l) {
-      width: 172px;
-      height: 508px;
+      width: 138px;
+      height: 407px;
     }
   }
   &__image {
     position: absolute;
     z-index: 2;
     bottom: 0;
-    left: 110px;
-    width: 416px;
+    left: 88px;
+    width: 333px;
     @include responsive-size(screen-xl) {
-      left: 60px;
+      left: 48px;
+      top: 106px;
     }
     @include responsive-size(screen-l) {
-      width: 294px;
+      width: 235px;
       bottom: unset;
-      top: 76px;
+      top: 61px;
     }
   }
 }
 .title {
-  @include setting-font(Mulish, normal, 700, 48px, 56px);
+  @include setting-font(Mulish, normal, 700, 38px, 56px);
   color: #2c2b34;
   @include responsive-size(screen-m) {
-    @include setting-font(Mulish, normal, 700, 32px, 40px);
+    @include setting-font(Mulish, normal, 700, 30px, 40px);
   }
 }
 .content {
   display: grid;
-  grid-template-rows: 80px 1fr 72px;
-  grid-gap: 80px;
+  grid-template-rows: 64px 1fr 72px;
+  grid-gap: 64px;
   @include responsive-size(screen-m) {
     grid-template-rows: 1fr 72px;
   }
 
   .comment {
-    @include setting-font(Mulish, normal, 400, 22px, 40px);
+    @include setting-font(Mulish, normal, 400, 18px, 32px);
     position: relative;
     .open-quote {
       position: absolute;
@@ -85,10 +86,10 @@
   .profile {
     display: grid;
     grid-template-columns: 72px 1fr 120px;
-    grid-column-gap: 24px;
+    grid-column-gap: 22px;
     align-items: center;
     @include responsive-size(screen-m) {
-      @include setting-font(Mulish, normal, 700, 32px, 40px);
+      @include setting-font(Mulish, normal, 700, 26px, 32px);
       grid-template-columns: 72px 1fr;
     }
   }
@@ -103,20 +104,20 @@
   .user {
     &__name {
       grid-area: 1 / 2;
-      @include setting-font(Mulish, normal, 700, 24px, 30px);
+      @include setting-font(Mulish, normal, 700, 22px, 24px);
       color: #2c2b34;
       .loading {
-        height: 30px;
+        height: 28px;
       }
     }
     &__role {
       grid-area: 2 / 2;
-      @include setting-font(Mulish, normal, 700, 14px, 24px);
+      @include setting-font(Mulish, normal, 700, 12px, 22px);
       color: #111e38;
       text-transform: uppercase;
       opacity: 0.5;
       .loading {
-        height: 24px;
+        height: 22px;
       }
     }
   }
@@ -135,10 +136,10 @@
     @include responsive-size(screen-m) {
       grid-area: 3 / 1 / span 1 / span 2;
       display: grid;
-      grid-gap: 24px;
+      grid-gap: 22px;
       grid-template-columns: 40px 40px;
       justify-content: unset;
-      margin-top: 12px;
+      margin-top: 10px;
     }
   }
 }

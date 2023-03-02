@@ -7,11 +7,11 @@ import { TalentFollow } from './follow';
 import { TalentInformation } from './information';
 
 const Content = styled.div`
-  margin: -100px auto 50px;
-  max-width: min(calc(100vw - 16px), 1296px);
+  margin: -80px auto 50px;
+  max-width: min(calc(100vw - 14px), 1037px);
   display: grid;
   grid-template-columns: 306px 1fr;
-  grid-gap: 24px;
+  grid-gap: 22px;
 `;
 
 const TalentActions = styled.div``;

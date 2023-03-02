@@ -21,7 +21,7 @@ body {
   font-family: 'Mulish';
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 a {
@@ -49,19 +49,14 @@ a {
 .header-title {
   color: #2c2b34;
   text-align: center;
-  margin-top: 100px;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
   font-weight: 700;
-  font-size: 48px;
-
-  @media only screen and (max-width: 554px) {
-    margin-top: 24px;
-  }
+  font-size: 32px;
 }
 
 .btn-aya {
   border-radius: 45px;
-  padding: 12px 24px;
+  padding: 10px 22px;
   border: none;
 
   &.default {
@@ -84,7 +79,7 @@ a {
     background: #ffffff;
     color: #2c2b34;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
     &:hover,
     &:active,
     &:focus {
@@ -96,15 +91,15 @@ a {
 
 .form-group-wrapper {
   position: relative;
-  margin-bottom: 32px;
+  margin-bottom: 30px;
   .form-control {
     background: #ffffff;
     border-radius: 36px;
     position: relative;
-    padding: 11px 24px;
+    padding: 11px 22px;
     color: #2c2b34;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     width: 100%;
     &:active,
     &:focus {
@@ -125,8 +120,8 @@ a {
   }
   .arrow-down {
     position: absolute;
-    right: 20px;
-    top: 12px;
+    right: 18px;
+    top: 10px;
     cursor: pointer;
   }
 
@@ -136,7 +131,7 @@ a {
     top: 11px;
     left: 25px;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     color: rgb(44 43 52 / 70%);
     cursor: text;
     &.required:after {
@@ -147,10 +142,10 @@ a {
   .btn-show-pass {
     position: absolute;
     cursor: pointer;
-    right: 22px;
-    top: 10px;
+    right: 20px;
+    top: 8px;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
     color: #713bad;
   }
 
@@ -158,7 +153,7 @@ a {
     color: #f00;
     position: absolute;
     top: 50px;
-    left: 20px;
+    left: 18px;
   }
 }
 
@@ -178,8 +173,8 @@ input.radio-aya {
   input.checkbox-aya {
     position: absolute;
     top: 5px;
-    height: 24px;
-    width: 24px;
+    height: 22px;
+    width: 22px;
     border: 2px solid #3e2a57;
     border-radius: 4px;
     margin-left: -2.5em;
@@ -194,7 +189,7 @@ input.radio-aya {
   .form-check-label {
     cursor: pointer;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     align-items: center;
     color: #000000;
     margin-left: 15px;
@@ -212,7 +207,7 @@ input.radio-aya {
 }
 
 .link-href {
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   &.purple {
     color: #9b5efc;
@@ -259,7 +254,7 @@ input.radio-aya {
 
     .accordion-header {
       .accordion-button {
-        padding: 24px 0;
+        padding: 22px 0;
         border-bottom: 1px solid #e8e8e8;
         &:focus,
         &:not(.collapsed) {
@@ -275,20 +270,24 @@ input.radio-aya {
         }
       }
       .icon {
-        margin-right: 40px;
+        margin-right: 32px;
+        svg {
+          width: 19px;
+          height: 19px;
+        }
       }
       .title {
         font-weight: 600;
-        font-size: 18px;
+        font-size: 16px;
         color: #484747;
         margin-right: 5px;
       }
     }
 
     .accordion-body {
-      padding: 24px 62px;
+      padding: 22px 62px;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 14px;
       color: #484747;
     }
   }
@@ -345,13 +344,13 @@ input.radio-aya {
 
 .container {
   @media only screen and (max-width: 575px) {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 14px;
+    padding-right: 14px;
   }
 }
 .custom-container {
-  max-width: 1328px;
-  padding: 0 16px;
+  max-width: 1037px;
+  padding: 71px 14px 0;
   margin: auto;
 }
 
@@ -364,11 +363,11 @@ input.radio-aya {
   color: #636e75;
 
   font-weight: 600;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 14px;
+  line-height: 24px;
 
   display: grid;
-  grid-template-columns: 1fr 48px 12px;
+  grid-template-columns: 1fr 48px 10px;
   grid-gap: 8px;
 
   align-items: center;

@@ -28,22 +28,19 @@ const Root = styled.div`
 const Content = styled.div`
   width: 100%;
   flex: 1;
+  max-width: min(100vw, 1720px);
 
   display: grid;
-  grid-template-columns: 80px 1fr max-content;
+  grid-template-columns: 64px 1fr max-content;
   grid-column-gap: 134px;
   padding: 62px 216px;
   color: #fff;
 
-  @media only screen and (max-width: 1296px) {
-    padding: 56px 14px;
-  }
-
   @media only screen and (max-width: 768px) {
     grid-template-columns: 1fr;
-    grid-template-rows: 80px max-content max-content;
-    grid-row-gap: 48px;
-    padding: 56px 32px;
+    grid-template-rows: 64px max-content max-content;
+    grid-row-gap: 46px;
+    padding: 56px 30px;
   }
 `;
 
@@ -57,39 +54,42 @@ const Actions = styled.div`
   padding: 0 216px;
 
   display: grid;
-  grid-template-columns: 160px 1fr 180px;
-  grid-gap: 32px;
+  grid-template-columns: 128px 1fr 180px;
+  grid-gap: 30px;
   align-items: center;
-  @media only screen and (max-width: 1296px) {
-    padding: 0 14px;
-  }
+  max-width: min(100vw, 1720px);
 
   @media only screen and (max-width: 768px) {
-    padding: 32px;
+    padding: 30px;
     height: auto;
     display: flex;
     flex-direction: column;
-    grid-gap-rows: 27px;
+    grid-row-gap: 27px;
     div:nth-of-type(2) {
       min-width: 160px;
     }
+  }
+
+  svg {
+    width: 30px;
+    height: 30px;
   }
 `;
 
 const Title = styled.div`
   font-weight: 600;
-  font-size: 24px;
-  line-height: 30px;
+  font-size: 22px;
+  line-height: 28px;
   /* identical to box height, or 125% */
 
   /* White / 01 */
 
   color: #ffffff;
-  margin-bottom: 26px;
+  margin-bottom: 24px;
 `;
 const Label = styled.div`
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 14px;
+  line-height: 24px;
   /* identical to box height, or 162% */
 
   /* Primary/05 */
@@ -98,21 +98,25 @@ const Label = styled.div`
 `;
 const Row = styled.div`
   display: grid;
-  grid-template-columns: 32px 1fr;
-  grid-gap: 18px;
-  margin-bottom: 10px;
+  grid-template-columns: 30px 1fr;
+  grid-gap: 16px;
+  margin-bottom: 8px;
   align-items: center;
+  svg {
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 const Categories = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 14px;
+  grid-gap: 12px;
 `;
 
 const CategoryItem = styled.a`
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 14px;
+  line-height: 24px;
   /* identical to box height, or 162% */
 
   /* Primary/05 */
@@ -123,8 +127,8 @@ const CategoryItem = styled.a`
 
 const ActionSubTitle = styled.div`
   font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 10px;
+  line-height: 14px;
   /* identical to box height, or 133% */
 
   text-align: center;
@@ -255,12 +259,12 @@ const Footer = () => {
     <Root>
       <Content className='container-root'>
         <Link href={Routes.HOME} passHref>
-          <a className='mx-auto' style={{ width: 80 }}>
+          <a className='mx-auto' style={{ width: 64 }}>
             <ImageLazyLoad
               src={'/images/logo.webp'}
               alt='logo'
-              width={84}
-              height={84}
+              width={64}
+              height={64}
             />
           </a>
         </Link>
@@ -292,7 +296,6 @@ const Footer = () => {
       </Content>
       <Line />
       <Actions className='container-root'>
-        {match && <Language />}
         <div className='d-flex align-items-center justify-content-between'>
           <a href={info.fb} target='_blank' rel='noreferrer'>
             <FooterFacebookIcon />
@@ -305,7 +308,7 @@ const Footer = () => {
           </a> */}
         </div>
         <ActionSubTitle>AyaVn.com - All Rights Reserved</ActionSubTitle>
-        {!match && <Language />}
+        <Language />
       </Actions>
     </Root>
   );

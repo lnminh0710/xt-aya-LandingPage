@@ -5,10 +5,10 @@
 }
 
 .title {
-  @include setting-font(Mulish, normal, 700, 48px, 56px);
+  @include setting-font(Mulish, normal, 700, 38px, 56px);
   text-align: center;
   color: #2c2b34;
-  margin-bottom: 80px;
+  margin-bottom: 64px;
 }
 
 .content {
@@ -16,20 +16,19 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  grid-gap: 24px;
+  grid-gap: 19px;
 
   .item {
-    width: 306px;
-    height: 380px;
+    width: 245px;
+    height: 338px;
     background: #fbf7ff;
     border-radius: 20px;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     display: flex;
     flex-direction: column;
-    padding: 30px 30px 24px;
-    grid-gap: 14px;
-    justify-content: space-between;
+    padding: 24px 24px 19px;
+    grid-gap: 12px;
     color: #2c2b34;
 
     &:hover {
@@ -38,11 +37,11 @@
     }
 
     &__title {
-      @include setting-font(Mulish, normal, 700, 24px, 30px);
-      margin-bottom: 18px;
+      @include setting-font(Mulish, normal, 700, 22px, 24px);
+      margin-bottom: 16px;
     }
     &__description {
-      @include setting-font(Mulish, normal, 400, 16px, 26px);
+      @include setting-font(Mulish, normal, 400, 14px, 21px);
     }
   }
 }

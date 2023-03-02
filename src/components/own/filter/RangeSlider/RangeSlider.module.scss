@@ -1,5 +1,5 @@
 .root {
-  height: 60px;
+  height: 50px;
   position: relative;
 }
 
@@ -10,8 +10,8 @@
 }
 
 .label {
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 14px;
+  line-height: 24px;
 
   color: #7e778b;
   margin-bottom: 8px;
@@ -54,8 +54,8 @@
 .slider__left-value,
 .slider__right-value {
   color: #9454fc;
-  font-size: 12px;
-  margin-top: 20px;
+  font-size: 10px;
+  margin-top: 18px;
 }
 
 .slider__left-value {
@@ -99,8 +99,8 @@
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  height: 18px;
-  width: 18px;
+  height: 16px;
+  width: 16px;
   margin-top: 4px;
   pointer-events: all;
   position: relative;
@@ -112,8 +112,8 @@
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  height: 18px;
-  width: 18px;
+  height: 16px;
+  width: 16px;
   margin-top: 4px;
   pointer-events: all;
   position: relative;

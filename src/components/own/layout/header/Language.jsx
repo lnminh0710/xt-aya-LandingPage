@@ -11,8 +11,8 @@ const Root = styled.div`
 const Label = styled.div`
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 20px;
   /* identical to box height, or 122% */
 
   display: flex;
@@ -21,7 +21,7 @@ const Label = styled.div`
 
   color: #000000;
 
-  margin-right: 12px;
+  margin-right: 10px;
   width: 25px;
 `;
 
@@ -31,6 +31,8 @@ const LinkLang = styled.a`
   cursor: pointer;
   svg {
     border-radius: 50%;
+    width: 30px;
+    height: 30px;
   }
 `;
 

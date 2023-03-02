@@ -29,7 +29,7 @@ const Faq = () => {
   }, [locale]);
 
   return (
-    <div className='container'>
+    <div className='custom-container'>
       <h1 className='header-title'>{t('title')}</h1>
       <p className={styles.subTitle}>{t('subTitle')}</p>
       <div className={styles.contentWrapper}>

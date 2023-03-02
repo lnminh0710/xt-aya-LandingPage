@@ -1,6 +1,6 @@
 .title {
   font-weight: 700;
-  font-size: 48px;
+  font-size: 38px;
   line-height: 56px;
   /* identical to box height, or 117% */
 
@@ -18,16 +18,16 @@
   margin-bottom: 38px;
   position: relative;
   .item {
-    width: 300px;
-    height: 460px;
-    padding: 12px 6px;
+    width: 240px;
+    height: 368px;
+    padding: 10px 6px;
     margin: 0 6px;
     cursor: pointer;
     transition: padding 0.3s ease-in-out;
     &:hover {
-      padding: 0 6px 24px;
-      filter: drop-shadow(0px 20px 9px rgba(0, 0, 0, 0.25));
-      height: 490px;
+      padding: 0 6px 22px;
+      filter: drop-shadow(0px 18px 9px rgba(0, 0, 0, 0.25));
+      height: 392px;
     }
   }
 }
@@ -59,8 +59,8 @@
   align-items: center;
   justify-content: center;
   grid-template-columns: 72px max-content 72px;
-  margin-bottom: 120px;
-  grid-gap: 60px;
+  margin-bottom: 96px;
+  grid-gap: 50px;
   z-index: 3;
   @media only screen and (max-width: 768px) {
     display: none;
@@ -70,17 +70,17 @@
   }
   .dots {
     display: flex;
-    grid-template-columns: repeat(auto-fill, 16px);
+    grid-template-columns: repeat(auto-fill, 14px);
     flex: 1;
-    grid-gap: 24px;
+    grid-gap: 22px;
   }
 }
 
 .setting-slider {
-  height: 450px;
+  height: 360px;
   position: relative;
   & > :nth-child(2) {
-    height: 465px;
+    height: 372px;
   }
 
   .slider-arrow__right,
@@ -89,18 +89,18 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    width: 40px;
-    height: 80px;
+    width: 32px;
+    height: 51px;
     cursor: pointer;
     pointer-events: auto;
     z-index: 5;
-    bottom: calc(50% - 24px);
+    bottom: calc(50% - 18px);
     background: rgba(255, 255, 255, 0.5);
     align-items: center;
     justify-content: flex-start;
     svg {
-      width: 30px;
-      height: 60px;
+      width: 24px;
+      height: 40px;
     }
   }
   .slider-arrow__left {

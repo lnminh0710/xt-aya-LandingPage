@@ -1,70 +1,69 @@
 .title {
-  margin-top: 91px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   text-align: left;
   @media only screen and (max-width: 554px) {
-    margin-top: 38px;
+    margin-top: 30px;
   }
 }
 .authorWrapper {
-  margin-bottom: 34px;
+  margin-bottom: 27px;
   .author,
   .postedTime {
-    margin-left: 14px;
+    margin-left: 12px;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 10px;
     color: #000201;
   }
 
   .seperate {
-    margin-left: 41px;
-    margin-right: 19px;
+    margin-left: 33px;
+    margin-right: 15px;
   }
 }
 .subTitle {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   color: #454545;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
   @media only screen and (max-width: 554px) {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 }
 .imgSubject {
-  height: 450px;
+  height: 360px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 50% 50%;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 @media only screen and (max-width: 1200px) {
   .imgSubject {
-    height: 450px;
+    height: 360px;
   }
 }
 @media only screen and (max-width: 992px) {
   .imgSubject {
-    height: 350px;
+    height: 280px;
   }
 }
 @media only screen and (max-width: 768px) {
   .imgSubject {
-    height: 250px;
+    height: 200px;
   }
 }
 .content {
   .text {
     @media only screen and (max-width: 554px) {
-      margin-bottom: 32px;
+      margin-bottom: 26px;
     }
   }
 }
 .hrStytle {
   background-color: #e1d6ec;
   height: 2px !important;
-  margin: 80px 0;
+  margin: 64px 0;
   @media only screen and (max-width: 554px) {
-    margin: 5px 0 20px 0;
+    margin: 5px 0 18px 0;
   }
 }
 
@@ -75,7 +74,7 @@
     background: #f8f8f8;
     border: none;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     color: rgba(0, 0, 0, 1);
     padding-right: 40px;
     margin-right: -20px;
@@ -94,25 +93,25 @@
 
 .recentTitle {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   color: #100d22;
-  margin-bottom: 24px;
+  margin-bottom: 19px;
 }
 
 .otherNewsTitle {
   font-weight: 700;
-  font-size: 24px;
+  font-size: 22px;
   color: #000201;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
   @media only screen and (max-width: 554px) {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 }
 
 .btnWrapper {
   text-align: center;
-  margin-bottom: 114px;
+  margin-bottom: 91px;
   @media only screen and (max-width: 554px) {
-    margin-bottom: 32px;
+    margin-bottom: 26px;
   }
 }

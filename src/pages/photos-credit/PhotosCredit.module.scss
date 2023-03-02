@@ -1,9 +1,9 @@
 @import 'styles/mixins';
 .root {
-  max-width: min(1296px, 100vw);
+  max-width: min(1037px, 100vw);
   margin: auto;
-  padding-top: 100px;
+  padding-top: 80px;
 }
 .title {
-  @include setting-font(Mulish, normal, 700, 32px, 56px);
+  @include setting-font(Mulish, normal, 700, 30px, 56px);
 }

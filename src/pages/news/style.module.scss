@@ -1,29 +1,29 @@
 .title {
-  margin-bottom: 72px;
+  margin-bottom: 58px;
   @media only screen and (max-width: 554px) {
-    margin-bottom: 24px;
+    margin-bottom: 19px;
   }
 }
 
 .newsWrapper {
-  margin-bottom: 126px;
+  margin-bottom: 100px;
   @media only screen and (max-width: 554px) {
     margin-bottom: 0px;
   }
 }
 .categoryWrapper {
   .CateItem {
-    margin-bottom: 64px;
+    margin-bottom: 51px;
     @media only screen and (max-width: 554px) {
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
     .header {
-      margin-bottom: 40px;
+      margin-bottom: 32px;
       display: flex;
 
       .haederText {
         font-weight: 700;
-        font-size: 32px;
+        font-size: 24px;
         color: #000000;
         flex: auto;
 
@@ -38,12 +38,12 @@
         .text {
           position: relative;
           background: #ffffff;
-          padding-right: 24px;
+          padding-right: 19px;
           z-index: 1;
         }
       }
       .seeAll {
-        margin-left: 24px;
+        margin-left: 19px;
         text-align: right;
         align-self: flex-end;
         margin-bottom: 4px;
@@ -54,9 +54,9 @@
 .hotNewsWrapper {
   padding: 40px;
   background: #2c2438;
-  margin-bottom: 64px;
+  margin-bottom: 51px;
   @media only screen and (max-width: 554px) {
-    margin-bottom: 32px;
+    margin-bottom: 26px;
   }
 
   .highlightText {
@@ -69,16 +69,16 @@
     }
     .text {
       font-weight: 700;
-      font-size: 32px;
+      font-size: 30px;
       color: #ffffff;
       background: #2c2438;
       position: relative;
-      padding-right: 24px;
+      padding-right: 19px;
       z-index: 1;
     }
   }
 
   .hotnewsItem {
-    margin-top: 40px;
+    margin-top: 32px;
   }
 }

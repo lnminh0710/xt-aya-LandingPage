@@ -9,8 +9,8 @@ import styled from 'styled-components';
 
 const Item = styled.a`
   font-weight: 600;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 14px;
+  line-height: 24px;
   /* identical to box height, or 162% */
 
   /* Grey/01 */
@@ -24,7 +24,7 @@ const MenuItem = styled.div`
   height: 64px;
   display: flex;
   align-items: center;
-  padding: 0 16px;
+  padding: 0 14px;
 `;
 
 const ButtonCreate = styled.div`
@@ -37,8 +37,8 @@ const ButtonCreate = styled.div`
   border-radius: 45px;
 
   font-weight: 600;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 14px;
+  line-height: 24px;
 
   display: flex;
   align-items: center;
@@ -48,18 +48,18 @@ const ButtonCreate = styled.div`
   cursor: pointer;
   color: #ffffff;
 
-  @media only screen and (max-width: 1296px) {
+  @media only screen and (max-width: 1037px) {
     width: 140px;
     height: 40px;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 12px;
+    line-height: 22px;
   }
 `;
 
 const Profile = styled.div`
   border-top: 1px solid #858585;
   width: 100%;
-  padding: 16px;
+  padding: 14px;
 
   display: grid;
   align-items: center;
@@ -67,8 +67,8 @@ const Profile = styled.div`
   grid-gap: 4px;
 
   font-weight: 600;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 14px;
+  line-height: 24px;
   /* identical to box height, or 162% */
 
   /* White / 01 */

@@ -2,7 +2,7 @@
   text-align: center;
   color: #454545;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   margin: 0 210px;
   margin-bottom: 59px;
   @media only screen and (max-width: 554px) {
@@ -19,60 +19,60 @@
   height: 2px !important;
   margin: 64px 0;
   @media only screen and (max-width: 554px) {
-    margin: 32px 0;
+    margin: 26px 0;
   }
 }
 .bodyWrapper {
-  margin: 0 350px 115px 350px;
+  margin: 0 280px 92px 280px;
   @media only screen and (max-width: 1200px) {
-    margin: 0 200px 115px 200px;
+    margin: 0 160px 92px 160px;
   }
   @media only screen and (max-width: 992px) {
-    margin: 0 150px 115px 150px;
+    margin: 0 120px 92px 120px;
   }
   @media only screen and (max-width: 768px) {
-    margin: 0 50px 115px 50px;
+    margin: 0 40px 92px 40px;
   }
   @media only screen and (max-width: 554px) {
     margin: 0 auto;
-    margin-bottom: 32px;
+    margin-bottom: 26px;
   }
 }
 
 .contactForm {
   background-color: #f3f2f5;
-  border-radius: 16px;
-  padding: 40px 42px;
-  margin-bottom: 45px;
+  border-radius: 14px;
+  padding: 32px;
+  margin-bottom: 36px;
 }
 
 .note {
   color: #454545;
   text-align: center;
   font-weight: 500;
-  font-size: 16px;
-  margin-bottom: 24px;
+  font-size: 14px;
+  margin-bottom: 22px;
 }
 
 .autographs {
   background: #e1d6ec;
-  border-radius: 16px;
-  padding: 24px;
+  border-radius: 14px;
+  padding: 19px;
   .autoTitle {
     font-weight: 600;
-    font-size: 24px;
+    font-size: 22px;
     color: #000000;
   }
   .autoDes {
     font-weight: 400;
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 14px;
+    line-height: 24px;
     color: #2c2b34;
   }
 }
 
 .modal-description {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
 }

@@ -1,7 +1,7 @@
 .newsItem {
   .newsImg {
     @media only screen and (max-width: 768px) {
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .bgImg {
       height: 214px;
@@ -26,21 +26,21 @@
     .titleText {
       overflow: hidden;
       max-height: 90px;
-      line-height: 30px;
+      line-height: 28px;
 
       font-weight: 700;
-      font-size: 24px;
+      font-size: 22px;
       color: #ffffff;
       text-align: left;
       @media only screen and (max-width: 768px) {
-        margin-bottom: 22px;
+        margin-bottom: 20px;
       }
     }
 
     .postedDateText {
       font-weight: 400;
-      font-size: 14px;
-      line-height: 26px;
+      font-size: 12px;
+      line-height: 24px;
       color: #ffffff;
       position: absolute;
       bottom: 0;
@@ -55,12 +55,12 @@
     .newsDes {
       position: relative;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 14px;
       color: #efeef0;
       text-align: left;
       .text {
         overflow: hidden;
-        line-height: 24px;
+        line-height: 22px;
         max-height: 92px;
       }
       .readMore {

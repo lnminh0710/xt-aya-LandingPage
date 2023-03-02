@@ -6,8 +6,8 @@ import styled from 'styled-components';
 
 const Label = styled.div`
   font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 10px;
+  line-height: 14px;
 
   color: #ffffff;
   margin-right: 1em;
@@ -28,8 +28,8 @@ const Language = () => {
   const { t } = useTranslation('common');
 
   return (
-    <div className='d-flex justify-content-end align-items-center'>
-      <Label>{t('Change language')}:</Label>
+    <div className='d-flex justify-content-center align-items-center'>
+      <Label>{t('Change language')}</Label>
       <Link href={{ pathname, query }} as={asPath} locale={'vi'}>
         <LinkLang selected={locale === 'vi'}>
           <VniFlag selected={locale === 'vi'} />

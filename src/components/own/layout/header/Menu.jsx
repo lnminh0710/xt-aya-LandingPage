@@ -8,20 +8,20 @@ import styled from 'styled-components';
 const Root = styled.div`
   display: grid;
   grid-template-columns: repeat(${({ total }) => total}, max-content);
-  grid-column-gap: 24px;
+  grid-gap: 19px;
   align-items: center;
   justify-content: center;
   height: 100%;
 
   @media only screen and (max-width: 900px) {
-    grid-gap: 12px;
+    grid-gap: 10px;
   }
 `;
 
 const Item = styled.a`
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 14px;
+  line-height: 24px;
   /* identical to box height, or 162% */
 
   /* Grey/01 */

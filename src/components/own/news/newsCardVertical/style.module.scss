@@ -20,7 +20,7 @@
 
     .otherTitle {
       overflow: hidden;
-      line-height: 24px;
+      line-height: 22px;
       max-height: 68px;
       @media only screen and (max-width: 554px) {
         max-height: 68px;
@@ -28,15 +28,15 @@
       // &:before {
       //   content: '...';
       //   position: absolute;
-      //   right: 24px;
+      //   right: 22px;
       //   bottom: 0;
       // }
 
-      padding: 16px;
+      padding: 14px;
       position: absolute;
       left: 0;
       bottom: 0;
-      font-size: 18px;
+      font-size: 16px;
       color: #ffffff;
       margin: 0;
       width: 100%;
@@ -55,14 +55,14 @@
     position: relative;
     .teaser {
       overflow: hidden;
-      line-height: 26px;
+      line-height: 24px;
       max-height: 78px;
 
       color: #858585;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 14px;
       text-align: justify;
-      padding: 0 16px;
+      padding: 0 14px;
       position: relative;
     }
     .readMore {

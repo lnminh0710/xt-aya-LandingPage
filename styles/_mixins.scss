@@ -1,4 +1,4 @@
-$default-size: 14px;
+$default-size: 12px;
 @mixin flex-container($align-items, $justify-content) {
   display: flex;
   align-items: $align-items;
@@ -7,7 +7,7 @@ $default-size: 14px;
 
 $breakpoints: (
   screen-xxl: 1728px,
-  screen-xl: 1296px,
+  screen-xl: 1037px,
   screen-l: 1024px,
   screen-m: 768px,
   screen-s: 640px,
@@ -73,8 +73,8 @@ $breakpoints: (
 
 @mixin border-button(
   $background: #674f82,
-  $width: 100px,
-  $height: 32px,
+  $width: 80px,
+  $height: 30px,
   $radius: 45px
 ) {
   display: flex;
