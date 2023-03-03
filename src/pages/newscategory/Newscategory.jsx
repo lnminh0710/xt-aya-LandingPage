@@ -129,7 +129,7 @@ const NewsCategory = () => {
       </h1>
       <NewsMain dataSource={topNews} t={t} />
       <div className={styles.hotnewsWrapper}>
-        {categoryData?.length &&
+        {!!categoryData?.length &&
           categoryData.map((item, index) => {
             return (
               <div key={`category-${index}`} className={styles.hotnewsItem}>

@@ -1,6 +1,6 @@
 @import 'styles/mixins';
 .root {
-  max-width: min(1037px, 100vw);
+  max-width: min(1037px, calc(100vw - 32px));
   margin: auto;
 }
 .title {

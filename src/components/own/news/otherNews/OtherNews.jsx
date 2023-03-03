@@ -4,7 +4,7 @@ import styles from './style.module.scss';
 const OtherNews = ({ otherNewsList, t }) => {
   return (
     <div className={`row ${styles.othersWrapper}`}>
-      {otherNewsList?.length &&
+      {!!otherNewsList?.length &&
         otherNewsList.map((item, index) => {
           return (
             <div

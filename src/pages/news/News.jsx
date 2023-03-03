@@ -210,7 +210,7 @@ const News = () => {
                   )}
                 </h2>
                 <div className={`row`}>
-                  {newsCatesItem?.data?.length &&
+                  {!!newsCatesItem?.data?.length &&
                     newsCatesItem?.data?.map((item, index) => {
                       return (
                         <div

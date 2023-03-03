@@ -8,7 +8,7 @@ const NewsMain = ({ dataSource, t }) => {
     <div className={topNewsStyle.topNewsContainer}>
       <div className={`row ${topNewsStyle.banner}`}>
         <div className={`col-12 col-md-8 ${topNewsStyle.mainWrapper}`}>
-          {dataSource?.length &&
+          {!!dataSource?.length &&
             dataSource[0]?.CategroySlugURL &&
             dataSource[0]?.SlugURL && (
               <Link

@@ -1,6 +1,6 @@
 @import 'styles/mixins';
 .root {
-  max-width: min(1037px, 100vw);
+  max-width: min(1037px, calc(100vw - 32px));
   display: flex;
 
   flex-wrap: wrap;
@@ -90,7 +90,7 @@
 
 .title,
 .description {
-  max-width: min(1037px, 100vw);
+  max-width: min(1037px, calc(100vw - 32px));
   margin: auto;
   color: #2c2b34;
   @media only screen and (max-width: 1037px) {
@@ -119,7 +119,6 @@
   @include setting-font(Mulish, normal, 400, 12px, 24px);
   @media only screen and (max-width: 635px) {
     width: 100%;
-    margin-left: calc(50vw - 153px);
   }
 }
 

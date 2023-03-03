@@ -16,7 +16,7 @@ const PackagePrice = ({ title, packageList }) => {
   }, [packageList]);
   return (
     <div className='package-wrapper'>
-      <h2 className={packageStyles.packageTitle}>{title}</h2>
+      <h2 className={packageStyles.packageTitle}>{t(title)}</h2>
       <div
         className={`${packageStyles.packageWrapper} ${packageStyles.hiddenPhone}`}
       >
@@ -104,7 +104,7 @@ const PackagePrice = ({ title, packageList }) => {
         className={`${packageStyles.packageWrapper} ${packageStyles.hiddenTablet}`}
       >
         <div className='row'>
-          {packageList?.length &&
+          {!!packageList?.length &&
             packageList.map((packageItem, indexPackgage) => {
               return (
                 <div
@@ -118,10 +118,10 @@ const PackagePrice = ({ title, packageList }) => {
                   >
                     <div className={packageStyles.header}>
                       <p className={packageStyles.packageName}>
-                        {packageItem.name}
+                        {t(packageItem.name)}
                       </p>
                       <p className={packageStyles.packagePrice}>
-                        {packageItem.price}
+                        {t(packageItem.price)}
                       </p>
                       <Link href={packageItem.urlJoin}>
                         <a
@@ -132,7 +132,7 @@ const PackagePrice = ({ title, packageList }) => {
                       </Link>
                     </div>
                     <hr className={packageStyles.hrClass} />
-                    {packageItem?.data?.length &&
+                    {!!packageItem?.data?.length &&
                       packageItem.data.map((detailItem, indexDetail) => {
                         return detailItem?.isCheck || detailItem?.content ? (
                           <div
@@ -143,20 +143,20 @@ const PackagePrice = ({ title, packageList }) => {
                               {detailItem.isCheck ? (
                                 <CheckIcon />
                               ) : detailItem?.content ? (
-                                detailItem.content
+                                t(detailItem.content)
                               ) : (
                                 <LineIcon />
                               )}
                             </div>
                             <div className={packageStyles.des}>
-                              {detailItem?.permissionName}
+                              {t(detailItem?.permissionName)}
                             </div>
-                            <div
+                            {/* <div
                               className={packageStyles.info}
                               title={detailItem.permissionDes}
                             >
                               <InfoIcon />
-                            </div>
+                            </div> */}
                           </div>
                         ) : (
                           ''

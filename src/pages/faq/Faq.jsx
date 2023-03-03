@@ -33,7 +33,7 @@ const Faq = () => {
       <h1 className='header-title'>{t('title')}</h1>
       <p className={styles.subTitle}>{t('subTitle')}</p>
       <div className={styles.contentWrapper}>
-        {data?.length &&
+        {!!data?.length &&
           data.map((item, index) => {
             return (
               <Accordion
