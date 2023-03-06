@@ -7,7 +7,7 @@
 }
 
 .container-root {
-  max-width: min(100vw, 1720px);
+  max-width: min(calc(100vw - 32px), 1720px);
   margin: auto;
 }
 a:hover {

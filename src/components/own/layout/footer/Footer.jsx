@@ -28,13 +28,16 @@ const Root = styled.div`
 const Content = styled.div`
   width: 100%;
   flex: 1;
-  max-width: min(100vw, 1720px);
+  max-width: min(calc(100vw - 32px), 1288px);
 
   display: grid;
   grid-template-columns: 64px 1fr max-content;
   grid-column-gap: 134px;
-  padding: 62px 216px;
+  padding: 62px 0;
   color: #fff;
+  @media only screen and (max-width: 1024px) {
+    grid-column-gap: 80px;
+  }
 
   @media only screen and (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -51,13 +54,12 @@ const Line = styled.div`
 const Actions = styled.div`
   width: 100%;
   height: 96px;
-  padding: 0 216px;
 
   display: grid;
   grid-template-columns: 128px 1fr 180px;
   grid-gap: 30px;
   align-items: center;
-  max-width: min(100vw, 1720px);
+  max-width: min(calc(100vw - 32px), 1288px);
 
   @media only screen and (max-width: 768px) {
     padding: 30px;
@@ -65,9 +67,6 @@ const Actions = styled.div`
     display: flex;
     flex-direction: column;
     grid-row-gap: 27px;
-    div:nth-of-type(2) {
-      min-width: 160px;
-    }
   }
 
   svg {
