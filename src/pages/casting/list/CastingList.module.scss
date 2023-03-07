@@ -46,7 +46,7 @@
   }
 
   &__title {
-    @include setting-font(Mulish, normal, 600, 12px, 22px);
+    @include setting-font(Mulish, normal, 600, 14px, 24px);
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
