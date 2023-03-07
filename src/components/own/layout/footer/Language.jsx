@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 const Label = styled.div`
   font-weight: 500;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 14px;
 
   color: #ffffff;

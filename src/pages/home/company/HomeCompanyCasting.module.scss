@@ -1,9 +1,9 @@
 @import 'styles/mixins';
 .root {
-  margin-bottom: 146px;
+  margin-bottom: 50px;
   min-height: 73.5px;
   @include responsive-size(screen-m) {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
   @include responsive-size(screen-xs) {
     min-height: 47px;

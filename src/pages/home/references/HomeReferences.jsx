@@ -210,8 +210,8 @@ const HomeReferences = () => {
                     <div className={styles.item}>
                       <Image
                         src={_p.Picture}
-                        width={300}
-                        height={450}
+                        width={240}
+                        height={360}
                         alt={_p.Picture}
                         layout='responsive'
                         objectFit='cover'

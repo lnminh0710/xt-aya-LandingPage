@@ -65,7 +65,7 @@
   }
 
   .comment {
-    @include setting-font(Mulish, normal, 400, 18px, 32px);
+    @include setting-font(Mulish, normal, 400, 14px, 24px);
     position: relative;
     .open-quote {
       position: absolute;

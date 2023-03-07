@@ -1,10 +1,4 @@
 @import 'styles/mixins';
-.root {
-  margin-bottom: 78px;
-  @include responsive-size(screen-m) {
-    margin-bottom: 65px;
-  }
-}
 
 .title {
   font-weight: 700;
@@ -17,22 +11,23 @@
   /* Grey/01 */
 
   color: #2c2b34;
-  margin-bottom: 13px;
+  margin-bottom: 25px;
 }
 
 .content {
   position: relative;
-  max-width: 1728px;
-  height: min(953px, calc(100vw * 953 / 1108));
+  max-width: 1425px;
+  height: min(762px, calc(100vw * 762 / 886));
   margin: auto;
   display: flex;
   .backdrop {
     position: absolute;
     z-index: 0;
     margin: auto;
-    width: min(1108px, 100%);
-    height: min(953px, calc(100vw * 953 / 1108));
-    left: calc(50% - (min(1108px, 100vw) / 2));
+    width: min(886px, 100%);
+    height: min(762px, calc(100vw * 762 / 886));
+    left: calc(50% - (min(886px, 100vw) / 2));
+    top: -12px;
   }
 
   .link-break {
