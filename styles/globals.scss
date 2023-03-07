@@ -45,7 +45,10 @@ a {
     background-color: hsl(200, 20%, 95%);
   }
 }
-
+.btn:focus-visible,
+.btn:first-child:active {
+  background-color: transparent;
+}
 .header-title {
   color: #2c2b34;
   text-align: center;
