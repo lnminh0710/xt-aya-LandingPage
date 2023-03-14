@@ -66,7 +66,7 @@ const AyaResult = () => {
                 {renderStar(item.Rating)} {item.Rating || 0}/5
               </div>
               <div className={styles.user__follower}>
-                {parseKNumber(item.Follower)} {t('Followers')}
+                {parseKNumber(item.CountOfFollower)} {t('Followers')}
               </div>
             </div>
           </Link>
