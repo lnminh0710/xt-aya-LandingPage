@@ -9,6 +9,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig = {
   reactStrictMode: false,
   optimizeFonts: false,
+  trailingSlash: true,
   experimental: {
     outputStandalone: true,
   },
