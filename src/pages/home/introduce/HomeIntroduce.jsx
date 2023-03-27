@@ -19,8 +19,8 @@ const HomeIntroduce = () => {
   const url = useMemo(
     () =>
       locale === 'vi'
-        ? 'videos/AyaIntroVideo.mp4'
-        : 'videos/AyaIntroVideo-EN.mp4',
+        ? '/videos/AyaIntroVideo.mp4'
+        : '/videos/AyaIntroVideo-EN.mp4',
     [locale]
   );
   return (

@@ -39,15 +39,7 @@ const ProfileMenu = ({ logout, userInfo }) => {
           }}
         >
           {userInfo?.displayName ??
-            `${userInfo?.firstName || ''} ${userInfo?.lastName || ''} ${
-              userInfo?.firstName || ''
-            } ${userInfo?.lastName || ''} ${userInfo?.firstName || ''} ${
-              userInfo?.lastName || ''
-            } ${userInfo?.firstName || ''} ${userInfo?.lastName || ''} ${
-              userInfo?.firstName || ''
-            } ${userInfo?.lastName || ''} ${userInfo?.firstName || ''} ${
-              userInfo?.lastName || ''
-            }`}
+            `${userInfo?.firstName || ''} ${userInfo?.lastName || ''}`}
         </span>
         <div
           style={{

@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import { useMatchQuery } from 'components/hook';
 import { useTranslation } from 'next-i18next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -11,7 +10,12 @@ import axios from 'axios';
 
 import styles from './Header.module.scss';
 import MenuMobile from './MenuMobile';
-import { APP_ID, Configuration, LOGIN_ENDPOINT } from 'constants/common';
+import {
+  APP_ID,
+  Configuration,
+  LOGIN_ENDPOINT,
+  Routes,
+} from 'constants/common';
 import { useRouter } from 'next/router';
 import {
   getLogged,
@@ -32,6 +36,7 @@ import {
   useActionGetUserInfo,
   useUserInfo,
 } from 'components/hook/useContextSelector';
+import ImageLazyLoad from 'components/own/ImageLazyLoad';
 
 const Root = styled.div`
   height: 80px;
@@ -235,15 +240,13 @@ const Header = () => {
   return (
     <Root logged={!!userInfo} fullWidth={open} id='header-sticky'>
       <div>
-        <Link href={'/'}>
+        <Link href={Routes.HOME}>
           <a>
-            <Image
+            <ImageLazyLoad
               src={'/images/logo.webp'}
               alt='logo'
               width={64}
-              height={64}
-              layout='responsive'
-              objectFit='cover'
+              height={69}
             />
           </a>
         </Link>

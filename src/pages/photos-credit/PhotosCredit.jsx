@@ -34,7 +34,7 @@ const PhotosCredit = () => {
   }, [locale]);
   return (
     <div className={styles.root}>
-      <div className={styles.title}>{t('Photos Credit')}</div>
+      <div className={styles.title}>{t('Photo Credits')}</div>
       <div
         className={styles.content}
         dangerouslySetInnerHTML={{ __html: info }}

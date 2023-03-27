@@ -35,6 +35,7 @@ const Content = styled.div`
   grid-column-gap: 134px;
   padding: 62px 0;
   color: #fff;
+  margin: auto;
   @media only screen and (max-width: 1024px) {
     grid-column-gap: 80px;
   }
@@ -170,7 +171,7 @@ const categories = [
     link: Routes.FAQ,
   },
   {
-    name: 'Photos Credit',
+    name: 'Photo Credits',
     link: Routes.PHOTOS_CREDIT,
   },
 ];
@@ -256,17 +257,21 @@ const Footer = () => {
 
   return (
     <Root>
-      <Content className='container-root'>
-        <Link href={Routes.HOME} passHref>
-          <a className='mx-auto' style={{ width: 64 }}>
-            <ImageLazyLoad
-              src={'/images/logo.webp'}
-              alt='logo'
-              width={64}
-              height={64}
-            />
-          </a>
-        </Link>
+      <Content>
+        <div>
+          <Link href={Routes.HOME}>
+            <a>
+              <ImageLazyLoad
+                src={'/images/logo.webp'}
+                alt='logo footer'
+                width={64}
+                height={69}
+                layout='responsive'
+                objectFit='cover'
+              />
+            </a>
+          </Link>
+        </div>
         <div className='d-flex flex-column'>
           <Title>{info.name}</Title>
           <Row>
