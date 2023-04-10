@@ -68,7 +68,7 @@ function handleAfterCallApi() {
           const node = document.createElement('iframe');
           node.src = `${LOGIN_ENDPOINT}/nopromt?${Configuration.QUERY_ACTION}=refresh-token&${Configuration.QUERY_DOMAIN_ORIGIN}=${window.location.origin}`;
           node.className = 'd-none';
-          document.getElementById('header-sticky').appendChild(node);
+          document.body.appendChild(node);
           originalRequest._retry = 1;
         } else originalRequest._retry = originalRequest._retry + 1;
         return setTimeout(() => {
