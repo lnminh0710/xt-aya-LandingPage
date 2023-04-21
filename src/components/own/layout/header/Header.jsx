@@ -218,13 +218,11 @@ const Header = () => {
       setUid(uid);
       setLogged();
       router.replace(router.pathname, undefined, {
-        shallow: true,
         locale: lang || router.locale,
       });
       getUserProfile(initInterval);
     } else if (lang) {
       router.replace(router.pathname, undefined, {
-        shallow: true,
         locale: lang || router.locale,
       });
     }
