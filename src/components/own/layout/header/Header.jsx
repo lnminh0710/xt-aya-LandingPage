@@ -119,7 +119,7 @@ const Header = () => {
 
   const router = useRouter();
 
-  const { at, uid } = router.query;
+  const { at, uid, lang } = router.query;
 
   const initInterval = useCallback(() => {
     if (interval) clearInterval(interval);
@@ -142,7 +142,6 @@ const Header = () => {
         const current_token = getToken();
         if (!current_token) {
           clearInterval(interval);
-          alert('Your recently signed out of Aya account. Click ok to update');
           window.location.reload();
         }
       }, 300);
@@ -184,7 +183,6 @@ const Header = () => {
           removeUid();
           removeToken();
           removeLogged();
-          alert('Your recently signed out of Aya account. Click ok to update');
           window.location.reload();
         } else if (e.data?.type === 'login') {
           setUid(e.data.data.uaid || '');
@@ -219,10 +217,18 @@ const Header = () => {
       setToken(at);
       setUid(uid);
       setLogged();
-      router.replace(router.pathname, undefined, { shallow: true });
+      router.replace(router.pathname, undefined, {
+        shallow: true,
+        locale: lang || router.locale,
+      });
       getUserProfile(initInterval);
+    } else if (lang) {
+      router.replace(router.pathname, undefined, {
+        shallow: true,
+        locale: lang || router.locale,
+      });
     }
-  }, [at, getUserProfile, initInterval, router, uid]);
+  }, [at, getUserProfile, initInterval, lang, router, uid]);
 
   const routerToLogin = useCallback(
     (path) => {
