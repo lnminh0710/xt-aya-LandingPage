@@ -48,6 +48,11 @@ const Content = styled.div`
   }
 `;
 
+const Logo = styled.div`
+  height: 69px;
+  width: 64px;
+`;
+
 const Line = styled.div`
   border-bottom: 1px solid #3e2a57;
 `;
@@ -258,7 +263,7 @@ const Footer = () => {
   return (
     <Root>
       <Content>
-        <div>
+        <Logo>
           <Link href={Routes.HOME}>
             <a>
               <ImageLazyLoad
@@ -271,7 +276,7 @@ const Footer = () => {
               />
             </a>
           </Link>
-        </div>
+        </Logo>
         <div className='d-flex flex-column'>
           <Title>{info.name}</Title>
           <Row>
