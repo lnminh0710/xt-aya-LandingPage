@@ -42,7 +42,7 @@ const Content = styled.div`
 
   @media only screen and (max-width: 768px) {
     grid-template-columns: 1fr;
-    grid-template-rows: 64px max-content max-content;
+    grid-template-rows: 69px max-content max-content;
     grid-row-gap: 46px;
     padding: 56px 30px;
   }
@@ -51,6 +51,7 @@ const Content = styled.div`
 const Logo = styled.div`
   height: 69px;
   width: 64px;
+  margin: auto;
 `;
 
 const Line = styled.div`
