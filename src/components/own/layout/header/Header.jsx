@@ -37,6 +37,7 @@ import {
   useUserInfo,
 } from 'components/hook/useContextSelector';
 import ImageLazyLoad from 'components/own/ImageLazyLoad';
+import { Button, Modal } from 'react-bootstrap';
 
 const Root = styled.div`
   height: 80px;
@@ -110,6 +111,7 @@ var interval;
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [urlCheckLogin, setUrlCheckLogin] = useState('');
+  const [showConfirm, setShowConfirm] = useState(false);
   const userInfo = useUserInfo();
   const getUserProfile = useActionGetUserInfo();
   const ref = useRef();
@@ -170,6 +172,10 @@ const Header = () => {
     removeToken();
     removeUid();
     window.location.reload();
+  }, []);
+
+  const onClickLogout = useCallback(() => {
+    setShowConfirm(true);
   }, []);
 
   useEffect(() => {
@@ -241,27 +247,32 @@ const Header = () => {
     [router.locale]
   );
 
+  const handleClose = useCallback(() => {
+    setShowConfirm(false);
+  }, []);
+
   return (
-    <Root logged={!!userInfo} fullWidth={open} id='header-sticky'>
-      <div>
-        <Link href={Routes.HOME}>
-          <a>
-            <ImageLazyLoad
-              src={'/images/logo.webp'}
-              alt='logo'
-              width={64}
-              height={69}
-            />
-          </a>
-        </Link>
-      </div>
-      {!match && <Menu />}
-      {match ? (
-        <>
-          <div className='d-flex align-items-center justify-content-end'>
-            <Language />
-            <div className='mx-2'></div>
-            {/* {open && !userInfo && (
+    <>
+      <Root logged={!!userInfo} fullWidth={open} id='header-sticky'>
+        <div>
+          <Link href={Routes.HOME}>
+            <a>
+              <ImageLazyLoad
+                src={'/images/logo.webp'}
+                alt='logo'
+                width={64}
+                height={69}
+              />
+            </a>
+          </Link>
+        </div>
+        {!match && <Menu />}
+        {match ? (
+          <>
+            <div className='d-flex align-items-center justify-content-end'>
+              <Language />
+              <div className='mx-2'></div>
+              {/* {open && !userInfo && (
               <>
                 <Item className='me-2' onClick={() => routerToLogin('')}>
                   {t('Login')}
@@ -272,53 +283,74 @@ const Header = () => {
                 </ButtonCreate>
               </>
             )} */}
-            {/* {!open && (
+              {/* {!open && (
               <>
                 <Language />
                 <div className='mx-2'></div>
               </>
             )} */}
-            <div
-              className={clsx(styles['nav-button'], { [styles.active]: open })}
-              onClick={() => setOpen(!open)}
-            >
-              <div className={styles['nav-button__top']}></div>
-              <div className={styles['nav-button__middle']}></div>
-              <div className={styles['nav-button__bottom']}></div>
+              <div
+                className={clsx(styles['nav-button'], {
+                  [styles.active]: open,
+                })}
+                onClick={() => setOpen(!open)}
+              >
+                <div className={styles['nav-button__top']}></div>
+                <div className={styles['nav-button__middle']}></div>
+                <div className={styles['nav-button__bottom']}></div>
+              </div>
             </div>
-          </div>
-          <MenuMobile
-            open={open}
-            setOpen={setOpen}
-            routerToLogin={routerToLogin}
-            userInfo={userInfo}
-            logout={logout}
-          />
-        </>
-      ) : !!userInfo ? (
-        <>
-          <ProfileMenu userInfo={userInfo} logout={logout} />
-          <Language />
-        </>
-      ) : (
-        <>
-          <Item onClick={() => routerToLogin('')}>{t('Login')}</Item>
+            <MenuMobile
+              open={open}
+              setOpen={setOpen}
+              routerToLogin={routerToLogin}
+              userInfo={userInfo}
+              logout={onClickLogout}
+            />
+          </>
+        ) : !!userInfo ? (
+          <>
+            <ProfileMenu userInfo={userInfo} logout={onClickLogout} />
+            <Language />
+          </>
+        ) : (
+          <>
+            <Item onClick={() => routerToLogin('')}>{t('Login')}</Item>
 
-          <ButtonCreate onClick={() => routerToLogin('/signup')}>
-            {t('Create Account')}
-          </ButtonCreate>
-          <Language />
-        </>
-      )}
-      {!!urlCheckLogin && (
-        <iframe
-          ref={ref}
-          src={urlCheckLogin}
-          frameBorder='0'
-          className='d-none'
-        ></iframe>
-      )}
-    </Root>
+            <ButtonCreate onClick={() => routerToLogin('/signup')}>
+              {t('Create Account')}
+            </ButtonCreate>
+            <Language />
+          </>
+        )}
+        {!!urlCheckLogin && (
+          <iframe
+            ref={ref}
+            src={urlCheckLogin}
+            frameBorder='0'
+            className='d-none'
+          ></iframe>
+        )}
+      </Root>
+      <Modal show={showConfirm} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>{t('Confirmation')}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className={styles.confirm_title}>
+            {t('Are you sure you want to logout?')}
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button className='btn-aya default' onClick={handleClose}>
+            {t('No')}
+          </Button>
+          <Button className='btn-aya purple ' onClick={logout}>
+            {t('Yes')}
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 };
 
